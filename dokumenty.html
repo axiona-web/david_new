@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Dokumenty | Areál David Košice</title>
+<style>/* ═══════════════════════════════════════════════════════════
+   AREÁL DAVID KOŠICE — Shared Design System
+   Fonts: Cormorant Garamond (display) + Syne (UI) + DM Mono
+   Palette: Deep anthracite / Warm gold / Off-white
+═══════════════════════════════════════════════════════════ */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Syne:wght@400;500;600;700;800&family=DM+Mono:wght@300;400;500&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:        #0e0f0d;
+  --bg2:       #141512;
+  --bg3:       #1a1c18;
+  --panel:     #1e2019;
+  --border:    rgba(201,178,110,0.14);
+  --border2:   rgba(201,178,110,0.07);
+  --gold:      #C9B26E;
+  --gold2:     #E8D4A0;
+  --gold-dim:  #8A7340;
+  --text:      #EDE8DC;
+  --muted:     #7A7868;
+  --muted2:    #4A4A3A;
+  --white:     #F5F0E8;
+  --red:       #C45C3A;
+  --green:     #5A8A5A;
+  --radius:    2px;
+}
+
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: 'Syne', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ── SCROLLBAR ─────────────────────────── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--gold-dim); border-radius: 2px; }
+
+/* ── TYPOGRAPHY ────────────────────────── */
+.f-display { font-family: 'Cormorant Garamond', serif; }
+.f-mono    { font-family: 'DM Mono', monospace; }
+.f-ui      { font-family: 'Syne', sans-serif; }
+
+/* ── NAV ───────────────────────────────── */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  height: 64px;
+  display: flex; align-items: center;
+  padding: 0 48px;
+  background: rgba(14,15,13,0.92);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border2);
+  transition: all .3s;
+}
+.nav.scrolled { border-bottom-color: var(--border); }
+.nav-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px; font-weight: 400; letter-spacing: 0.08em;
+  color: var(--white); text-decoration: none;
+  display: flex; flex-direction: column; line-height: 1;
+  margin-right: auto;
+}
+.nav-logo span { font-size: 8px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-top: 3px; font-family: 'DM Mono', monospace; }
+.nav-links { display: flex; align-items: center; gap: 0; }
+.nav-link {
+  font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--muted); text-decoration: none;
+  padding: 8px 16px; position: relative;
+  transition: color .2s;
+}
+.nav-link::after {
+  content: ''; position: absolute; bottom: 2px; left: 16px; right: 16px;
+  height: 1px; background: var(--gold);
+  transform: scaleX(0); transform-origin: left;
+  transition: transform .25s;
+}
+.nav-link:hover, .nav-link.active { color: var(--gold2); }
+.nav-link:hover::after, .nav-link.active::after { transform: scaleX(1); }
+.nav-cta {
+  margin-left: 24px;
+  font-size: 9px; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--bg); background: var(--gold);
+  padding: 8px 20px; text-decoration: none;
+  transition: all .2s; font-weight: 600;
+}
+.nav-cta:hover { background: var(--gold2); }
+
+/* ── SECTION UTILITIES ─────────────────── */
+section { position: relative; }
+.container { max-width: 1280px; margin: 0 auto; padding: 0 48px; }
+.section-pad { padding: 100px 0; }
+.section-pad-lg { padding: 140px 0; }
+
+.section-tag {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 16px; display: block;
+}
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(32px, 4vw, 52px);
+  font-weight: 300; color: var(--white);
+  line-height: 1.08; letter-spacing: 0.01em;
+}
+.section-title em { font-style: italic; color: var(--gold); }
+.section-sub {
+  font-size: 14px; color: var(--muted); line-height: 1.7;
+  max-width: 560px; margin-top: 16px;
+}
+.divider {
+  width: 1px; height: 60px; background: var(--gold-dim);
+  margin: 32px 0;
+}
+.divider-h {
+  height: 1px; background: var(--border);
+  margin: 60px 0;
+}
+
+/* ── CARDS ─────────────────────────────── */
+.card {
+  background: var(--panel);
+  border: 1px solid var(--border2);
+  padding: 28px 24px;
+  transition: border-color .25s, transform .25s;
+}
+.card:hover { border-color: rgba(201,178,110,0.3); transform: translateY(-2px); }
+.card-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 8px; letter-spacing: 2.5px; text-transform: uppercase;
+  color: var(--gold-dim); margin-bottom: 10px;
+}
+.card-value {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px; font-weight: 400; color: var(--white);
+  line-height: 1;
+}
+.card-desc { font-size: 12px; color: var(--muted); margin-top: 8px; line-height: 1.5; }
+
+/* ── BUTTONS ───────────────────────────── */
+.btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase;
+  font-family: 'Syne', sans-serif; font-weight: 600;
+  padding: 14px 28px; text-decoration: none; cursor: pointer;
+  border: none; transition: all .22s;
+}
+.btn-gold { background: var(--gold); color: var(--bg); }
+.btn-gold:hover { background: var(--gold2); }
+.btn-outline { background: transparent; color: var(--gold); border: 1px solid var(--gold); }
+.btn-outline:hover { background: rgba(201,178,110,0.1); }
+.btn-ghost { background: transparent; color: var(--muted); border: 1px solid var(--border); }
+.btn-ghost:hover { border-color: var(--gold); color: var(--gold2); }
+.btn-arrow::after { content: '→'; font-size: 14px; transition: transform .2s; }
+.btn:hover .btn-arrow::after, .btn-arrow:hover::after { transform: translateX(4px); }
+
+/* ── GRID ──────────────────────────────── */
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border2); }
+.grid-3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--border2); }
+.grid-4 { display: grid; grid-template-columns: repeat(4,1fr); gap: 1px; background: var(--border2); }
+.grid-2 > *, .grid-3 > *, .grid-4 > * { background: var(--bg); }
+
+/* ── BIG NUMBER ────────────────────────── */
+.big-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(48px, 6vw, 80px);
+  font-weight: 300; color: var(--gold);
+  line-height: 1; letter-spacing: -0.02em;
+}
+.big-num-label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-top: 8px; font-family: 'DM Mono', monospace; }
+
+/* ── SCROLL REVEAL ─────────────────────── */
+.reveal { opacity: 0; transform: translateY(28px); transition: opacity .7s ease, transform .7s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-delay-1 { transition-delay: .1s; }
+.reveal-delay-2 { transition-delay: .2s; }
+.reveal-delay-3 { transition-delay: .3s; }
+.reveal-delay-4 { transition-delay: .4s; }
+
+/* ── FOOTER ────────────────────────────── */
+footer {
+  background: var(--bg2); border-top: 1px solid var(--border2);
+  padding: 60px 0 32px;
+}
+.footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 22px; color: var(--white); }
+.footer-sub { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold-dim); font-family: 'DM Mono', monospace; margin-top: 4px; }
+.footer-links { display: flex; gap: 24px; flex-wrap: wrap; margin-top: 32px; }
+.footer-link { font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color .2s; }
+.footer-link:hover { color: var(--gold); }
+.footer-copy { font-size: 10px; color: var(--muted2); font-family: 'DM Mono', monospace; margin-top: 48px; }
+
+/* ── RESPONSIVE ────────────────────────── */
+@media (max-width: 900px) {
+  .nav { padding: 0 20px; }
+  .nav-links { display: none; }
+  .container { padding: 0 24px; }
+  .section-pad { padding: 64px 0; }
+  .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body data-page="dokumenty">
+<nav class="nav" id="nav">
+  <a href="index.html" class="nav-logo">Areál David<span>Košice — Rozvojové územie</span></a>
+  <div class="nav-links">
+    <a href="index.html" class="nav-link" data-page="index">Domov</a>
+    <a href="uzemie.html" class="nav-link" data-page="uzemie">Územie</a>
+    <a href="investicia.html" class="nav-link" data-page="investicia">Investícia</a>
+    <a href="varianty.html" class="nav-link" data-page="varianty">Varianty</a>
+    <a href="dokumenty.html" class="nav-link" data-page="dokumenty">Dokumenty</a>
+    <a href="kontakt.html" class="nav-link" data-page="kontakt">Kontakt</a>
+  </div>
+  <a href="kontakt.html" class="nav-cta">Mám záujem</a>
+</nav>
+
+
+<section style="padding:160px 0 80px;background:linear-gradient(160deg,#0a0b09,#111310);border-bottom:1px solid var(--border2);position:relative;overflow:hidden">
+  <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(201,178,110,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(201,178,110,0.03) 1px,transparent 1px);background-size:80px 80px;opacity:0.5"></div>
+  <div class="container" style="position:relative;z-index:1">
+    <span class="section-tag">Dokumentácia</span>
+    <h1 class="section-title" style="font-size:clamp(36px,5vw,64px)">Dokumenty &amp; <em>Data room</em></h1>
+    <p class="section-sub">Kompletná investičná dokumentácia dostupná po podpise NDA. Pripravujeme dátovú miestnosť pre kvalifikovaných investorov.</p>
+  </div>
+</section>
+
+<section class="section-pad" style="background:var(--bg)">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-bottom:60px">
+      <div class="reveal">
+        <span class="section-tag">Verejne dostupné</span>
+        <h2 class="section-title" style="font-size:clamp(24px,3vw,38px)">Voľne <em>dostupné</em></h2>
+        <div class="divider"></div>
+        <div style="display:flex;flex-direction:column;gap:0">
+          <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 0;border-bottom:1px solid var(--border2)">
+            <div style="display:flex;align-items:center;gap:14px"><span style="font-size:20px">📄</span><div><div style="font-size:13px;color:var(--white)">Investor Teaser</div><div style="font-size:11px;color:var(--muted)">Základný prehľad projektu</div></div></div>
+            <span style="font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--green);border:1px solid rgba(90,138,90,0.3);padding:3px 8px;font-family:'DM Mono',monospace">Dostupné</span>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 0;border-bottom:1px solid var(--border2)">
+            <div style="display:flex;align-items:center;gap:14px"><span style="font-size:20px">🗺️</span><div><div style="font-size:13px;color:var(--white)">Mapa územia</div><div style="font-size:11px;color:var(--muted)">Polohopisná situácia</div></div></div>
+            <span style="font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--green);border:1px solid rgba(90,138,90,0.3);padding:3px 8px;font-family:'DM Mono',monospace">Dostupné</span>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 0;border-bottom:1px solid var(--border2)">
+            <div style="display:flex;align-items:center;gap:14px"><span style="font-size:20px">📋</span><div><div style="font-size:13px;color:var(--white)">Regulačné podmienky</div><div style="font-size:11px;color:var(--muted)">Výpis z územného plánu</div></div></div>
+            <span style="font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--green);border:1px solid rgba(90,138,90,0.3);padding:3px 8px;font-family:'DM Mono',monospace">Dostupné</span>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 0">
+            <div style="display:flex;align-items:center;gap:14px"><span style="font-size:20px">🏗️</span><div><div style="font-size:13px;color:var(--white)">Varianty rozvoja</div><div style="font-size:11px;color:var(--muted)">Prehľad investičných scenárov</div></div></div>
+            <span style="font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--green);border:1px solid rgba(90,138,90,0.3);padding:3px 8px;font-family:'DM Mono',monospace">Dostupné</span>
+          </div>
+        </div>
+      </div>
+      <div class="reveal reveal-delay-2">
+        <span class="section-tag">Po podpise NDA</span>
+        <h2 class="section-title" style="font-size:clamp(24px,3vw,38px)">Data <em>room</em></h2>
+        <div class="divider"></div>
+        <div style="display:flex;flex-direction:column;gap:0">
+          <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 0;border-bottom:1px solid var(--border2)">
+            <div style="display:flex;align-items:center;gap:14px"><span style="font-size:20px">📑</span><div><div style="font-size:13px;color:var(--text)">LV — List vlastníctva</div><div style="font-size:11px;color:var(--muted)">Aktuálny výpis z katastra</div></div></div>
+            <span style="font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold-dim);border:1px solid var(--border2);padding:3px 8px;font-family:'DM Mono',monospace">Po NDA</span>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 0;border-bottom:1px solid var(--border2)">
+            <div style="display:flex;align-items:center;gap:14px"><span style="font-size:20px">📐</span><div><div style="font-size:13px;color:var(--text)">UPI — Urbanistická štúdia</div><div style="font-size:11px;color:var(--muted)">Podklady pre rozvoj</div></div></div>
+            <span style="font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold-dim);border:1px solid var(--border2);padding:3px 8px;font-family:'DM Mono',monospace">Po NDA</span>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 0;border-bottom:1px solid var(--border2)">
+            <div style="display:flex;align-items:center;gap:14px"><span style="font-size:20px">💰</span><div><div style="font-size:13px;color:var(--text)">Ekonomické modely</div><div style="font-size:11px;color:var(--muted)">Cashflow, CAPEX, GDV projekcie</div></div></div>
+            <span style="font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold-dim);border:1px solid var(--border2);padding:3px 8px;font-family:'DM Mono',monospace">Po NDA</span>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 0;border-bottom:1px solid var(--border2)">
+            <div style="display:flex;align-items:center;gap:14px"><span style="font-size:20px">🖼️</span><div><div style="font-size:13px;color:var(--text)">Architektonické vizualizácie</div><div style="font-size:11px;color:var(--muted)">Koncepty a masterplan</div></div></div>
+            <span style="font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold-dim);border:1px solid var(--border2);padding:3px 8px;font-family:'DM Mono',monospace">Po NDA</span>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 0">
+            <div style="display:flex;align-items:center;gap:14px"><span style="font-size:20px">⚖️</span><div><div style="font-size:13px;color:var(--text)">Právna dokumentácia</div><div style="font-size:11px;color:var(--muted)">Vlastníctvo, záväzky, vecné bremená</div></div></div>
+            <span style="font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold-dim);border:1px solid var(--border2);padding:3px 8px;font-family:'DM Mono',monospace">Po NDA</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DATA ROOM CTA -->
+    <div class="reveal" style="background:var(--bg2);border:1px solid var(--border2);border-left:3px solid var(--gold);padding:40px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:24px">
+      <div>
+        <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:10px">Prístup do Data Room</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:28px;color:var(--white);margin-bottom:8px">Pripravujeme <em>dátovú miestnosť</em></div>
+        <div style="font-size:13px;color:var(--muted);max-width:480px;line-height:1.65">Kompletná investičná dokumentácia pre kvalifikovaných investorov bude dostupná po podpise dohody o mlčanlivosti (NDA). Kontaktujte nás pre ďalší postup.</div>
+      </div>
+      <a href="kontakt.html" class="btn btn-gold" style="flex-shrink:0">Požiadať o prístup <span style="font-size:14px">→</span></a>
+    </div>
+  </div>
+</section>
+<footer>
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:48px;padding-bottom:48px;border-bottom:1px solid var(--border2)">
+      <div>
+        <div class="footer-logo">Areál David</div>
+        <div class="footer-sub">Košice — Strategické rozvojové územie</div>
+        <div style="margin-top:20px;font-size:12px;color:var(--muted);line-height:1.7">Transformácia priemyselného areálu na nový mestský mixed-use distrikt v Košiciach.</div>
+      </div>
+      <div>
+        <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gold-dim);margin-bottom:16px;font-family:'DM Mono',monospace">Navigácia</div>
+        <div class="footer-links" style="flex-direction:column;gap:10px">
+          <a href="index.html" class="footer-link">Domov</a>
+          <a href="uzemie.html" class="footer-link">Územie a regulácia</a>
+          <a href="investicia.html" class="footer-link">Investičná príležitosť</a>
+          <a href="varianty.html" class="footer-link">Varianty rozvoja</a>
+          <a href="dokumenty.html" class="footer-link">Dokumenty</a>
+          <a href="kontakt.html" class="footer-link">Kontakt</a>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gold-dim);margin-bottom:16px;font-family:'DM Mono',monospace">Kontakt</div>
+        <div style="font-size:12px;color:var(--muted);line-height:1.9">
+          Košice, Slovenská republika<br>
+          <a href="kontakt.html" style="color:var(--gold);text-decoration:none;margin-top:12px;display:inline-block">Kontaktný formulár →</a>
+        </div>
+      </div>
+    </div>
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-top:24px;flex-wrap:wrap;gap:12px">
+      <div class="footer-copy">© 2026 Areál David Košice. Všetky práva vyhradené.</div>
+      <div style="font-size:9px;color:var(--muted2);font-family:'DM Mono',monospace;letter-spacing:1px">Dôverný investičný materiál</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Nav scroll
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 40);
+});
+
+// Set active nav
+const page = document.body.dataset.page;
+document.querySelectorAll('.nav-link[data-page]').forEach(a => {
+  if(a.dataset.page === page) a.classList.add('active');
+});
+
+// Scroll reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Counter animation
+function animateCounter(el) {
+  const target = parseFloat(el.dataset.target);
+  const suffix = el.dataset.suffix || '';
+  const prefix = el.dataset.prefix || '';
+  const decimals = el.dataset.decimals ? parseInt(el.dataset.decimals) : 0;
+  const duration = 1800;
+  const start = performance.now();
+  const update = (now) => {
+    const p = Math.min((now - start) / duration, 1);
+    const ease = 1 - Math.pow(1 - p, 3);
+    const val = target * ease;
+    el.textContent = prefix + (decimals ? val.toFixed(decimals) : Math.round(val).toLocaleString('sk')) + suffix;
+    if(p < 1) requestAnimationFrame(update);
+  };
+  requestAnimationFrame(update);
+}
+const counterObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if(e.isIntersecting) { animateCounter(e.target); counterObs.unobserve(e.target); }});
+}, { threshold: 0.5 });
+document.querySelectorAll('[data-target]').forEach(el => counterObs.observe(el));
+</script>
+
+</body>
+</html>
