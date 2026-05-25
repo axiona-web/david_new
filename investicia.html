@@ -4,231 +4,225 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Investičná príležitosť | Areál David Košice</title>
-<style>/* ═══════════════════════════════════════════════════════════
-   AREÁL DAVID KOŠICE — Shared Design System
-   Fonts: Cormorant Garamond (display) + Syne (UI) + DM Mono
-   Palette: Deep anthracite / Warm gold / Off-white
-═══════════════════════════════════════════════════════════ */
-
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Syne:wght@400;500;600;700;800&family=DM+Mono:wght@300;400;500&display=swap');
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=DM+Mono:wght@300;400;500&display=swap');
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --bg:        #0e0f0d;
-  --bg2:       #141512;
-  --bg3:       #1a1c18;
-  --panel:     #1e2019;
-  --border:    rgba(201,178,110,0.14);
-  --border2:   rgba(201,178,110,0.07);
-  --gold:      #C9B26E;
-  --gold2:     #E8D4A0;
-  --gold-dim:  #8A7340;
-  --text:      #EDE8DC;
-  --muted:     #7A7868;
-  --muted2:    #4A4A3A;
-  --white:     #F5F0E8;
-  --red:       #C45C3A;
-  --green:     #5A8A5A;
-  --radius:    2px;
+  --bg:       #111315;
+  --bg2:      #1B1F24;
+  --bg3:      #1A1D21;
+  --bg4:      #21262D;
+  --border:   #2B3138;
+  --border-l: rgba(43,49,56,0.6);
+  --gold:     #B8955A;
+  --gold-h:   #D3B279;
+  --gold-dim: #7A6238;
+  --green:    #4C7754;
+  --text:     #FFFFFF;
+  --text2:    #A7AFB8;
+  --text3:    #6B7580;
+  --light-bg: #F4F5F6;
+  --radius:   20px;
+  --radius-sm:12px;
 }
 
-html { scroll-behavior: smooth; font-size: 16px; }
-body {
-  font-family: 'Syne', sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  line-height: 1.6;
-  overflow-x: hidden;
-}
+html { scroll-behavior: smooth; }
+body { font-family: 'Manrope', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden; }
 
-/* ── SCROLLBAR ─────────────────────────── */
 ::-webkit-scrollbar { width: 4px; }
 ::-webkit-scrollbar-track { background: var(--bg); }
 ::-webkit-scrollbar-thumb { background: var(--gold-dim); border-radius: 2px; }
 
-/* ── TYPOGRAPHY ────────────────────────── */
-.f-display { font-family: 'Cormorant Garamond', serif; }
-.f-mono    { font-family: 'DM Mono', monospace; }
-.f-ui      { font-family: 'Syne', sans-serif; }
-
-/* ── NAV ───────────────────────────────── */
+/* ── NAVIGATION ─────────────────────────────────────────── */
 .nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-  height: 64px;
-  display: flex; align-items: center;
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  height: 68px; display: flex; align-items: center;
   padding: 0 48px;
-  background: rgba(14,15,13,0.92);
-  backdrop-filter: blur(16px);
-  border-bottom: 1px solid var(--border2);
+  background: rgba(17,19,21,0.92);
+  backdrop-filter: blur(20px) saturate(1.2);
+  border-bottom: 1px solid rgba(43,49,56,0.8);
   transition: all .3s;
 }
-.nav.scrolled { border-bottom-color: var(--border); }
 .nav-logo {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 18px; font-weight: 400; letter-spacing: 0.08em;
-  color: var(--white); text-decoration: none;
-  display: flex; flex-direction: column; line-height: 1;
-  margin-right: auto;
+  text-decoration: none; margin-right: auto; display: flex; flex-direction: column;
 }
-.nav-logo span { font-size: 8px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-top: 3px; font-family: 'DM Mono', monospace; }
-.nav-links { display: flex; align-items: center; gap: 0; }
+.nav-logo-main {
+  font-size: 16px; font-weight: 700; letter-spacing: 0.06em;
+  text-transform: uppercase; color: var(--text); line-height: 1;
+}
+.nav-logo-sub {
+  font-family: 'DM Mono', monospace; font-size: 8px; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--gold); margin-top: 3px; opacity: 0.8;
+}
+.nav-links { display: flex; align-items: center; gap: 4px; }
 .nav-link {
-  font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
-  color: var(--muted); text-decoration: none;
-  padding: 8px 16px; position: relative;
-  transition: color .2s;
+  font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--text2); text-decoration: none; padding: 8px 14px; border-radius: 6px;
+  transition: all .2s; position: relative;
 }
-.nav-link::after {
-  content: ''; position: absolute; bottom: 2px; left: 16px; right: 16px;
-  height: 1px; background: var(--gold);
-  transform: scaleX(0); transform-origin: left;
-  transition: transform .25s;
-}
-.nav-link:hover, .nav-link.active { color: var(--gold2); }
-.nav-link:hover::after, .nav-link.active::after { transform: scaleX(1); }
+.nav-link:hover { color: var(--text); background: rgba(255,255,255,0.04); }
+.nav-link.active { color: var(--gold); }
 .nav-cta {
-  margin-left: 24px;
-  font-size: 9px; letter-spacing: 2px; text-transform: uppercase;
-  color: var(--bg); background: var(--gold);
-  padding: 8px 20px; text-decoration: none;
-  transition: all .2s; font-weight: 600;
+  margin-left: 16px; font-size: 11px; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--bg); background: var(--gold);
+  padding: 10px 22px; text-decoration: none; border-radius: 8px;
+  transition: all .2s; border: 1px solid transparent;
 }
-.nav-cta:hover { background: var(--gold2); }
+.nav-cta:hover { background: var(--gold-h); transform: translateY(-1px); box-shadow: 0 8px 24px rgba(184,149,90,0.25); }
 
-/* ── SECTION UTILITIES ─────────────────── */
-section { position: relative; }
-.container { max-width: 1280px; margin: 0 auto; padding: 0 48px; }
-.section-pad { padding: 100px 0; }
-.section-pad-lg { padding: 140px 0; }
+/* ── LAYOUT ─────────────────────────────────────────────── */
+.container { max-width: 1240px; margin: 0 auto; padding: 0 48px; }
+.section { padding: 100px 0; }
+.section-sm { padding: 64px 0; }
+.section-lg { padding: 140px 0; }
 
-.section-tag {
-  font-family: 'DM Mono', monospace;
+/* ── TAGS & LABELS ──────────────────────────────────────── */
+.tag {
+  display: inline-block; font-family: 'DM Mono', monospace;
   font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
-  color: var(--gold); margin-bottom: 16px; display: block;
+  color: var(--gold); background: rgba(184,149,90,0.1);
+  border: 1px solid rgba(184,149,90,0.2); padding: 4px 12px; border-radius: 4px;
+  margin-bottom: 20px;
 }
-.section-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(32px, 4vw, 52px);
-  font-weight: 300; color: var(--white);
-  line-height: 1.08; letter-spacing: 0.01em;
-}
-.section-title em { font-style: italic; color: var(--gold); }
-.section-sub {
-  font-size: 14px; color: var(--muted); line-height: 1.7;
-  max-width: 560px; margin-top: 16px;
-}
-.divider {
-  width: 1px; height: 60px; background: var(--gold-dim);
-  margin: 32px 0;
-}
-.divider-h {
-  height: 1px; background: var(--border);
-  margin: 60px 0;
+.overline {
+  font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--text2); display: block; margin-bottom: 16px;
 }
 
-/* ── CARDS ─────────────────────────────── */
+/* ── HEADINGS ───────────────────────────────────────────── */
+.h1 { font-size: clamp(44px, 5.5vw, 80px); font-weight: 800; line-height: 1.02; letter-spacing: -0.02em; }
+.h2 { font-size: clamp(32px, 3.5vw, 52px); font-weight: 700; line-height: 1.1; letter-spacing: -0.01em; }
+.h3 { font-size: clamp(22px, 2.5vw, 32px); font-weight: 700; line-height: 1.2; }
+.h4 { font-size: 18px; font-weight: 700; line-height: 1.3; }
+.body-lg { font-size: 18px; line-height: 1.7; color: var(--text2); }
+.body { font-size: 15px; line-height: 1.65; color: var(--text2); }
+.gold { color: var(--gold) !important; }
+.white { color: var(--text) !important; }
+
+/* ── CARDS ──────────────────────────────────────────────── */
 .card {
-  background: var(--panel);
-  border: 1px solid var(--border2);
-  padding: 28px 24px;
-  transition: border-color .25s, transform .25s;
+  background: var(--bg2); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 36px;
+  transition: transform .25s, box-shadow .25s, border-color .25s;
 }
-.card:hover { border-color: rgba(201,178,110,0.3); transform: translateY(-2px); }
-.card-label {
-  font-family: 'DM Mono', monospace;
-  font-size: 8px; letter-spacing: 2.5px; text-transform: uppercase;
-  color: var(--gold-dim); margin-bottom: 10px;
+.card:hover {
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3), 0 0 0 1px rgba(184,149,90,0.2);
+  border-color: rgba(184,149,90,0.3);
 }
-.card-value {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 32px; font-weight: 400; color: var(--white);
-  line-height: 1;
-}
-.card-desc { font-size: 12px; color: var(--muted); margin-top: 8px; line-height: 1.5; }
+.card-sm { padding: 24px; border-radius: var(--radius-sm); }
 
-/* ── BUTTONS ───────────────────────────── */
+/* ── KPI CARDS ──────────────────────────────────────────── */
+.kpi-num {
+  font-size: clamp(42px, 5vw, 64px); font-weight: 800;
+  color: var(--gold); line-height: 1; letter-spacing: -0.02em;
+}
+.kpi-label {
+  font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 2.5px;
+  text-transform: uppercase; color: var(--text2); margin-top: 8px;
+}
+.kpi-desc { font-size: 12px; color: var(--text3); margin-top: 4px; }
+
+/* ── BUTTONS ────────────────────────────────────────────── */
 .btn {
-  display: inline-flex; align-items: center; gap: 10px;
-  font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase;
-  font-family: 'Syne', sans-serif; font-weight: 600;
-  padding: 14px 28px; text-decoration: none; cursor: pointer;
-  border: none; transition: all .22s;
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: 'Manrope', sans-serif; font-size: 12px; font-weight: 700;
+  letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none;
+  padding: 14px 28px; border-radius: 10px; border: none; cursor: pointer;
+  transition: all .2s; white-space: nowrap;
 }
-.btn-gold { background: var(--gold); color: var(--bg); }
-.btn-gold:hover { background: var(--gold2); }
-.btn-outline { background: transparent; color: var(--gold); border: 1px solid var(--gold); }
-.btn-outline:hover { background: rgba(201,178,110,0.1); }
-.btn-ghost { background: transparent; color: var(--muted); border: 1px solid var(--border); }
-.btn-ghost:hover { border-color: var(--gold); color: var(--gold2); }
-.btn-arrow::after { content: '→'; font-size: 14px; transition: transform .2s; }
-.btn:hover .btn-arrow::after, .btn-arrow:hover::after { transform: translateX(4px); }
+.btn-primary { background: var(--gold); color: #0A0B0D; }
+.btn-primary:hover { background: var(--gold-h); transform: translateY(-2px); box-shadow: 0 12px 32px rgba(184,149,90,0.3); }
+.btn-secondary { background: rgba(255,255,255,0.06); color: var(--text); border: 1px solid var(--border); }
+.btn-secondary:hover { background: rgba(255,255,255,0.1); border-color: rgba(184,149,90,0.4); color: var(--gold); }
+.btn-outline { background: transparent; color: var(--gold); border: 1.5px solid var(--gold); }
+.btn-outline:hover { background: rgba(184,149,90,0.1); }
+.btn-ghost { background: transparent; color: var(--text2); border: 1px solid var(--border); }
+.btn-ghost:hover { color: var(--text); border-color: var(--text2); }
 
-/* ── GRID ──────────────────────────────── */
-.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border2); }
-.grid-3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--border2); }
-.grid-4 { display: grid; grid-template-columns: repeat(4,1fr); gap: 1px; background: var(--border2); }
-.grid-2 > *, .grid-3 > *, .grid-4 > * { background: var(--bg); }
-
-/* ── BIG NUMBER ────────────────────────── */
-.big-num {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(48px, 6vw, 80px);
-  font-weight: 300; color: var(--gold);
-  line-height: 1; letter-spacing: -0.02em;
+/* ── FEATURE LIST ───────────────────────────────────────── */
+.feat-item {
+  display: flex; gap: 16px; padding: 18px 0;
+  border-bottom: 1px solid var(--border); align-items: flex-start;
 }
-.big-num-label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-top: 8px; font-family: 'DM Mono', monospace; }
+.feat-item:last-child { border-bottom: none; }
+.feat-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); margin-top: 7px; flex-shrink: 0; }
+.feat-content h4 { font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+.feat-content p { font-size: 13px; color: var(--text2); line-height: 1.55; }
 
-/* ── SCROLL REVEAL ─────────────────────── */
-.reveal { opacity: 0; transform: translateY(28px); transition: opacity .7s ease, transform .7s ease; }
+/* ── GLASS CARD ─────────────────────────────────────────── */
+.glass {
+  background: rgba(27,31,36,0.7); border: 1px solid rgba(43,49,56,0.8);
+  backdrop-filter: blur(16px); border-radius: var(--radius);
+}
+
+/* ── DIVIDER LINE ───────────────────────────────────────── */
+.hr { height: 1px; background: var(--border); margin: 0; }
+.hr-gold { height: 1px; background: linear-gradient(90deg, var(--gold), transparent); width: 80px; margin: 24px 0; }
+
+/* ── GRID HELPERS ───────────────────────────────────────── */
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.grid-3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+.grid-4 { display: grid; grid-template-columns: repeat(4,1fr); gap: 20px; }
+
+/* ── SCROLL REVEAL ──────────────────────────────────────── */
+.reveal { opacity: 0; transform: translateY(32px); transition: opacity .65s ease, transform .65s ease; }
 .reveal.visible { opacity: 1; transform: translateY(0); }
 .reveal-delay-1 { transition-delay: .1s; }
 .reveal-delay-2 { transition-delay: .2s; }
 .reveal-delay-3 { transition-delay: .3s; }
 .reveal-delay-4 { transition-delay: .4s; }
+.reveal-left { opacity: 0; transform: translateX(-24px); transition: opacity .65s ease, transform .65s ease; }
+.reveal-left.visible { opacity: 1; transform: translateX(0); }
 
-/* ── FOOTER ────────────────────────────── */
-footer {
-  background: var(--bg2); border-top: 1px solid var(--border2);
-  padding: 60px 0 32px;
-}
-.footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 22px; color: var(--white); }
-.footer-sub { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold-dim); font-family: 'DM Mono', monospace; margin-top: 4px; }
-.footer-links { display: flex; gap: 24px; flex-wrap: wrap; margin-top: 32px; }
-.footer-link { font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color .2s; }
+/* ── SECTION DIVIDER ────────────────────────────────────── */
+.section-header { margin-bottom: 60px; }
+.section-header-split { display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 24px; margin-bottom: 60px; }
+
+/* ── FOOTER ─────────────────────────────────────────────── */
+footer { background: var(--bg2); border-top: 1px solid var(--border); padding: 72px 0 36px; }
+.footer-brand { font-size: 20px; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase; }
+.footer-sub { font-family: 'DM Mono', monospace; font-size: 8px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-top: 6px; }
+.footer-link { font-size: 13px; color: var(--text2); text-decoration: none; transition: color .2s; display: block; margin-bottom: 10px; }
 .footer-link:hover { color: var(--gold); }
-.footer-copy { font-size: 10px; color: var(--muted2); font-family: 'DM Mono', monospace; margin-top: 48px; }
+.footer-col-label { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--text3); margin-bottom: 20px; }
 
-/* ── RESPONSIVE ────────────────────────── */
-@media (max-width: 900px) {
+/* ── BADGE ──────────────────────────────────────────────── */
+.badge {
+  display: inline-block; font-family: 'DM Mono', monospace;
+  font-size: 8px; letter-spacing: 2px; text-transform: uppercase;
+  padding: 3px 10px; border-radius: 4px;
+}
+.badge-gold { background: rgba(184,149,90,0.15); color: var(--gold); border: 1px solid rgba(184,149,90,0.25); }
+.badge-green { background: rgba(76,119,84,0.15); color: var(--green); border: 1px solid rgba(76,119,84,0.3); }
+.badge-gray { background: rgba(43,49,56,0.8); color: var(--text2); border: 1px solid var(--border); }
+
+/* ── RESPONSIVE ─────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .container { padding: 0 28px; }
+  .grid-4 { grid-template-columns: repeat(2,1fr); }
+}
+@media (max-width: 768px) {
   .nav { padding: 0 20px; }
   .nav-links { display: none; }
-  .container { padding: 0 24px; }
-  .section-pad { padding: 64px 0; }
+  .container { padding: 0 20px; }
+  .section { padding: 64px 0; }
+  .section-lg { padding: 80px 0; }
   .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+  .h1 { font-size: 38px; }
+  .h2 { font-size: 28px; }
+  .section-header-split { flex-direction: column; }
 }
-
-.strength-item { display:flex; gap:20px; padding:24px 0; border-bottom:1px solid var(--border2); align-items:flex-start; }
-.strength-item:last-child { border-bottom:none; }
-.strength-icon { width:40px; height:40px; background:rgba(201,178,110,0.1); border:1px solid var(--border); display:flex; align-items:center; justify-content:center; flex-shrink:0; font-size:18px; }
-.scenario-card { background:var(--panel); border:1px solid var(--border2); padding:32px; position:relative; overflow:hidden; transition:all .3s; }
-.scenario-card:hover { border-color:var(--gold); }
-.scenario-card::before { content:''; position:absolute; top:0; left:0; right:0; height:2px; }
-.scenario-card.konz::before { background:var(--muted2); }
-.scenario-card.base::before { background:var(--gold); }
-.scenario-card.rozsireny::before { background:var(--green); }
-.scenario-label { font-family:'DM Mono',monospace; font-size:8px; letter-spacing:3px; text-transform:uppercase; margin-bottom:16px; }
-.scenario-card.konz .scenario-label { color:var(--muted); }
-.scenario-card.base .scenario-label { color:var(--gold); }
-.scenario-card.rozsireny .scenario-label { color:var(--green); }
-.eco-bar { height:6px; background:var(--bg3); border-radius:3px; overflow:hidden; margin-top:8px; }
-.eco-bar-fill { height:100%; background:linear-gradient(90deg,var(--gold-dim),var(--gold)); border-radius:3px; transition:width 1.2s cubic-bezier(.4,0,.2,1); width:0; }
-.eco-bar-fill.animated { width:var(--target-width); }
 </style>
 </head>
 <body data-page="investicia">
 <nav class="nav" id="nav">
-  <a href="index.html" class="nav-logo">Areál David<span>Košice — Rozvojové územie</span></a>
+  <a href="index.html" class="nav-logo">
+    <div class="nav-logo-main">Areál David</div>
+    <div class="nav-logo-sub">Košice · Rozvojové územie</div>
+  </a>
   <div class="nav-links">
     <a href="index.html" class="nav-link" data-page="index">Domov</a>
     <a href="uzemie.html" class="nav-link" data-page="uzemie">Územie</a>
@@ -240,144 +234,170 @@ footer {
   <a href="kontakt.html" class="nav-cta">Mám záujem</a>
 </nav>
 
-
-<section style="padding:160px 0 80px;background:linear-gradient(160deg,#0a0b09 0%,#111310 100%);border-bottom:1px solid var(--border2);position:relative;overflow:hidden">
-  <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(201,178,110,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(201,178,110,0.03) 1px,transparent 1px);background-size:80px 80px;mask-image:radial-gradient(ellipse 70% 80% at 30% 50%,black 30%,transparent 100%)"></div>
-  <div class="container" style="position:relative;z-index:1">
-    <span class="section-tag">Investičná príležitosť</span>
-    <h1 class="section-title" style="font-size:clamp(36px,5vw,64px);max-width:640px">Investičná <em>príležitosť</em><br>s potenciálom transformácie</h1>
-    <p class="section-sub">Komplexný prehľad investičného potenciálu, silných stránok a modelov rozvoja areálu David v Košiciach.</p>
+<section style="min-height:52vh;padding:140px 0 80px;background:var(--bg);border-bottom:1px solid var(--border);position:relative;overflow:hidden">
+  <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(184,149,90,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(184,149,90,0.04) 1px,transparent 1px);background-size:72px 72px"></div>
+  <div style="position:absolute;right:0;top:0;bottom:0;width:40%;background:radial-gradient(ellipse at right,rgba(184,149,90,0.06) 0%,transparent 70%);pointer-events:none"></div>
+  <div class="container reveal" style="position:relative;z-index:1">
+    <div class="tag">Investičná príležitosť</div>
+    <h1 class="h1" style="max-width:700px;margin-bottom:20px">Investičná príležitosť<br>s potenciálom <span class="gold">transformácie</span></h1>
+    <p class="body-lg" style="max-width:540px">Komplexný prehľad investičného potenciálu, silných stránok a modelov rozvoja areálu David v Košiciach.</p>
   </div>
 </section>
 
 <!-- ZÁKLADNÉ ÚDAJE -->
-<section class="section-pad" style="background:var(--bg)">
+<section class="section" style="background:var(--bg)">
   <div class="container">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start">
       <div class="reveal">
-        <span class="section-tag">Základné parametre</span>
-        <h2 class="section-title" style="font-size:clamp(28px,3.5vw,44px)">Základné <em>údaje</em></h2>
-        <div class="divider"></div>
-        <div style="display:flex;flex-direction:column;gap:0">
-          <div style="display:flex;justify-content:space-between;padding:16px 0;border-bottom:1px solid var(--border2)">
-            <span style="font-size:12px;color:var(--muted)">Výmera územia</span>
-            <span style="font-family:'Cormorant Garamond',serif;font-size:18px;color:var(--white)">98 400 m²</span>
+        <div class="tag">Základné parametre</div>
+        <h2 class="h2" style="margin-bottom:36px">Základné <span class="gold">údaje</span></h2>
+        <div style="border:1px solid var(--border);border-radius:var(--radius);overflow:hidden">
+
+          <div style="padding:18px 24px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center">
+            <span style="font-size:13px;color:var(--text2)">Výmera územia</span>
+            <span style="font-size:14px;font-weight:700;color:var(--text)">99 125 m²</span>
           </div>
-          <div style="display:flex;justify-content:space-between;padding:16px 0;border-bottom:1px solid var(--border2)">
-            <span style="font-size:12px;color:var(--muted)">Súčasný stav</span>
-            <span style="font-family:'Cormorant Garamond',serif;font-size:18px;color:var(--gold)">Fungujúci s výnosom</span>
+          <div style="padding:18px 24px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center">
+            <span style="font-size:13px;color:var(--text2)">Cieľová akvizičná hodnota</span>
+            <span style="font-size:14px;font-weight:700;color:var(--gold)">40 mil. €</span>
           </div>
-          <div style="display:flex;justify-content:space-between;padding:16px 0;border-bottom:1px solid var(--border2)">
-            <span style="font-size:12px;color:var(--muted)">Poloha</span>
-            <span style="font-family:'Cormorant Garamond',serif;font-size:18px;color:var(--white)">Košice — Nad Jazerom</span>
+          <div style="padding:18px 24px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center">
+            <span style="font-size:13px;color:var(--text2)">Súčasný ročný výnos</span>
+            <span style="font-size:14px;font-weight:700;color:var(--gold)">1,2 mil. €</span>
           </div>
-          <div style="display:flex;justify-content:space-between;padding:16px 0;border-bottom:1px solid var(--border2)">
-            <span style="font-size:12px;color:var(--muted)">Typ územia</span>
-            <span style="font-family:'Cormorant Garamond',serif;font-size:18px;color:var(--white)">Transformačné / zmiešané</span>
+          <div style="padding:18px 24px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center">
+            <span style="font-size:13px;color:var(--text2)">Typ územia</span>
+            <span style="font-size:14px;font-weight:700;color:var(--text)">Transformačné / Zmiešané</span>
           </div>
-          <div style="display:flex;justify-content:space-between;padding:16px 0;border-bottom:1px solid var(--border2)">
-            <span style="font-size:12px;color:var(--muted)">Možná etapizácia</span>
-            <span style="font-family:'Cormorant Garamond',serif;font-size:18px;color:var(--gold)">Áno — flexibilné fázovanie</span>
+          <div style="padding:18px 24px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center">
+            <span style="font-size:13px;color:var(--text2)">Max. výška zástavby</span>
+            <span style="font-size:14px;font-weight:700;color:var(--text)">8 NP</span>
           </div>
-          <div style="display:flex;justify-content:space-between;padding:16px 0">
-            <span style="font-size:12px;color:var(--muted)">Max. výška zástavby</span>
-            <span style="font-family:'Cormorant Garamond',serif;font-size:18px;color:var(--white)">8 nadzemných podlaží</span>
+          <div style="padding:18px 24px;;display:flex;justify-content:space-between;align-items:center">
+            <span style="font-size:13px;color:var(--text2)">Možná etapizácia</span>
+            <span style="font-size:14px;font-weight:700;color:var(--gold)">Áno — flexibilné fázovanie</span>
           </div>
         </div>
       </div>
       <div class="reveal reveal-delay-2">
-        <div style="background:var(--bg2);border:1px solid var(--border2);padding:36px">
-          <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--gold-dim);margin-bottom:24px">Kľúčová výhoda</div>
-          <div style="font-family:'Cormorant Garamond',serif;font-size:28px;color:var(--white);font-weight:300;line-height:1.2;margin-bottom:20px">Príjem <em style="color:var(--gold)">počas prípravy</em><br>celého projektu</div>
-          <div style="font-size:13px;color:var(--muted);line-height:1.7;margin-bottom:28px">Na rozdiel od „zeleného poľa" — areál David generuje nájomný príjem aj počas fázy urbanistickej prípravy a hľadania investičného partnera. Čas prípravy nie je stratený čas.</div>
-          <div style="border-top:1px solid var(--border2);padding-top:20px;display:flex;gap:24px">
+        <div class="card" style="border-left:3px solid var(--gold)">
+          <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:16px">Kľúčová výhoda</div>
+          <h3 class="h3" style="margin-bottom:16px">Príjem <span class="gold">počas prípravy</span></h3>
+          <p class="body" style="margin-bottom:24px">Na rozdiel od zelené pole — areál David generuje nájomný príjem aj počas celej fázy plánovania a hľadania investičného partnera.</p>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;padding-top:20px;border-top:1px solid var(--border)">
             <div>
-              <div style="font-family:'DM Mono',monospace;font-size:8px;letter-spacing:2px;color:var(--gold-dim);margin-bottom:4px">Existujúce budovy</div>
-              <div style="font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--white)">Prenajímané</div>
+              <div style="font-family:'DM Mono',monospace;font-size:8px;letter-spacing:2px;color:var(--text3);text-transform:uppercase;margin-bottom:6px">Existujúce budovy</div>
+              <div style="font-size:15px;font-weight:700;color:var(--text)">Prenajímané</div>
             </div>
             <div>
-              <div style="font-family:'DM Mono',monospace;font-size:8px;letter-spacing:2px;color:var(--gold-dim);margin-bottom:4px">Infraštruktúra</div>
-              <div style="font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--white)">Čiastočne zachovaná</div>
+              <div style="font-family:'DM Mono',monospace;font-size:8px;letter-spacing:2px;color:var(--text3);text-transform:uppercase;margin-bottom:6px">Infraštruktúra</div>
+              <div style="font-size:15px;font-weight:700;color:var(--text)">Čiastočne zachovaná</div>
             </div>
           </div>
+        </div>
+        <div class="card" style="margin-top:16px;background:rgba(76,119,84,0.08);border-color:rgba(76,119,84,0.25)">
+          <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--green);margin-bottom:12px">Poznámka k číslam</div>
+          <p class="body" style="font-size:13px">Konkrétne finančné projekcie a výnosové scenáre sú súčasťou investičného memoranda. Uvádzané hodnoty sú orientačné a nezaručené. Detaily po podpise NDA.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- SILNÉ STRÁNKY -->
-<section class="section-pad" style="background:var(--bg2);border-top:1px solid var(--border2)">
+<!-- SILNÉ STRÁNKY + POTENCIÁL -->
+<section class="section" style="background:var(--bg2);border-top:1px solid var(--border)">
   <div class="container">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px">
       <div class="reveal">
-        <span class="section-tag">Investičné silné stránky</span>
-        <h2 class="section-title" style="font-size:clamp(28px,3.5vw,44px)">Silné <em>stránky</em></h2>
-        <div class="divider"></div>
+        <div class="tag">Investičné silné stránky</div>
+        <h2 class="h2" style="margin-bottom:32px">Silné <span class="gold">stránky</span></h2>
         <div>
-          <div class="strength-item">
-            <div class="strength-icon">💰</div>
-            <div><div style="font-weight:600;color:var(--white);margin-bottom:4px">Existujúci cashflow</div><div style="font-size:12px;color:var(--muted);line-height:1.6">Príjem z nájmu počas celej fázy prípravy — nie je potrebné financovať „mŕtve" obdobie.</div></div>
+
+          <div class="feat-item">
+            <div class="feat-dot"></div>
+            <div class="feat-content">
+              <h4>Existujúci cashflow</h4>
+              <p>Príjem z nájmu počas celej fázy prípravy — nie je potrebné financovať „mŕtve" obdobie.</p>
+            </div>
           </div>
-          <div class="strength-item">
-            <div class="strength-icon">📈</div>
-            <div><div style="font-weight:600;color:var(--white);margin-bottom:4px">Rozvojový potenciál</div><div style="font-size:12px;color:var(--muted);line-height:1.6">Transformačné územie s možnosťou komplexnej prestavby na moderný mestský distrikt.</div></div>
+          <div class="feat-item">
+            <div class="feat-dot"></div>
+            <div class="feat-content">
+              <h4>Rozvojový potenciál</h4>
+              <p>Transformačné územie s možnosťou komplexnej prestavby na moderný mestský distrikt.</p>
+            </div>
           </div>
-          <div class="strength-item">
-            <div class="strength-icon">📐</div>
-            <div><div style="font-weight:600;color:var(--white);margin-bottom:4px">Veľkosť územia</div><div style="font-size:12px;color:var(--muted);line-height:1.6">Takmer 10 ha v zastavanom území mesta — vzácna príležitosť pre veľkopriestorový rozvoj.</div></div>
+          <div class="feat-item">
+            <div class="feat-dot"></div>
+            <div class="feat-content">
+              <h4>Veľkosť územia</h4>
+              <p>Takmer 10 ha v zastavanom území mesta — vzácna príležitosť pre veľkopriestorový rozvoj v Košiciach.</p>
+            </div>
           </div>
-          <div class="strength-item">
-            <div class="strength-icon">🔀</div>
-            <div><div style="font-weight:600;color:var(--white);margin-bottom:4px">Flexibilita</div><div style="font-size:12px;color:var(--muted);line-height:1.6">Etapová realizácia umožňuje prispôsobiť rozsah a načasovanie projektu trhovým podmienkam.</div></div>
+          <div class="feat-item">
+            <div class="feat-dot"></div>
+            <div class="feat-content">
+              <h4>Flexibilita</h4>
+              <p>Etapová realizácia umožňuje prispôsobiť rozsah a načasovanie projektu trhových podmienkam.</p>
+            </div>
           </div>
-          <div class="strength-item">
-            <div class="strength-icon">🎯</div>
-            <div><div style="font-weight:600;color:var(--white);margin-bottom:4px">Viac scenárov využitia</div><div style="font-size:12px;color:var(--muted);line-height:1.6">Od mestského distriktu po retail park — priestor pre rôzne investičné stratégie.</div></div>
+          <div class="feat-item">
+            <div class="feat-dot"></div>
+            <div class="feat-content">
+              <h4>Viac scenárov využitia</h4>
+              <p>Od mestského distriktu po retail park alebo EIB nájomný model — priestor pre rôzne stratégie.</p>
+            </div>
           </div>
-          <div class="strength-item">
-            <div class="strength-icon">🌆</div>
-            <div><div style="font-weight:600;color:var(--white);margin-bottom:4px">Mestský charakter</div><div style="font-size:12px;color:var(--muted);line-height:1.6">Napojenie na mestskú infraštruktúru, dostupnosť MHD a súvislosť s rozvojovými zámermi mesta.</div></div>
+          <div class="feat-item">
+            <div class="feat-dot"></div>
+            <div class="feat-content">
+              <h4>Mestský charakter</h4>
+              <p>Napojenie na mestskú infraštruktúru, dostupnosť MHD, súvislosť s rozvojovými zámermi mesta.</p>
+            </div>
           </div>
         </div>
       </div>
       <div class="reveal reveal-delay-2">
-        <span class="section-tag">Ekonomický potenciál</span>
-        <h2 class="section-title" style="font-size:clamp(28px,3.5vw,44px)">Ekonomický<br><em>potenciál</em></h2>
-        <div class="divider"></div>
-        <div style="display:flex;flex-direction:column;gap:20px">
+        <div class="tag">Ekonomický potenciál</div>
+        <h2 class="h2" style="margin-bottom:32px">Ekonomický <span class="gold">potenciál</span></h2>
+        <div style="display:flex;flex-direction:column;gap:24px">
+
           <div>
-            <div style="display:flex;justify-content:space-between;margin-bottom:6px">
-              <span style="font-size:11px;color:var(--muted);font-family:'DM Mono',monospace;letter-spacing:1px">ROZVOJOVÁ PLOCHA (max. 40 %)</span>
-              <span style="font-size:11px;color:var(--gold);font-family:'DM Mono',monospace">~39 360 m²</span>
+            <div style="display:flex;justify-content:space-between;margin-bottom:10px">
+              <span style="font-size:12px;font-family:'DM Mono',monospace;letter-spacing:1px;text-transform:uppercase;color:var(--text2)">Rozvojová plocha (max. 40 %)</span>
+              <span style="font-size:12px;font-weight:700;color:var(--gold)">~39 700 m²</span>
             </div>
-            <div class="eco-bar"><div class="eco-bar-fill" style="--target-width:40%"></div></div>
+            <div style="height:6px;background:var(--bg3);border-radius:3px;overflow:hidden">
+              <div style="height:100%;width:40%;background:linear-gradient(90deg,var(--gold-dim),var(--gold));border-radius:3px;transition:width 1.2s ease" class="bar-fill" data-width="40"></div>
+            </div>
           </div>
           <div>
-            <div style="display:flex;justify-content:space-between;margin-bottom:6px">
-              <span style="font-size:11px;color:var(--muted);font-family:'DM Mono',monospace;letter-spacing:1px">REZIDENČNÝ POTENCIÁL</span>
-              <span style="font-size:11px;color:var(--gold);font-family:'DM Mono',monospace">cca 1 200–1 300 bytov</span>
+            <div style="display:flex;justify-content:space-between;margin-bottom:10px">
+              <span style="font-size:12px;font-family:'DM Mono',monospace;letter-spacing:1px;text-transform:uppercase;color:var(--text2)">Rezidenčný potenciál</span>
+              <span style="font-size:12px;font-weight:700;color:var(--gold)">cca 1 200–1 300 bytov</span>
             </div>
-            <div class="eco-bar"><div class="eco-bar-fill" style="--target-width:65%"></div></div>
+            <div style="height:6px;background:var(--bg3);border-radius:3px;overflow:hidden">
+              <div style="height:100%;width:65%;background:linear-gradient(90deg,var(--gold-dim),var(--gold));border-radius:3px;transition:width 1.2s ease" class="bar-fill" data-width="65"></div>
+            </div>
           </div>
           <div>
-            <div style="display:flex;justify-content:space-between;margin-bottom:6px">
-              <span style="font-size:11px;color:var(--muted);font-family:'DM Mono',monospace;letter-spacing:1px">KOMERČNÁ PLOCHA</span>
-              <span style="font-size:11px;color:var(--gold);font-family:'DM Mono',monospace">~25 000–30 000 m² GFA</span>
+            <div style="display:flex;justify-content:space-between;margin-bottom:10px">
+              <span style="font-size:12px;font-family:'DM Mono',monospace;letter-spacing:1px;text-transform:uppercase;color:var(--text2)">Komerčná plocha</span>
+              <span style="font-size:12px;font-weight:700;color:var(--gold)">~25 000–30 000 m² GFA</span>
             </div>
-            <div class="eco-bar"><div class="eco-bar-fill" style="--target-width:30%"></div></div>
+            <div style="height:6px;background:var(--bg3);border-radius:3px;overflow:hidden">
+              <div style="height:100%;width:30%;background:linear-gradient(90deg,var(--gold-dim),var(--gold));border-radius:3px;transition:width 1.2s ease" class="bar-fill" data-width="30"></div>
+            </div>
           </div>
           <div>
-            <div style="display:flex;justify-content:space-between;margin-bottom:6px">
-              <span style="font-size:11px;color:var(--muted);font-family:'DM Mono',monospace;letter-spacing:1px">INVESTIČNÝ HORIZONT</span>
-              <span style="font-size:11px;color:var(--gold);font-family:'DM Mono',monospace">10–15 rokov (etapový)</span>
+            <div style="display:flex;justify-content:space-between;margin-bottom:10px">
+              <span style="font-size:12px;font-family:'DM Mono',monospace;letter-spacing:1px;text-transform:uppercase;color:var(--text2)">Investičný horizont</span>
+              <span style="font-size:12px;font-weight:700;color:var(--gold)">10–15 rokov (etapový)</span>
             </div>
-            <div class="eco-bar"><div class="eco-bar-fill" style="--target-width:75%"></div></div>
+            <div style="height:6px;background:var(--bg3);border-radius:3px;overflow:hidden">
+              <div style="height:100%;width:75%;background:linear-gradient(90deg,var(--gold-dim),var(--gold));border-radius:3px;transition:width 1.2s ease" class="bar-fill" data-width="75"></div>
+            </div>
           </div>
-        </div>
-        <div style="margin-top:32px;background:rgba(201,178,110,0.05);border:1px solid var(--border);border-left:3px solid var(--gold);padding:16px 18px">
-          <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-family:'DM Mono',monospace;margin-bottom:6px">Poznámka k číslam</div>
-          <div style="font-size:12px;color:var(--muted);line-height:1.6">Konkrétne finančné projekcie a výnosové scenáre sú súčasťou investičného memoranda dostupného po podpise NDA. Uvádzané hodnoty sú orientačné a nezaručené.</div>
         </div>
       </div>
     </div>
@@ -385,134 +405,133 @@ footer {
 </section>
 
 <!-- SCENÁRE -->
-<section class="section-pad" style="background:var(--bg)">
+<section class="section" style="background:var(--bg)">
   <div class="container">
-    <div class="reveal" style="margin-bottom:48px">
-      <span class="section-tag">Model rozvoja</span>
-      <h2 class="section-title">Scenáre <em>rozvoja</em></h2>
-      <p class="section-sub">Tri základné investičné scenáre pre rozvoj územia — od konzervatívneho prístupu až po maximalizáciu potenciálu.</p>
+    <div class="section-header-split">
+      <div class="reveal">
+        <div class="tag">Model rozvoja</div>
+        <h2 class="h2">Scenáre <span class="gold">rozvoja</span></h2>
+      </div>
+      <a href="varianty.html" class="btn btn-secondary reveal reveal-delay-2">Zobraziť varianty →</a>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px">
-      <div class="scenario-card konz reveal">
-        <div class="scenario-label">Scenár 01 — Konzervatívny</div>
-        <div style="font-family:'Cormorant Garamond',serif;font-size:26px;color:var(--white);margin-bottom:16px;font-weight:300">Postupná transformácia</div>
-        <div style="font-size:12px;color:var(--muted);line-height:1.7;margin-bottom:20px">Minimálna prvotná investícia. Zachovanie súčasného prevádzky, postupné uvoľňovanie plôch pre development. Nízke riziko, dlhší horizont.</div>
-        <div style="display:flex;flex-direction:column;gap:8px;border-top:1px solid var(--border2);padding-top:16px">
-          <div style="display:flex;justify-content:space-between;font-size:11px"><span style="color:var(--muted)">Rizikový profil</span><span style="color:var(--text)">Nízky</span></div>
-          <div style="display:flex;justify-content:space-between;font-size:11px"><span style="color:var(--muted)">Horizont</span><span style="color:var(--text)">15+ rokov</span></div>
-          <div style="display:flex;justify-content:space-between;font-size:11px"><span style="color:var(--muted)">Etapizácia</span><span style="color:var(--text)">Postupná</span></div>
+    <div class="grid-3" style="gap:16px">
+      <div class="card reveal" style="border-top:3px solid var(--text3)">
+        <span class="badge badge-gray" style="margin-bottom:16px">Scenár 01</span>
+        <h3 class="h3" style="margin-bottom:12px">Postupná transformácia</h3>
+        <p class="body" style="font-size:13px;margin-bottom:20px">Minimálna prvotná investícia. Zachovanie súčasnej prevádzky, postupné uvoľňovanie plôch pre development.</p>
+        <div style="border-top:1px solid var(--border);padding-top:16px;display:flex;flex-direction:column;gap:8px">
+          <div style="display:flex;justify-content:space-between;font-size:12px"><span style="color:var(--text2)">Riziko</span><span>Nízke</span></div>
+          <div style="display:flex;justify-content:space-between;font-size:12px"><span style="color:var(--text2)">Horizont</span><span>15+ rokov</span></div>
         </div>
       </div>
-      <div class="scenario-card base reveal reveal-delay-1" style="transform:translateY(-8px)">
-        <div style="position:absolute;top:16px;right:16px;background:var(--gold);color:var(--bg);font-size:8px;letter-spacing:2px;padding:3px 10px;font-family:'DM Mono',monospace">ODPORÚČANÝ</div>
-        <div class="scenario-label">Scenár 02 — Základný</div>
-        <div style="font-family:'Cormorant Garamond',serif;font-size:26px;color:var(--white);margin-bottom:16px;font-weight:300">Mixed-use distrikt</div>
-        <div style="font-size:12px;color:var(--muted);line-height:1.7;margin-bottom:20px">Komplexná transformácia na polyfunkčné mestské územie. Infraštruktúra v 1. fáze, rezidenčný rozvoj v 2. a 3. fáze. Vyvážené riziko a výnos.</div>
-        <div style="display:flex;flex-direction:column;gap:8px;border-top:1px solid var(--border2);padding-top:16px">
-          <div style="display:flex;justify-content:space-between;font-size:11px"><span style="color:var(--muted)">Rizikový profil</span><span style="color:var(--gold)">Stredný</span></div>
-          <div style="display:flex;justify-content:space-between;font-size:11px"><span style="color:var(--muted)">Horizont</span><span style="color:var(--gold)">10–12 rokov</span></div>
-          <div style="display:flex;justify-content:space-between;font-size:11px"><span style="color:var(--muted)">Etapizácia</span><span style="color:var(--gold)">3 fázy</span></div>
+      <div class="card reveal reveal-delay-1" style="border-top:3px solid var(--gold)">
+        <span class="badge badge-gold" style="margin-bottom:16px">Odporúčaný · Scenár 02</span>
+        <h3 class="h3" style="margin-bottom:12px">Mixed-use distrikt</h3>
+        <p class="body" style="font-size:13px;margin-bottom:20px">Komplexná transformácia na polyfunkčné mestské územie. Infraštruktúra v 1. fáze, rezidenčný rozvoj v 2. a 3. fáze.</p>
+        <div style="border-top:1px solid var(--border);padding-top:16px;display:flex;flex-direction:column;gap:8px">
+          <div style="display:flex;justify-content:space-between;font-size:12px"><span style="color:var(--text2)">Riziko</span><span class="gold">Stredné</span></div>
+          <div style="display:flex;justify-content:space-between;font-size:12px"><span style="color:var(--text2)">Horizont</span><span class="gold">10–12 rokov</span></div>
         </div>
       </div>
-      <div class="scenario-card rozsireny reveal reveal-delay-2">
-        <div class="scenario-label">Scenár 03 — Rozšírený</div>
-        <div style="font-family:'Cormorant Garamond',serif;font-size:26px;color:var(--white);margin-bottom:16px;font-weight:300">Maximalizácia potenciálu</div>
-        <div style="font-size:12px;color:var(--muted);line-height:1.7;margin-bottom:20px">Plná realizácia rozvojového potenciálu vrátane EIB financovania, inštitucionálneho nájomného modelu a verejno-súkromného partnerstva.</div>
-        <div style="display:flex;flex-direction:column;gap:8px;border-top:1px solid var(--border2);padding-top:16px">
-          <div style="display:flex;justify-content:space-between;font-size:11px"><span style="color:var(--muted)">Rizikový profil</span><span style="color:var(--green)">Vyšší</span></div>
-          <div style="display:flex;justify-content:space-between;font-size:11px"><span style="color:var(--muted)">Horizont</span><span style="color:var(--green)">12–15 rokov</span></div>
-          <div style="display:flex;justify-content:space-between;font-size:11px"><span style="color:var(--muted)">Etapizácia</span><span style="color:var(--green)">4+ fázy</span></div>
+      <div class="card reveal reveal-delay-2" style="border-top:3px solid var(--green)">
+        <span class="badge badge-green" style="margin-bottom:16px">Scenár 03</span>
+        <h3 class="h3" style="margin-bottom:12px">Maximalizácia potenciálu</h3>
+        <p class="body" style="font-size:13px;margin-bottom:20px">Plná realizácia vrátane EIB financovania, inštitucionálneho nájomného modelu a verejno-súkromného partnerstva.</p>
+        <div style="border-top:1px solid var(--border);padding-top:16px;display:flex;flex-direction:column;gap:8px">
+          <div style="display:flex;justify-content:space-between;font-size:12px"><span style="color:var(--text2)">Riziko</span><span style="color:var(--green)">Vyššie</span></div>
+          <div style="display:flex;justify-content:space-between;font-size:12px"><span style="color:var(--text2)">Horizont</span><span style="color:var(--green)">12–15 rokov</span></div>
         </div>
       </div>
-    </div>
-    <div style="text-align:center;margin-top:40px">
-      <a href="varianty.html" class="btn btn-outline">Zobraziť všetky varianty rozvoja <span style="font-size:14px">→</span></a>
     </div>
   </div>
 </section>
 
 <script>
-// Animate bars on scroll
-const barObs = new IntersectionObserver(entries => {
-  entries.forEach(e => { if(e.isIntersecting) { e.target.classList.add('animated'); barObs.unobserve(e.target); }});
-}, { threshold: 0.3 });
-document.querySelectorAll('.eco-bar-fill').forEach(el => barObs.observe(el));
+const bObs = new IntersectionObserver(es => es.forEach(e => {
+  if(e.isIntersecting) { e.target.style.width = e.target.dataset.width + '%'; bObs.unobserve(e.target); }
+}), {threshold:0.3});
+document.querySelectorAll('.bar-fill').forEach(el => { el.style.width = '0%'; bObs.observe(el); });
 </script>
 <footer>
   <div class="container">
-    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:48px;padding-bottom:48px;border-bottom:1px solid var(--border2)">
+    <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;padding-bottom:48px;border-bottom:1px solid var(--border)">
       <div>
-        <div class="footer-logo">Areál David</div>
+        <div class="footer-brand">Areál David</div>
         <div class="footer-sub">Košice — Strategické rozvojové územie</div>
-        <div style="margin-top:20px;font-size:12px;color:var(--muted);line-height:1.7">Transformácia priemyselného areálu na nový mestský mixed-use distrikt v Košiciach.</div>
-      </div>
-      <div>
-        <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gold-dim);margin-bottom:16px;font-family:'DM Mono',monospace">Navigácia</div>
-        <div class="footer-links" style="flex-direction:column;gap:10px">
-          <a href="index.html" class="footer-link">Domov</a>
-          <a href="uzemie.html" class="footer-link">Územie a regulácia</a>
-          <a href="investicia.html" class="footer-link">Investičná príležitosť</a>
-          <a href="varianty.html" class="footer-link">Varianty rozvoja</a>
-          <a href="dokumenty.html" class="footer-link">Dokumenty</a>
-          <a href="kontakt.html" class="footer-link">Kontakt</a>
+        <div style="font-size:13px;color:var(--text2);margin-top:20px;max-width:280px;line-height:1.65">Transformácia priemyselného areálu na nový mestský mixed-use distrikt v Košiciach.</div>
+        <div style="margin-top:24px;display:flex;gap:10px;flex-wrap:wrap">
+          <span class="badge badge-gold">Rozvojové územie</span>
+          <span class="badge badge-gray">98 400 m²</span>
         </div>
       </div>
       <div>
-        <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gold-dim);margin-bottom:16px;font-family:'DM Mono',monospace">Kontakt</div>
-        <div style="font-size:12px;color:var(--muted);line-height:1.9">
-          Košice, Slovenská republika<br>
-          <a href="kontakt.html" style="color:var(--gold);text-decoration:none;margin-top:12px;display:inline-block">Kontaktný formulár →</a>
+        <div class="footer-col-label">Projekt</div>
+        <a href="index.html" class="footer-link">Domov</a>
+        <a href="uzemie.html" class="footer-link">Územie a regulácia</a>
+        <a href="investicia.html" class="footer-link">Investičná príležitosť</a>
+        <a href="varianty.html" class="footer-link">Varianty rozvoja</a>
+      </div>
+      <div>
+        <div class="footer-col-label">Info</div>
+        <a href="dokumenty.html" class="footer-link">Dokumenty</a>
+        <a href="kontakt.html" class="footer-link">Kontakt</a>
+        <a href="varianty.html" class="footer-link">Data Room (NDA)</a>
+      </div>
+      <div>
+        <div class="footer-col-label">Kontakt</div>
+        <div style="font-size:13px;color:var(--text2);line-height:1.8">
+          Košice, SR<br>
+          <a href="kontakt.html" style="color:var(--gold);text-decoration:none;margin-top:12px;display:inline-block;font-size:12px">Formulár →</a>
         </div>
       </div>
     </div>
-    <div style="display:flex;justify-content:space-between;align-items:center;margin-top:24px;flex-wrap:wrap;gap:12px">
-      <div class="footer-copy">© 2026 Areál David Košice. Všetky práva vyhradené.</div>
-      <div style="font-size:9px;color:var(--muted2);font-family:'DM Mono',monospace;letter-spacing:1px">Dôverný investičný materiál</div>
+    <div style="display:flex;justify-content:space-between;align-items:center;padding-top:28px;flex-wrap:wrap;gap:12px">
+      <div style="font-size:12px;color:var(--text3)">© 2026 Areál David Košice. Dôverný investičný materiál.</div>
+      <div style="font-family:'DM Mono',monospace;font-size:9px;color:var(--text3);letter-spacing:1.5px">INVESTOR TEASER · v3.0</div>
     </div>
   </div>
 </footer>
-
 <script>
-// Nav scroll
+// Nav scroll state
 const nav = document.getElementById('nav');
-window.addEventListener('scroll', () => {
-  nav.classList.toggle('scrolled', window.scrollY > 40);
+if(nav) window.addEventListener('scroll', () => {
+  nav.style.boxShadow = window.scrollY > 60 ? '0 4px 32px rgba(0,0,0,0.4)' : '';
 });
 
-// Set active nav
+// Active nav
 const page = document.body.dataset.page;
 document.querySelectorAll('.nav-link[data-page]').forEach(a => {
   if(a.dataset.page === page) a.classList.add('active');
 });
 
 // Scroll reveal
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
-}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+const revealObs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) { e.target.classList.add('visible'); }});
+}, { threshold: 0.06, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal, .reveal-left').forEach(el => revealObs.observe(el));
 
-// Counter animation
-function animateCounter(el) {
-  const target = parseFloat(el.dataset.target);
+// Number counter
+function animateNum(el) {
+  const raw = el.dataset.target;
   const suffix = el.dataset.suffix || '';
   const prefix = el.dataset.prefix || '';
-  const decimals = el.dataset.decimals ? parseInt(el.dataset.decimals) : 0;
-  const duration = 1800;
+  const isFloat = raw.includes('.');
+  const target = parseFloat(raw);
+  const dur = 2000;
   const start = performance.now();
-  const update = (now) => {
-    const p = Math.min((now - start) / duration, 1);
-    const ease = 1 - Math.pow(1 - p, 3);
+  const update = t => {
+    const p = Math.min((t-start)/dur,1);
+    const ease = 1 - Math.pow(1-p, 4);
     const val = target * ease;
-    el.textContent = prefix + (decimals ? val.toFixed(decimals) : Math.round(val).toLocaleString('sk')) + suffix;
+    el.textContent = prefix + (isFloat ? val.toFixed(1) : Math.round(val).toLocaleString('sk')) + suffix;
     if(p < 1) requestAnimationFrame(update);
   };
   requestAnimationFrame(update);
 }
-const counterObs = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if(e.isIntersecting) { animateCounter(e.target); counterObs.unobserve(e.target); }});
+const numObs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) { animateNum(e.target); numObs.unobserve(e.target); }});
 }, { threshold: 0.5 });
-document.querySelectorAll('[data-target]').forEach(el => counterObs.observe(el));
+document.querySelectorAll('[data-target]').forEach(el => numObs.observe(el));
 </script>
-
 </body>
 </html>

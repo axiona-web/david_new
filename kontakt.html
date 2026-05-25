@@ -4,234 +4,225 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Kontakt | Areál David Košice</title>
-<style>/* ═══════════════════════════════════════════════════════════
-   AREÁL DAVID KOŠICE — Shared Design System
-   Fonts: Cormorant Garamond (display) + Syne (UI) + DM Mono
-   Palette: Deep anthracite / Warm gold / Off-white
-═══════════════════════════════════════════════════════════ */
-
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Syne:wght@400;500;600;700;800&family=DM+Mono:wght@300;400;500&display=swap');
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=DM+Mono:wght@300;400;500&display=swap');
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --bg:        #0e0f0d;
-  --bg2:       #141512;
-  --bg3:       #1a1c18;
-  --panel:     #1e2019;
-  --border:    rgba(201,178,110,0.14);
-  --border2:   rgba(201,178,110,0.07);
-  --gold:      #C9B26E;
-  --gold2:     #E8D4A0;
-  --gold-dim:  #8A7340;
-  --text:      #EDE8DC;
-  --muted:     #7A7868;
-  --muted2:    #4A4A3A;
-  --white:     #F5F0E8;
-  --red:       #C45C3A;
-  --green:     #5A8A5A;
-  --radius:    2px;
+  --bg:       #111315;
+  --bg2:      #1B1F24;
+  --bg3:      #1A1D21;
+  --bg4:      #21262D;
+  --border:   #2B3138;
+  --border-l: rgba(43,49,56,0.6);
+  --gold:     #B8955A;
+  --gold-h:   #D3B279;
+  --gold-dim: #7A6238;
+  --green:    #4C7754;
+  --text:     #FFFFFF;
+  --text2:    #A7AFB8;
+  --text3:    #6B7580;
+  --light-bg: #F4F5F6;
+  --radius:   20px;
+  --radius-sm:12px;
 }
 
-html { scroll-behavior: smooth; font-size: 16px; }
-body {
-  font-family: 'Syne', sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  line-height: 1.6;
-  overflow-x: hidden;
-}
+html { scroll-behavior: smooth; }
+body { font-family: 'Manrope', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden; }
 
-/* ── SCROLLBAR ─────────────────────────── */
 ::-webkit-scrollbar { width: 4px; }
 ::-webkit-scrollbar-track { background: var(--bg); }
 ::-webkit-scrollbar-thumb { background: var(--gold-dim); border-radius: 2px; }
 
-/* ── TYPOGRAPHY ────────────────────────── */
-.f-display { font-family: 'Cormorant Garamond', serif; }
-.f-mono    { font-family: 'DM Mono', monospace; }
-.f-ui      { font-family: 'Syne', sans-serif; }
-
-/* ── NAV ───────────────────────────────── */
+/* ── NAVIGATION ─────────────────────────────────────────── */
 .nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-  height: 64px;
-  display: flex; align-items: center;
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  height: 68px; display: flex; align-items: center;
   padding: 0 48px;
-  background: rgba(14,15,13,0.92);
-  backdrop-filter: blur(16px);
-  border-bottom: 1px solid var(--border2);
+  background: rgba(17,19,21,0.92);
+  backdrop-filter: blur(20px) saturate(1.2);
+  border-bottom: 1px solid rgba(43,49,56,0.8);
   transition: all .3s;
 }
-.nav.scrolled { border-bottom-color: var(--border); }
 .nav-logo {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 18px; font-weight: 400; letter-spacing: 0.08em;
-  color: var(--white); text-decoration: none;
-  display: flex; flex-direction: column; line-height: 1;
-  margin-right: auto;
+  text-decoration: none; margin-right: auto; display: flex; flex-direction: column;
 }
-.nav-logo span { font-size: 8px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-top: 3px; font-family: 'DM Mono', monospace; }
-.nav-links { display: flex; align-items: center; gap: 0; }
+.nav-logo-main {
+  font-size: 16px; font-weight: 700; letter-spacing: 0.06em;
+  text-transform: uppercase; color: var(--text); line-height: 1;
+}
+.nav-logo-sub {
+  font-family: 'DM Mono', monospace; font-size: 8px; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--gold); margin-top: 3px; opacity: 0.8;
+}
+.nav-links { display: flex; align-items: center; gap: 4px; }
 .nav-link {
-  font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
-  color: var(--muted); text-decoration: none;
-  padding: 8px 16px; position: relative;
-  transition: color .2s;
+  font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--text2); text-decoration: none; padding: 8px 14px; border-radius: 6px;
+  transition: all .2s; position: relative;
 }
-.nav-link::after {
-  content: ''; position: absolute; bottom: 2px; left: 16px; right: 16px;
-  height: 1px; background: var(--gold);
-  transform: scaleX(0); transform-origin: left;
-  transition: transform .25s;
-}
-.nav-link:hover, .nav-link.active { color: var(--gold2); }
-.nav-link:hover::after, .nav-link.active::after { transform: scaleX(1); }
+.nav-link:hover { color: var(--text); background: rgba(255,255,255,0.04); }
+.nav-link.active { color: var(--gold); }
 .nav-cta {
-  margin-left: 24px;
-  font-size: 9px; letter-spacing: 2px; text-transform: uppercase;
-  color: var(--bg); background: var(--gold);
-  padding: 8px 20px; text-decoration: none;
-  transition: all .2s; font-weight: 600;
+  margin-left: 16px; font-size: 11px; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--bg); background: var(--gold);
+  padding: 10px 22px; text-decoration: none; border-radius: 8px;
+  transition: all .2s; border: 1px solid transparent;
 }
-.nav-cta:hover { background: var(--gold2); }
+.nav-cta:hover { background: var(--gold-h); transform: translateY(-1px); box-shadow: 0 8px 24px rgba(184,149,90,0.25); }
 
-/* ── SECTION UTILITIES ─────────────────── */
-section { position: relative; }
-.container { max-width: 1280px; margin: 0 auto; padding: 0 48px; }
-.section-pad { padding: 100px 0; }
-.section-pad-lg { padding: 140px 0; }
+/* ── LAYOUT ─────────────────────────────────────────────── */
+.container { max-width: 1240px; margin: 0 auto; padding: 0 48px; }
+.section { padding: 100px 0; }
+.section-sm { padding: 64px 0; }
+.section-lg { padding: 140px 0; }
 
-.section-tag {
-  font-family: 'DM Mono', monospace;
+/* ── TAGS & LABELS ──────────────────────────────────────── */
+.tag {
+  display: inline-block; font-family: 'DM Mono', monospace;
   font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
-  color: var(--gold); margin-bottom: 16px; display: block;
+  color: var(--gold); background: rgba(184,149,90,0.1);
+  border: 1px solid rgba(184,149,90,0.2); padding: 4px 12px; border-radius: 4px;
+  margin-bottom: 20px;
 }
-.section-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(32px, 4vw, 52px);
-  font-weight: 300; color: var(--white);
-  line-height: 1.08; letter-spacing: 0.01em;
-}
-.section-title em { font-style: italic; color: var(--gold); }
-.section-sub {
-  font-size: 14px; color: var(--muted); line-height: 1.7;
-  max-width: 560px; margin-top: 16px;
-}
-.divider {
-  width: 1px; height: 60px; background: var(--gold-dim);
-  margin: 32px 0;
-}
-.divider-h {
-  height: 1px; background: var(--border);
-  margin: 60px 0;
+.overline {
+  font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--text2); display: block; margin-bottom: 16px;
 }
 
-/* ── CARDS ─────────────────────────────── */
+/* ── HEADINGS ───────────────────────────────────────────── */
+.h1 { font-size: clamp(44px, 5.5vw, 80px); font-weight: 800; line-height: 1.02; letter-spacing: -0.02em; }
+.h2 { font-size: clamp(32px, 3.5vw, 52px); font-weight: 700; line-height: 1.1; letter-spacing: -0.01em; }
+.h3 { font-size: clamp(22px, 2.5vw, 32px); font-weight: 700; line-height: 1.2; }
+.h4 { font-size: 18px; font-weight: 700; line-height: 1.3; }
+.body-lg { font-size: 18px; line-height: 1.7; color: var(--text2); }
+.body { font-size: 15px; line-height: 1.65; color: var(--text2); }
+.gold { color: var(--gold) !important; }
+.white { color: var(--text) !important; }
+
+/* ── CARDS ──────────────────────────────────────────────── */
 .card {
-  background: var(--panel);
-  border: 1px solid var(--border2);
-  padding: 28px 24px;
-  transition: border-color .25s, transform .25s;
+  background: var(--bg2); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 36px;
+  transition: transform .25s, box-shadow .25s, border-color .25s;
 }
-.card:hover { border-color: rgba(201,178,110,0.3); transform: translateY(-2px); }
-.card-label {
-  font-family: 'DM Mono', monospace;
-  font-size: 8px; letter-spacing: 2.5px; text-transform: uppercase;
-  color: var(--gold-dim); margin-bottom: 10px;
+.card:hover {
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3), 0 0 0 1px rgba(184,149,90,0.2);
+  border-color: rgba(184,149,90,0.3);
 }
-.card-value {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 32px; font-weight: 400; color: var(--white);
-  line-height: 1;
-}
-.card-desc { font-size: 12px; color: var(--muted); margin-top: 8px; line-height: 1.5; }
+.card-sm { padding: 24px; border-radius: var(--radius-sm); }
 
-/* ── BUTTONS ───────────────────────────── */
+/* ── KPI CARDS ──────────────────────────────────────────── */
+.kpi-num {
+  font-size: clamp(42px, 5vw, 64px); font-weight: 800;
+  color: var(--gold); line-height: 1; letter-spacing: -0.02em;
+}
+.kpi-label {
+  font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 2.5px;
+  text-transform: uppercase; color: var(--text2); margin-top: 8px;
+}
+.kpi-desc { font-size: 12px; color: var(--text3); margin-top: 4px; }
+
+/* ── BUTTONS ────────────────────────────────────────────── */
 .btn {
-  display: inline-flex; align-items: center; gap: 10px;
-  font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase;
-  font-family: 'Syne', sans-serif; font-weight: 600;
-  padding: 14px 28px; text-decoration: none; cursor: pointer;
-  border: none; transition: all .22s;
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: 'Manrope', sans-serif; font-size: 12px; font-weight: 700;
+  letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none;
+  padding: 14px 28px; border-radius: 10px; border: none; cursor: pointer;
+  transition: all .2s; white-space: nowrap;
 }
-.btn-gold { background: var(--gold); color: var(--bg); }
-.btn-gold:hover { background: var(--gold2); }
-.btn-outline { background: transparent; color: var(--gold); border: 1px solid var(--gold); }
-.btn-outline:hover { background: rgba(201,178,110,0.1); }
-.btn-ghost { background: transparent; color: var(--muted); border: 1px solid var(--border); }
-.btn-ghost:hover { border-color: var(--gold); color: var(--gold2); }
-.btn-arrow::after { content: '→'; font-size: 14px; transition: transform .2s; }
-.btn:hover .btn-arrow::after, .btn-arrow:hover::after { transform: translateX(4px); }
+.btn-primary { background: var(--gold); color: #0A0B0D; }
+.btn-primary:hover { background: var(--gold-h); transform: translateY(-2px); box-shadow: 0 12px 32px rgba(184,149,90,0.3); }
+.btn-secondary { background: rgba(255,255,255,0.06); color: var(--text); border: 1px solid var(--border); }
+.btn-secondary:hover { background: rgba(255,255,255,0.1); border-color: rgba(184,149,90,0.4); color: var(--gold); }
+.btn-outline { background: transparent; color: var(--gold); border: 1.5px solid var(--gold); }
+.btn-outline:hover { background: rgba(184,149,90,0.1); }
+.btn-ghost { background: transparent; color: var(--text2); border: 1px solid var(--border); }
+.btn-ghost:hover { color: var(--text); border-color: var(--text2); }
 
-/* ── GRID ──────────────────────────────── */
-.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border2); }
-.grid-3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--border2); }
-.grid-4 { display: grid; grid-template-columns: repeat(4,1fr); gap: 1px; background: var(--border2); }
-.grid-2 > *, .grid-3 > *, .grid-4 > * { background: var(--bg); }
-
-/* ── BIG NUMBER ────────────────────────── */
-.big-num {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(48px, 6vw, 80px);
-  font-weight: 300; color: var(--gold);
-  line-height: 1; letter-spacing: -0.02em;
+/* ── FEATURE LIST ───────────────────────────────────────── */
+.feat-item {
+  display: flex; gap: 16px; padding: 18px 0;
+  border-bottom: 1px solid var(--border); align-items: flex-start;
 }
-.big-num-label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-top: 8px; font-family: 'DM Mono', monospace; }
+.feat-item:last-child { border-bottom: none; }
+.feat-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); margin-top: 7px; flex-shrink: 0; }
+.feat-content h4 { font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+.feat-content p { font-size: 13px; color: var(--text2); line-height: 1.55; }
 
-/* ── SCROLL REVEAL ─────────────────────── */
-.reveal { opacity: 0; transform: translateY(28px); transition: opacity .7s ease, transform .7s ease; }
+/* ── GLASS CARD ─────────────────────────────────────────── */
+.glass {
+  background: rgba(27,31,36,0.7); border: 1px solid rgba(43,49,56,0.8);
+  backdrop-filter: blur(16px); border-radius: var(--radius);
+}
+
+/* ── DIVIDER LINE ───────────────────────────────────────── */
+.hr { height: 1px; background: var(--border); margin: 0; }
+.hr-gold { height: 1px; background: linear-gradient(90deg, var(--gold), transparent); width: 80px; margin: 24px 0; }
+
+/* ── GRID HELPERS ───────────────────────────────────────── */
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.grid-3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+.grid-4 { display: grid; grid-template-columns: repeat(4,1fr); gap: 20px; }
+
+/* ── SCROLL REVEAL ──────────────────────────────────────── */
+.reveal { opacity: 0; transform: translateY(32px); transition: opacity .65s ease, transform .65s ease; }
 .reveal.visible { opacity: 1; transform: translateY(0); }
 .reveal-delay-1 { transition-delay: .1s; }
 .reveal-delay-2 { transition-delay: .2s; }
 .reveal-delay-3 { transition-delay: .3s; }
 .reveal-delay-4 { transition-delay: .4s; }
+.reveal-left { opacity: 0; transform: translateX(-24px); transition: opacity .65s ease, transform .65s ease; }
+.reveal-left.visible { opacity: 1; transform: translateX(0); }
 
-/* ── FOOTER ────────────────────────────── */
-footer {
-  background: var(--bg2); border-top: 1px solid var(--border2);
-  padding: 60px 0 32px;
-}
-.footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 22px; color: var(--white); }
-.footer-sub { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold-dim); font-family: 'DM Mono', monospace; margin-top: 4px; }
-.footer-links { display: flex; gap: 24px; flex-wrap: wrap; margin-top: 32px; }
-.footer-link { font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color .2s; }
+/* ── SECTION DIVIDER ────────────────────────────────────── */
+.section-header { margin-bottom: 60px; }
+.section-header-split { display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 24px; margin-bottom: 60px; }
+
+/* ── FOOTER ─────────────────────────────────────────────── */
+footer { background: var(--bg2); border-top: 1px solid var(--border); padding: 72px 0 36px; }
+.footer-brand { font-size: 20px; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase; }
+.footer-sub { font-family: 'DM Mono', monospace; font-size: 8px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-top: 6px; }
+.footer-link { font-size: 13px; color: var(--text2); text-decoration: none; transition: color .2s; display: block; margin-bottom: 10px; }
 .footer-link:hover { color: var(--gold); }
-.footer-copy { font-size: 10px; color: var(--muted2); font-family: 'DM Mono', monospace; margin-top: 48px; }
+.footer-col-label { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--text3); margin-bottom: 20px; }
 
-/* ── RESPONSIVE ────────────────────────── */
-@media (max-width: 900px) {
+/* ── BADGE ──────────────────────────────────────────────── */
+.badge {
+  display: inline-block; font-family: 'DM Mono', monospace;
+  font-size: 8px; letter-spacing: 2px; text-transform: uppercase;
+  padding: 3px 10px; border-radius: 4px;
+}
+.badge-gold { background: rgba(184,149,90,0.15); color: var(--gold); border: 1px solid rgba(184,149,90,0.25); }
+.badge-green { background: rgba(76,119,84,0.15); color: var(--green); border: 1px solid rgba(76,119,84,0.3); }
+.badge-gray { background: rgba(43,49,56,0.8); color: var(--text2); border: 1px solid var(--border); }
+
+/* ── RESPONSIVE ─────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .container { padding: 0 28px; }
+  .grid-4 { grid-template-columns: repeat(2,1fr); }
+}
+@media (max-width: 768px) {
   .nav { padding: 0 20px; }
   .nav-links { display: none; }
-  .container { padding: 0 24px; }
-  .section-pad { padding: 64px 0; }
+  .container { padding: 0 20px; }
+  .section { padding: 64px 0; }
+  .section-lg { padding: 80px 0; }
   .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+  .h1 { font-size: 38px; }
+  .h2 { font-size: 28px; }
+  .section-header-split { flex-direction: column; }
 }
-
-.form-group { margin-bottom: 20px; }
-.form-label { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:2px; text-transform:uppercase; color:var(--gold-dim); display:block; margin-bottom:8px; }
-.form-input, .form-textarea, .form-select {
-  width:100%; background:var(--bg3); border:1px solid var(--border2); color:var(--text);
-  padding:13px 16px; font-family:'Syne',sans-serif; font-size:13px;
-  transition:border-color .2s; outline:none; appearance:none;
-}
-.form-input:focus, .form-textarea:focus, .form-select:focus { border-color:var(--gold); }
-.form-textarea { min-height:120px; resize:vertical; }
-.interest-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; }
-.interest-item { cursor:pointer; }
-.interest-item input { display:none; }
-.interest-label {
-  display:block; padding:11px 14px; border:1px solid var(--border2); font-size:11px;
-  letter-spacing:1px; text-transform:uppercase; color:var(--muted); text-align:center;
-  transition:all .2s; font-family:'DM Mono',monospace; cursor:pointer;
-}
-.interest-item input:checked + .interest-label { border-color:var(--gold); color:var(--gold); background:rgba(201,178,110,0.08); }
-.interest-label:hover { border-color:var(--border); color:var(--text); }
-</style>
+.fi{margin-bottom:18px}.fl{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--text2);display:block;margin-bottom:8px}.fi input,.fi textarea{width:100%;background:var(--bg2);border:1px solid var(--border);color:var(--text);padding:13px 16px;font-family:'Manrope',sans-serif;font-size:14px;border-radius:10px;outline:none;transition:border-color .2s}.fi input:focus,.fi textarea:focus{border-color:var(--gold)}.fi textarea{min-height:120px;resize:vertical}.int-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.int-item input{display:none}.int-lbl{display:block;padding:10px 14px;border:1px solid var(--border);border-radius:8px;font-size:11px;color:var(--text2);text-align:center;cursor:pointer;transition:all .2s;font-weight:500}.int-item input:checked+.int-lbl{border-color:var(--gold);color:var(--gold);background:rgba(184,149,90,0.08)}.int-lbl:hover{border-color:rgba(184,149,90,0.4);color:var(--text)}</style>
 </head>
 <body data-page="kontakt">
 <nav class="nav" id="nav">
-  <a href="index.html" class="nav-logo">Areál David<span>Košice — Rozvojové územie</span></a>
+  <a href="index.html" class="nav-logo">
+    <div class="nav-logo-main">Areál David</div>
+    <div class="nav-logo-sub">Košice · Rozvojové územie</div>
+  </a>
   <div class="nav-links">
     <a href="index.html" class="nav-link" data-page="index">Domov</a>
     <a href="uzemie.html" class="nav-link" data-page="uzemie">Územie</a>
@@ -242,196 +233,145 @@ footer {
   </div>
   <a href="kontakt.html" class="nav-cta">Mám záujem</a>
 </nav>
-
-
-<section style="padding:160px 0 80px;background:linear-gradient(160deg,#0a0b09,#111310);border-bottom:1px solid var(--border2);position:relative;overflow:hidden">
-  <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(201,178,110,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(201,178,110,0.03) 1px,transparent 1px);background-size:80px 80px;opacity:0.5"></div>
-  <div class="container" style="position:relative;z-index:1">
-    <span class="section-tag">Kontakt</span>
-    <h1 class="section-title" style="font-size:clamp(36px,5vw,64px)">Spojte sa<br><em>s nami</em></h1>
-    <p class="section-sub">Máte záujem o investíciu, partnerstvo alebo ďalšie informácie? Sme k dispozícii pre kvalifikovaných investorov a strategických partnerov.</p>
+<section style="min-height:52vh;padding:140px 0 80px;background:var(--bg);border-bottom:1px solid var(--border);position:relative;overflow:hidden">
+  <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(184,149,90,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(184,149,90,0.04) 1px,transparent 1px);background-size:72px 72px"></div>
+  <div class="container reveal" style="position:relative;z-index:1">
+    <div class="tag">Kontakt</div>
+    <h1 class="h1" style="max-width:700px;margin-bottom:20px">Spojte sa <span class="gold">s nami</span></h1>
+    <p class="body-lg" style="max-width:540px">Máte záujem o investíciu, partnerstvo alebo ďalšie informácie? Sme k dispozícii pre kvalifikovaných investorov.</p>
   </div>
 </section>
-
-<section class="section-pad" style="background:var(--bg)">
+<section class="section" style="background:var(--bg)">
   <div class="container">
-    <div style="display:grid;grid-template-columns:1fr 1.4fr;gap:80px;align-items:start">
-      <!-- LEFT: Team + Info -->
+    <div style="display:grid;grid-template-columns:1fr 1.4fr;gap:64px;align-items:start">
       <div class="reveal">
-        <span class="section-tag">Projektový tím</span>
-        <h2 class="section-title" style="font-size:clamp(24px,3vw,38px)">Tím <em>projektu</em></h2>
-        <div class="divider"></div>
-        <!-- Team members placeholder -->
-        <div style="display:flex;flex-direction:column;gap:16px;margin-bottom:40px">
-          <div style="display:flex;gap:16px;align-items:center;padding:16px;background:var(--bg2);border:1px solid var(--border2)">
-            <div style="width:48px;height:48px;background:var(--bg3);border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0">👤</div>
-            <div>
-              <div style="font-weight:600;color:var(--white);margin-bottom:3px">Koordinátor projektu</div>
-              <div style="font-size:11px;color:var(--gold-dim);font-family:'DM Mono',monospace;letter-spacing:1px">Project Manager</div>
-              <div style="font-size:11px;color:var(--muted);margin-top:3px">Kontakt k dispozícii po NDA</div>
-            </div>
-          </div>
-          <div style="display:flex;gap:16px;align-items:center;padding:16px;background:var(--bg2);border:1px solid var(--border2)">
-            <div style="width:48px;height:48px;background:var(--bg3);border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0">🏢</div>
-            <div>
-              <div style="font-weight:600;color:var(--white);margin-bottom:3px">Vlastník územia</div>
-              <div style="font-size:11px;color:var(--gold-dim);font-family:'DM Mono',monospace;letter-spacing:1px">SIS s.r.o. — Rožňava</div>
-              <div style="font-size:11px;color:var(--muted);margin-top:3px">Priamy kontakt cez koordinátora</div>
-            </div>
-          </div>
-          <div style="display:flex;gap:16px;align-items:center;padding:16px;background:var(--bg2);border:1px solid var(--border2)">
-            <div style="width:48px;height:48px;background:var(--bg3);border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0">🤝</div>
-            <div>
-              <div style="font-weight:600;color:var(--white);margin-bottom:3px">Partneri projektu</div>
-              <div style="font-size:11px;color:var(--gold-dim);font-family:'DM Mono',monospace;letter-spacing:1px">Legal / Technical / Financial</div>
-              <div style="font-size:11px;color:var(--muted);margin-top:3px">Predstavenie po podpise NDA</div>
-            </div>
-          </div>
-        </div>
-        <div style="background:rgba(201,178,110,0.05);border:1px solid var(--border);padding:20px">
-          <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gold-dim);margin-bottom:8px">Dôvernosť</div>
-          <div style="font-size:12px;color:var(--muted);line-height:1.65">Všetky zdieľané informácie sú dôverné. Pre prístup k detailnej dokumentácii vyžadujeme podpis NDA. Projekt je určený výhradne kvalifikovaným investorom.</div>
+        <div class="tag">Projektový tím</div>
+        <h2 class="h2" style="margin-bottom:28px">Tím <span class="gold">projektu</span></h2>
+        <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:28px"><div style="display:flex;gap:16px;align-items:center;padding:18px;background:var(--bg2);border:1px solid var(--border);border-radius:12px"><div style="width:44px;height:44px;background:var(--bg3);border:1px solid var(--border);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0">👤</div><div><div style="font-size:14px;font-weight:700;color:var(--text);margin-bottom:3px">Koordinátor projektu</div><div style="font-size:11px;font-family:'DM Mono',monospace;letter-spacing:1px;color:var(--gold);margin-bottom:3px;text-transform:uppercase">Project Manager</div><div style="font-size:12px;color:var(--text2)">Kontakt k dispozícii po NDA</div></div></div><div style="display:flex;gap:16px;align-items:center;padding:18px;background:var(--bg2);border:1px solid var(--border);border-radius:12px"><div style="width:44px;height:44px;background:var(--bg3);border:1px solid var(--border);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0">🏢</div><div><div style="font-size:14px;font-weight:700;color:var(--text);margin-bottom:3px">Vlastník územia</div><div style="font-size:11px;font-family:'DM Mono',monospace;letter-spacing:1px;color:var(--gold);margin-bottom:3px;text-transform:uppercase">SIS s.r.o. — Rožňava</div><div style="font-size:12px;color:var(--text2)">Priamy kontakt cez koordinátora</div></div></div><div style="display:flex;gap:16px;align-items:center;padding:18px;background:var(--bg2);border:1px solid var(--border);border-radius:12px"><div style="width:44px;height:44px;background:var(--bg3);border:1px solid var(--border);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0">🤝</div><div><div style="font-size:14px;font-weight:700;color:var(--text);margin-bottom:3px">Partneri projektu</div><div style="font-size:11px;font-family:'DM Mono',monospace;letter-spacing:1px;color:var(--gold);margin-bottom:3px;text-transform:uppercase">Legal · Technical · Financial</div><div style="font-size:12px;color:var(--text2)">Predstavenie po podpise NDA</div></div></div></div>
+        <div style="background:rgba(184,149,90,0.05);border:1px solid rgba(184,149,90,0.2);border-radius:12px;padding:20px">
+          <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:8px">Dôvernosť</div>
+          <p style="font-size:13px;color:var(--text2);line-height:1.65">Všetky zdieľané informácie sú dôverné. Pre prístup k detailnej dokumentácii vyžadujeme podpis NDA.</p>
         </div>
       </div>
-      <!-- RIGHT: Form -->
       <div class="reveal reveal-delay-2">
-        <span class="section-tag">Kontaktný formulár</span>
-        <h2 class="section-title" style="font-size:clamp(24px,3vw,38px)">Napíšte <em>nám</em></h2>
-        <div class="divider"></div>
-        <form onsubmit="handleSubmit(event)">
-          <div class="form-group">
-            <label class="form-label">Mám záujem o</label>
-            <div class="interest-grid">
-              <label class="interest-item"><input type="checkbox" name="interest" value="investicia"><span class="interest-label">Investíciu</span></label>
-              <label class="interest-item"><input type="checkbox" name="interest" value="jv"><span class="interest-label">JV partnerstvo</span></label>
-              <label class="interest-item"><input type="checkbox" name="interest" value="development"><span class="interest-label">Development</span></label>
-              <label class="interest-item"><input type="checkbox" name="interest" value="financovanie"><span class="interest-label">Financovanie</span></label>
-              <label class="interest-item"><input type="checkbox" name="interest" value="kupa"><span class="interest-label">Kúpu projektu</span></label>
-              <label class="interest-item"><input type="checkbox" name="interest" value="konzultacia"><span class="interest-label">Konzultáciu</span></label>
+        <div class="tag">Formulár</div>
+        <h2 class="h2" style="margin-bottom:28px">Napíšte <span class="gold">nám</span></h2>
+        <form onsubmit="handleSubmit(event)" id="cf">
+          <div class="fi"><label class="fl">Mám záujem o</label>
+            <div class="int-grid">
+              <label class="int-item"><input type="checkbox" value="investicia"><span class="int-lbl">Investíciu</span></label>
+              <label class="int-item"><input type="checkbox" value="jv"><span class="int-lbl">JV partnerstvo</span></label>
+              <label class="int-item"><input type="checkbox" value="development"><span class="int-lbl">Development</span></label>
+              <label class="int-item"><input type="checkbox" value="financovanie"><span class="int-lbl">Financovanie</span></label>
+              <label class="int-item"><input type="checkbox" value="kupa"><span class="int-lbl">Kúpu projektu</span></label>
+              <label class="int-item"><input type="checkbox" value="konzultacia"><span class="int-lbl">Konzultáciu</span></label>
             </div>
           </div>
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
-            <div class="form-group">
-              <label class="form-label">Meno a priezvisko *</label>
-              <input type="text" class="form-input" placeholder="Ján Novák" required>
-            </div>
-            <div class="form-group">
-              <label class="form-label">Spoločnosť</label>
-              <input type="text" class="form-input" placeholder="Vaša spoločnosť">
-            </div>
+            <div class="fi"><label class="fl">Meno *</label><input type="text" placeholder="Ján Novák" required></div>
+            <div class="fi"><label class="fl">Spoločnosť</label><input type="text" placeholder="Vaša firma"></div>
           </div>
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
-            <div class="form-group">
-              <label class="form-label">E-mail *</label>
-              <input type="email" class="form-input" placeholder="jan@spolocnost.sk" required>
-            </div>
-            <div class="form-group">
-              <label class="form-label">Telefón</label>
-              <input type="tel" class="form-input" placeholder="+421 9XX XXX XXX">
-            </div>
+            <div class="fi"><label class="fl">E-mail *</label><input type="email" placeholder="jan@firma.sk" required></div>
+            <div class="fi"><label class="fl">Telefón</label><input type="tel" placeholder="+421 9XX XXX XXX"></div>
           </div>
-          <div class="form-group">
-            <label class="form-label">Vaša správa</label>
-            <textarea class="form-textarea" placeholder="Popíšte váš záujem, investičný profil alebo otázky k projektu..."></textarea>
+          <div class="fi"><label class="fl">Správa</label><textarea placeholder="Popíšte váš záujem, investičný profil alebo otázky..."></textarea></div>
+          <div class="fi" style="display:flex;align-items:flex-start;gap:10px">
+            <input type="checkbox" id="g" required style="margin-top:3px;accent-color:var(--gold);width:16px;height:16px;flex-shrink:0">
+            <label for="g" style="font-size:12px;color:var(--text2);line-height:1.55;cursor:pointer">Súhlasím so spracovaním osobných údajov podľa GDPR za účelom kontaktovania v súvislosti s projektom Areál David Košice.</label>
           </div>
-          <div class="form-group" style="display:flex;align-items:flex-start;gap:12px">
-            <input type="checkbox" id="gdpr" required style="margin-top:3px;accent-color:var(--gold)">
-            <label for="gdpr" style="font-size:11px;color:var(--muted);line-height:1.55;cursor:pointer">Súhlasím so spracovaním osobných údajov v súlade so GDPR za účelom kontaktovania v súvislosti s projektom Areál David Košice.</label>
-          </div>
-          <button type="submit" class="btn btn-gold" style="width:100%;justify-content:center">Odoslať správu <span style="font-size:14px">→</span></button>
+          <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center">Odoslať správu →</button>
         </form>
-        <div id="form-success" style="display:none;background:rgba(90,138,90,0.1);border:1px solid rgba(90,138,90,0.3);padding:20px;margin-top:16px;text-align:center">
-          <div style="font-size:24px;margin-bottom:8px">✓</div>
-          <div style="color:var(--green);font-weight:600;margin-bottom:4px">Správa odoslaná</div>
-          <div style="font-size:12px;color:var(--muted)">Ozveme sa vám do 2 pracovných dní.</div>
+        <div id="ok" style="display:none;background:rgba(76,119,84,0.1);border:1px solid rgba(76,119,84,0.3);border-radius:12px;padding:32px;text-align:center;margin-top:16px">
+          <div style="font-size:36px;margin-bottom:12px">✓</div>
+          <div style="font-size:16px;font-weight:700;color:var(--green);margin-bottom:6px">Správa odoslaná</div>
+          <div style="font-size:13px;color:var(--text2)">Ozveme sa do 2 pracovných dní.</div>
         </div>
       </div>
     </div>
   </div>
 </section>
-
-<script>
-function handleSubmit(e) {
-  e.preventDefault();
-  document.querySelector('form').style.display = 'none';
-  document.getElementById('form-success').style.display = 'block';
-}
-</script>
+<script>function handleSubmit(e){e.preventDefault();document.getElementById('cf').style.display='none';document.getElementById('ok').style.display='block';}</script>
 <footer>
   <div class="container">
-    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:48px;padding-bottom:48px;border-bottom:1px solid var(--border2)">
+    <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;padding-bottom:48px;border-bottom:1px solid var(--border)">
       <div>
-        <div class="footer-logo">Areál David</div>
+        <div class="footer-brand">Areál David</div>
         <div class="footer-sub">Košice — Strategické rozvojové územie</div>
-        <div style="margin-top:20px;font-size:12px;color:var(--muted);line-height:1.7">Transformácia priemyselného areálu na nový mestský mixed-use distrikt v Košiciach.</div>
-      </div>
-      <div>
-        <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gold-dim);margin-bottom:16px;font-family:'DM Mono',monospace">Navigácia</div>
-        <div class="footer-links" style="flex-direction:column;gap:10px">
-          <a href="index.html" class="footer-link">Domov</a>
-          <a href="uzemie.html" class="footer-link">Územie a regulácia</a>
-          <a href="investicia.html" class="footer-link">Investičná príležitosť</a>
-          <a href="varianty.html" class="footer-link">Varianty rozvoja</a>
-          <a href="dokumenty.html" class="footer-link">Dokumenty</a>
-          <a href="kontakt.html" class="footer-link">Kontakt</a>
+        <div style="font-size:13px;color:var(--text2);margin-top:20px;max-width:280px;line-height:1.65">Transformácia priemyselného areálu na nový mestský mixed-use distrikt v Košiciach.</div>
+        <div style="margin-top:24px;display:flex;gap:10px;flex-wrap:wrap">
+          <span class="badge badge-gold">Rozvojové územie</span>
+          <span class="badge badge-gray">98 400 m²</span>
         </div>
       </div>
       <div>
-        <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gold-dim);margin-bottom:16px;font-family:'DM Mono',monospace">Kontakt</div>
-        <div style="font-size:12px;color:var(--muted);line-height:1.9">
-          Košice, Slovenská republika<br>
-          <a href="kontakt.html" style="color:var(--gold);text-decoration:none;margin-top:12px;display:inline-block">Kontaktný formulár →</a>
+        <div class="footer-col-label">Projekt</div>
+        <a href="index.html" class="footer-link">Domov</a>
+        <a href="uzemie.html" class="footer-link">Územie a regulácia</a>
+        <a href="investicia.html" class="footer-link">Investičná príležitosť</a>
+        <a href="varianty.html" class="footer-link">Varianty rozvoja</a>
+      </div>
+      <div>
+        <div class="footer-col-label">Info</div>
+        <a href="dokumenty.html" class="footer-link">Dokumenty</a>
+        <a href="kontakt.html" class="footer-link">Kontakt</a>
+        <a href="varianty.html" class="footer-link">Data Room (NDA)</a>
+      </div>
+      <div>
+        <div class="footer-col-label">Kontakt</div>
+        <div style="font-size:13px;color:var(--text2);line-height:1.8">
+          Košice, SR<br>
+          <a href="kontakt.html" style="color:var(--gold);text-decoration:none;margin-top:12px;display:inline-block;font-size:12px">Formulár →</a>
         </div>
       </div>
     </div>
-    <div style="display:flex;justify-content:space-between;align-items:center;margin-top:24px;flex-wrap:wrap;gap:12px">
-      <div class="footer-copy">© 2026 Areál David Košice. Všetky práva vyhradené.</div>
-      <div style="font-size:9px;color:var(--muted2);font-family:'DM Mono',monospace;letter-spacing:1px">Dôverný investičný materiál</div>
+    <div style="display:flex;justify-content:space-between;align-items:center;padding-top:28px;flex-wrap:wrap;gap:12px">
+      <div style="font-size:12px;color:var(--text3)">© 2026 Areál David Košice. Dôverný investičný materiál.</div>
+      <div style="font-family:'DM Mono',monospace;font-size:9px;color:var(--text3);letter-spacing:1.5px">INVESTOR TEASER · v3.0</div>
     </div>
   </div>
 </footer>
-
 <script>
-// Nav scroll
+// Nav scroll state
 const nav = document.getElementById('nav');
-window.addEventListener('scroll', () => {
-  nav.classList.toggle('scrolled', window.scrollY > 40);
+if(nav) window.addEventListener('scroll', () => {
+  nav.style.boxShadow = window.scrollY > 60 ? '0 4px 32px rgba(0,0,0,0.4)' : '';
 });
 
-// Set active nav
+// Active nav
 const page = document.body.dataset.page;
 document.querySelectorAll('.nav-link[data-page]').forEach(a => {
   if(a.dataset.page === page) a.classList.add('active');
 });
 
 // Scroll reveal
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
-}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+const revealObs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) { e.target.classList.add('visible'); }});
+}, { threshold: 0.06, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal, .reveal-left').forEach(el => revealObs.observe(el));
 
-// Counter animation
-function animateCounter(el) {
-  const target = parseFloat(el.dataset.target);
+// Number counter
+function animateNum(el) {
+  const raw = el.dataset.target;
   const suffix = el.dataset.suffix || '';
   const prefix = el.dataset.prefix || '';
-  const decimals = el.dataset.decimals ? parseInt(el.dataset.decimals) : 0;
-  const duration = 1800;
+  const isFloat = raw.includes('.');
+  const target = parseFloat(raw);
+  const dur = 2000;
   const start = performance.now();
-  const update = (now) => {
-    const p = Math.min((now - start) / duration, 1);
-    const ease = 1 - Math.pow(1 - p, 3);
+  const update = t => {
+    const p = Math.min((t-start)/dur,1);
+    const ease = 1 - Math.pow(1-p, 4);
     const val = target * ease;
-    el.textContent = prefix + (decimals ? val.toFixed(decimals) : Math.round(val).toLocaleString('sk')) + suffix;
+    el.textContent = prefix + (isFloat ? val.toFixed(1) : Math.round(val).toLocaleString('sk')) + suffix;
     if(p < 1) requestAnimationFrame(update);
   };
   requestAnimationFrame(update);
 }
-const counterObs = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if(e.isIntersecting) { animateCounter(e.target); counterObs.unobserve(e.target); }});
+const numObs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) { animateNum(e.target); numObs.unobserve(e.target); }});
 }, { threshold: 0.5 });
-document.querySelectorAll('[data-target]').forEach(el => counterObs.observe(el));
+document.querySelectorAll('[data-target]').forEach(el => numObs.observe(el));
 </script>
-
 </body>
 </html>
