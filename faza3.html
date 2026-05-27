@@ -311,7 +311,7 @@ footer { background: var(--bg3); border-top: 1px solid var(--border); padding: 7
         <div style="font-size:13px;color:var(--text2);margin-top:20px;max-width:280px;line-height:1.65">Transformácia priemyselného areálu na nový mestský mixed-use distrikt v Košiciach.</div>
         <div style="margin-top:24px;display:flex;gap:10px;flex-wrap:wrap">
           <span class="badge badge-gold">Rozvojové územie</span>
-          <span class="badge badge-gray">98 400 m²</span>
+          <span class="badge badge-gray">99 125 m²</span>
         </div>
       </div>
       <div>
@@ -325,7 +325,7 @@ footer { background: var(--bg3); border-top: 1px solid var(--border); padding: 7
         <div class="footer-col-label">Info</div>
         <a href="dokumenty.html" class="footer-link">Dokumenty</a>
         <a href="kontakt.html" class="footer-link">Kontakt</a>
-        <a href="varianty.html" class="footer-link">Data Room (NDA)</a>
+        <a href="dokumenty.html" class="footer-link">Data Room (NDA)</a>
       </div>
       <div>
         <div class="footer-col-label">Kontakt</div>
@@ -393,7 +393,7 @@ document.querySelectorAll('[data-target]').forEach(el => numObs.observe(el));
         <div style="font-size:13px;color:var(--text2);margin-top:20px;max-width:280px;line-height:1.65">Transformácia priemyselného areálu na nový mestský mixed-use distrikt v Košiciach.</div>
         <div style="margin-top:24px;display:flex;gap:10px;flex-wrap:wrap">
           <span class="badge badge-gold">Rozvojové územie</span>
-          <span class="badge badge-gray">98 400 m²</span>
+          <span class="badge badge-gray">99 125 m²</span>
         </div>
       </div>
       <div>
@@ -407,7 +407,7 @@ document.querySelectorAll('[data-target]').forEach(el => numObs.observe(el));
         <div class="footer-col-label">Info</div>
         <a href="dokumenty.html" class="footer-link">Dokumenty</a>
         <a href="kontakt.html" class="footer-link">Kontakt</a>
-        <a href="varianty.html" class="footer-link">Data Room (NDA)</a>
+        <a href="dokumenty.html" class="footer-link">Data Room (NDA)</a>
       </div>
       <div>
         <div class="footer-col-label">Kontakt</div>
@@ -423,47 +423,6 @@ document.querySelectorAll('[data-target]').forEach(el => numObs.observe(el));
     </div>
   </div>
 </footer>
-<script>
-// Nav scroll state
-const nav = document.getElementById('nav');
-if(nav) window.addEventListener('scroll', () => {
-  nav.style.boxShadow = window.scrollY > 60 ? '0 4px 32px rgba(0,0,0,0.4)' : '';
-});
 
-// Active nav
-const page = document.body.dataset.page;
-document.querySelectorAll('.nav-link[data-page]').forEach(a => {
-  if(a.dataset.page === page) a.classList.add('active');
-});
-
-// Scroll reveal
-const revealObs = new IntersectionObserver(entries => {
-  entries.forEach(e => { if(e.isIntersecting) { e.target.classList.add('visible'); }});
-}, { threshold: 0.06, rootMargin: '0px 0px -40px 0px' });
-document.querySelectorAll('.reveal, .reveal-left').forEach(el => revealObs.observe(el));
-
-// Number counter
-function animateNum(el) {
-  const raw = el.dataset.target;
-  const suffix = el.dataset.suffix || '';
-  const prefix = el.dataset.prefix || '';
-  const isFloat = raw.includes('.');
-  const target = parseFloat(raw);
-  const dur = 2000;
-  const start = performance.now();
-  const update = t => {
-    const p = Math.min((t-start)/dur,1);
-    const ease = 1 - Math.pow(1-p, 4);
-    const val = target * ease;
-    el.textContent = prefix + (isFloat ? val.toFixed(1) : Math.round(val).toLocaleString('sk')) + suffix;
-    if(p < 1) requestAnimationFrame(update);
-  };
-  requestAnimationFrame(update);
-}
-const numObs = new IntersectionObserver(entries => {
-  entries.forEach(e => { if(e.isIntersecting) { animateNum(e.target); numObs.unobserve(e.target); }});
-}, { threshold: 0.5 });
-document.querySelectorAll('[data-target]').forEach(el => numObs.observe(el));
-</script>
 </body>
 </html>
