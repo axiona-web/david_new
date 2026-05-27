@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>EIB Nájomný model | Areál David Košice</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=DM+Mono:wght@300;400;500&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:       #F7F6F3;
+  --bg2:      #EEECEA;
+  --bg3:      #E5E3DF;
+  --bg4:      #DDDBD7;
+  --border:   #D4D0C8;
+  --border-l: rgba(180,175,165,0.5);
+  --gold:     #8A6830;
+  --gold-h:   #A07840;
+  --gold-dim: #B89860;
+  --green:    #3A6040;
+  --text:     #1A1814;
+  --text2:    #5A5650;
+  --text3:    #8A8680;
+  --light-bg: #F4F5F6;
+  --radius:   20px;
+  --radius-sm:12px;
+}
+
+html { scroll-behavior: smooth; }
+body { font-family: 'Manrope', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden; }
+
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--gold-dim); border-radius: 2px; }
+
+/* ── NAVIGATION ─────────────────────────────────────────── */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  height: 68px; display: flex; align-items: center;
+  padding: 0 48px;
+  background: rgba(247,246,243,0.96);
+  backdrop-filter: blur(20px) saturate(1.2);
+  border-bottom: 1px solid rgba(212,208,200,0.9);
+  box-shadow: 0 1px 0 rgba(0,0,0,0.06);
+  transition: all .3s;
+}
+.nav-logo {
+  text-decoration: none; margin-right: auto; display: flex; flex-direction: column;
+}
+.nav-logo-main {
+  font-size: 16px; font-weight: 700; letter-spacing: 0.06em;
+  text-transform: uppercase; color: var(--text); line-height: 1;
+}
+.nav-logo-sub {
+  font-family: 'DM Mono', monospace; font-size: 8px; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--gold); margin-top: 3px; opacity: 0.8;
+}
+.nav-links { display: flex; align-items: center; gap: 4px; }
+.nav-link {
+  font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--text2); text-decoration: none; padding: 8px 14px; border-radius: 6px;
+  transition: all .2s; position: relative;
+}
+.nav-link:hover { color: var(--text); background: rgba(0,0,0,0.04); }
+.nav-link.active { color: var(--gold); }
+.nav-cta {
+  margin-left: 16px; font-size: 11px; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; color: #F8F5EF; background: var(--gold);
+  padding: 10px 22px; text-decoration: none; border-radius: 8px;
+  transition: all .2s; border: 1px solid transparent;
+}
+.nav-cta:hover { background: var(--gold-h); transform: translateY(-1px); box-shadow: 0 8px 24px rgba(184,149,90,0.25); }
+
+/* ── LAYOUT ─────────────────────────────────────────────── */
+.container { max-width: 1240px; margin: 0 auto; padding: 0 48px; }
+.section { padding: 100px 0; }
+.section-sm { padding: 64px 0; }
+.section-lg { padding: 140px 0; }
+
+/* ── TAGS & LABELS ──────────────────────────────────────── */
+.tag {
+  display: inline-block; font-family: 'DM Mono', monospace;
+  font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--gold); background: rgba(184,149,90,0.1);
+  border: 1px solid rgba(184,149,90,0.2); padding: 4px 12px; border-radius: 4px;
+  margin-bottom: 20px;
+}
+.overline {
+  font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--text2); display: block; margin-bottom: 16px;
+}
+
+/* ── HEADINGS ───────────────────────────────────────────── */
+.h1 { font-size: clamp(44px, 5.5vw, 80px); font-weight: 800; line-height: 1.02; letter-spacing: -0.02em; }
+.h2 { font-size: clamp(32px, 3.5vw, 52px); font-weight: 700; line-height: 1.1; letter-spacing: -0.01em; }
+.h3 { font-size: clamp(22px, 2.5vw, 32px); font-weight: 700; line-height: 1.2; }
+.h4 { font-size: 18px; font-weight: 700; line-height: 1.3; }
+.body-lg { font-size: 18px; line-height: 1.7; color: var(--text2); }
+.body { font-size: 15px; line-height: 1.65; color: var(--text2); }
+.gold { color: var(--gold) !important; }
+.white { color: var(--text) !important; }
+
+/* ── CARDS ──────────────────────────────────────────────── */
+.card {
+  background: var(--bg2); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 36px;
+  transition: transform .25s, box-shadow .25s, border-color .25s;
+}
+.card:hover {
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.12), 0 0 0 1px rgba(138,104,48,0.25);
+  border-color: rgba(184,149,90,0.3);
+}
+.card-sm { padding: 24px; border-radius: var(--radius-sm); }
+
+/* ── KPI CARDS ──────────────────────────────────────────── */
+.kpi-num {
+  font-size: clamp(42px, 5vw, 64px); font-weight: 800;
+  color: var(--gold); line-height: 1; letter-spacing: -0.02em;
+}
+.kpi-label {
+  font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 2.5px;
+  text-transform: uppercase; color: var(--text2); margin-top: 8px;
+}
+.kpi-desc { font-size: 12px; color: var(--text3); margin-top: 4px; }
+
+/* ── BUTTONS ────────────────────────────────────────────── */
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: 'Manrope', sans-serif; font-size: 12px; font-weight: 700;
+  letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none;
+  padding: 14px 28px; border-radius: 10px; border: none; cursor: pointer;
+  transition: all .2s; white-space: nowrap;
+}
+.btn-primary { background: var(--gold); color: #0A0B0D; }
+.btn-primary:hover { background: var(--gold-h); transform: translateY(-2px); box-shadow: 0 12px 32px rgba(184,149,90,0.3); }
+.btn-secondary { background: rgba(255,255,255,0.06); color: var(--text); border: 1px solid var(--border); }
+.btn-secondary:hover { background: rgba(255,255,255,0.1); border-color: rgba(184,149,90,0.4); color: var(--gold); }
+.btn-outline { background: transparent; color: var(--gold); border: 1.5px solid var(--gold); }
+.btn-outline:hover { background: rgba(184,149,90,0.1); }
+.btn-ghost { background: transparent; color: var(--text2); border: 1px solid var(--border); }
+.btn-ghost:hover { color: var(--text); border-color: var(--text2); }
+
+/* ── FEATURE LIST ───────────────────────────────────────── */
+.feat-item {
+  display: flex; gap: 16px; padding: 18px 0;
+  border-bottom: 1px solid var(--border); align-items: flex-start;
+}
+.feat-item:last-child { border-bottom: none; }
+.feat-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); margin-top: 7px; flex-shrink: 0; }
+.feat-content h4 { font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+.feat-content p { font-size: 13px; color: var(--text2); line-height: 1.55; }
+
+/* ── GLASS CARD ─────────────────────────────────────────── */
+.glass {
+  background: rgba(27,31,36,0.7); border: 1px solid rgba(43,49,56,0.8);
+  backdrop-filter: blur(16px); border-radius: var(--radius);
+}
+
+/* ── DIVIDER LINE ───────────────────────────────────────── */
+.hr { height: 1px; background: var(--border); margin: 0; }
+.hr-gold { height: 1px; background: linear-gradient(90deg, var(--gold), transparent); width: 80px; margin: 24px 0; }
+
+/* ── GRID HELPERS ───────────────────────────────────────── */
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.grid-3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+.grid-4 { display: grid; grid-template-columns: repeat(4,1fr); gap: 20px; }
+
+/* ── SCROLL REVEAL ──────────────────────────────────────── */
+.reveal { opacity: 0; transform: translateY(32px); transition: opacity .65s ease, transform .65s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-delay-1 { transition-delay: .1s; }
+.reveal-delay-2 { transition-delay: .2s; }
+.reveal-delay-3 { transition-delay: .3s; }
+.reveal-delay-4 { transition-delay: .4s; }
+.reveal-left { opacity: 0; transform: translateX(-24px); transition: opacity .65s ease, transform .65s ease; }
+.reveal-left.visible { opacity: 1; transform: translateX(0); }
+
+/* ── SECTION DIVIDER ────────────────────────────────────── */
+.section-header { margin-bottom: 60px; }
+.section-header-split { display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 24px; margin-bottom: 60px; }
+
+/* ── FOOTER ─────────────────────────────────────────────── */
+footer { background: var(--bg3); border-top: 1px solid var(--border); padding: 72px 0 36px; }
+.footer-brand { font-size: 20px; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase; }
+.footer-sub { font-family: 'DM Mono', monospace; font-size: 8px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-top: 6px; }
+.footer-link { font-size: 13px; color: var(--text2); text-decoration: none; transition: color .2s; display: block; margin-bottom: 10px; }
+.footer-link:hover { color: var(--gold); }
+.footer-col-label { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--text3); margin-bottom: 20px; }
+
+/* ── BADGE ──────────────────────────────────────────────── */
+.badge {
+  display: inline-block; font-family: 'DM Mono', monospace;
+  font-size: 8px; letter-spacing: 2px; text-transform: uppercase;
+  padding: 3px 10px; border-radius: 4px;
+}
+.badge-gold { background: rgba(184,149,90,0.15); color: var(--gold); border: 1px solid rgba(184,149,90,0.25); }
+.badge-green { background: rgba(76,119,84,0.15); color: var(--green); border: 1px solid rgba(76,119,84,0.3); }
+.badge-gray { background: rgba(0,0,0,0.06); color: var(--text2); border: 1px solid var(--border); }
+
+/* ── RESPONSIVE ─────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .container { padding: 0 28px; }
+  .grid-4 { grid-template-columns: repeat(2,1fr); }
+}
+@media (max-width: 768px) {
+  .nav { padding: 0 20px; }
+  .nav-links { display: none; }
+  .container { padding: 0 20px; }
+  .section { padding: 64px 0; }
+  .section-lg { padding: 80px 0; }
+  .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+  .h1 { font-size: 38px; }
+  .h2 { font-size: 28px; }
+  .section-header-split { flex-direction: column; }
+}
+</style>
+</head>
+<body data-page="varianty">
+<nav class="nav" id="nav">
+  <a href="index.html" class="nav-logo">
+    <div class="nav-logo-main">Areál David</div>
+    <div class="nav-logo-sub">Košice · Rozvojové územie</div>
+  </a>
+  <div class="nav-links">
+    <a href="index.html" class="nav-link" data-page="index">Domov</a>
+    <a href="uzemie.html" class="nav-link" data-page="uzemie">Územie</a>
+    <a href="investicia.html" class="nav-link" data-page="investicia">Investícia</a>
+    <a href="varianty.html" class="nav-link" data-page="varianty">Varianty</a>
+    <a href="dokumenty.html" class="nav-link" data-page="dokumenty">Dokumenty</a>
+    <a href="kontakt.html" class="nav-link" data-page="kontakt">Kontakt</a>
+  </div>
+  <a href="kontakt.html" class="nav-cta">Mám záujem</a>
+</nav>
+
+<nav class="nav" id="nav">
+  <a href="index.html" class="nav-logo">
+    <div class="nav-logo-main">Areál David</div>
+    <div class="nav-logo-sub">Košice · Rozvojové územie</div>
+  </a>
+  <div class="nav-links">
+    <a href="index.html" class="nav-link" data-page="index">Domov</a>
+    <a href="uzemie.html" class="nav-link" data-page="uzemie">Územie</a>
+    <a href="investicia.html" class="nav-link" data-page="investicia">Investícia</a>
+    <a href="varianty.html" class="nav-link" data-page="varianty">Varianty</a>
+    <a href="dokumenty.html" class="nav-link" data-page="dokumenty">Dokumenty</a>
+    <a href="kontakt.html" class="nav-link" data-page="kontakt">Kontakt</a>
+  </div>
+  <a href="kontakt.html" class="nav-cta">Mám záujem</a>
+</nav>
+<section style="min-height:48vh;padding:130px 0 72px;background:var(--bg2);border-bottom:1px solid var(--border);position:relative;overflow:hidden">
+  <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(138,104,48,0.05) 1px,transparent 1px),linear-gradient(90deg,rgba(138,104,48,0.05) 1px,transparent 1px);background-size:72px 72px"></div>
+  <div style="position:absolute;right:0;top:0;bottom:0;width:35%;background:radial-gradient(ellipse at right,rgba(58,96,64,0.08) 0%,transparent 70%);pointer-events:none"></div>
+  <div class="container reveal" style="position:relative;z-index:1"><div class="tag">EIB Nájomný model · Alternatívna stratégia</div><h1 class="h1" style="max-width:720px;margin-bottom:20px">EIB <span class="gold">Nájomný model</span></h1><p class="body-lg" style="max-width:560px">Celý projekt financovaný EIB — nie komerčný bankový dlh, nie predaj bytov. Dlhodobý prenájom za dostupné nájomné. Stabilný NOI pre inštitucionálneho investora alebo mesto.</p></div>
+</section>
+
+<!-- INTRO: PREDAJ vs NAJOM -->
+<section class="section" style="background:var(--bg)">
+  <div class="container">
+    <div class="section-header-split">
+      <div class="reveal"><div class="tag">Čo je EIB nájomný model</div><h2 class="h2">Predaj vs <span class="gold">Prenájom</span></h2></div>
+      <div class="reveal reveal-delay-1" style="background:rgba(58,96,64,0.06);border:1px solid rgba(58,96,64,0.2);border-radius:12px;padding:18px;max-width:360px">
+        <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--green);margin-bottom:8px">Dôležitá poznámka</div>
+        <p style="font-size:13px;color:var(--text2);line-height:1.65">EIB model je alternatíva k predaju. Byty sa nepredávajú — prenajímajú. Pri súčasných nájmoch v KE prináša nižší celkový výnos ako predaj, ale stabilný dlhodobý NOI.</p>
+      </div>
+    </div>
+    <div style="border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-bottom:32px">
+      <div style="background:var(--bg3);padding:12px 22px;display:grid;grid-template-columns:2fr 1fr 1fr;gap:16px">
+        <span style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text3)">Parameter</span>
+        <span style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold)">Predaj (Str. A)</span>
+        <span style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--green)">EIB Prenájom</span>
+      </div><div style="padding:14px 22px;border-top:1px solid var(--border);display:grid;grid-template-columns:2fr 1fr 1fr;gap:16px;align-items:center"><span style="font-size:13px;color:var(--text2)">Celkové výnosy</span><span style="font-size:13px;font-weight:600;color:var(--gold)">405 M€</span><span style="font-size:13px;font-weight:600;color:var(--text2)">~309 M€</span></div><div style="padding:14px 22px;border-top:1px solid var(--border);display:grid;grid-template-columns:2fr 1fr 1fr;gap:16px;align-items:center"><span style="font-size:13px;color:var(--text2)">Zisk (bez EÚ)</span><span style="font-size:13px;font-weight:600;color:var(--gold)">+43 M€</span><span style="font-size:13px;font-weight:600;color:var(--text3)">–53 M€ (strata)</span></div><div style="padding:14px 22px;border-top:1px solid var(--border);display:grid;grid-template-columns:2fr 1fr 1fr;gap:16px;align-items:center"><span style="font-size:13px;color:var(--text2)">Ročný NOI</span><span style="font-size:13px;font-weight:600;color:var(--gold)">—</span><span style="font-size:13px;font-weight:600;color:var(--green)">~10,5 M€/rok</span></div><div style="padding:14px 22px;border-top:1px solid var(--border);display:grid;grid-template-columns:2fr 1fr 1fr;gap:16px;align-items:center"><span style="font-size:13px;color:var(--text2)">Typ výnosu</span><span style="font-size:13px;font-weight:600;color:var(--gold)">Jednorazový</span><span style="font-size:13px;font-weight:600;color:var(--green)">Opakovaný (perpetuita)</span></div><div style="padding:14px 22px;border-top:1px solid var(--border);display:grid;grid-template-columns:2fr 1fr 1fr;gap:16px;align-items:center"><span style="font-size:13px;color:var(--text2)">Vhodný pre</span><span style="font-size:13px;font-weight:600;color:var(--gold)">Developer / Value-add fond</span><span style="font-size:13px;font-weight:600;color:var(--green)">Mesto, EIB, Core fond, Inštitúcia</span></div><div style="padding:14px 22px;border-top:1px solid var(--border);display:grid;grid-template-columns:2fr 1fr 1fr;gap:16px;align-items:center"><span style="font-size:13px;color:var(--text2)">Odporúčanie</span><span style="font-size:13px;font-weight:600;color:var(--gold)">★ Primárna stratégia</span><span style="font-size:13px;font-weight:600;color:var(--text2)">Fallback / Alternatíva</span></div>
+    </div>
+    <div class="grid-2" style="gap:16px"><div style="background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:24px;border-top:3px solid var(--green)" class="reveal"><div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--text2);margin-bottom:10px">EIB pokrytie (max.)</div><div style="font-size:clamp(26px,3vw,40px);font-weight:800;color:var(--green);line-height:1">50–75 %</div></div><div style="background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:24px;border-top:3px solid var(--gold)" class="reveal"><div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--text2);margin-bottom:10px">All-in úrok</div><div style="font-size:clamp(26px,3vw,40px);font-weight:800;color:var(--gold);line-height:1">2,7–4,2 %</div></div><div style="background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:24px;border-top:3px solid var(--border)" class="reveal"><div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--text2);margin-bottom:10px">Splatnosť</div><div style="font-size:clamp(26px,3vw,40px);font-weight:800;color:var(--text);line-height:1">20–30 r.</div></div><div style="background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:24px;border-top:3px solid var(--border)" class="reveal"><div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--text2);margin-bottom:10px">DSCR minimum</div><div style="font-size:clamp(26px,3vw,40px);font-weight:800;color:var(--text);line-height:1">≥ 1,2×</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SEKCIA A: INŠTITUCIONÁLNY INVESTOR -->
+<section class="section" style="background:var(--bg2);border-top:3px solid var(--gold)">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="tag">Sekcia A</div>
+      <h2 class="h2">Pre inštitucionálneho <span class="gold">investora — BTR</span></h2>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start">
+      <div class="reveal">
+        <div style="border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-bottom:16px"><div style="padding:16px 22px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;gap:12px"><span style="font-size:13px;color:var(--text2)">Prenajímateľná plocha (NLA)</span><span style="font-size:14px;font-weight:600;color:var(--text)">~105 000 m²</span></div><div style="padding:16px 22px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;gap:12px"><span style="font-size:13px;color:var(--text2)">Počet bytov</span><span style="font-size:14px;font-weight:600;color:var(--text)">~1 616 jednotiek</span></div><div style="padding:16px 22px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;gap:12px"><span style="font-size:13px;color:var(--text2)">Nájom / mesiac</span><span style="font-size:14px;font-weight:600;color:var(--text)">~13 €/m²</span></div><div style="padding:16px 22px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;gap:12px"><span style="font-size:13px;color:var(--text2)">Obsadenosť (predpoklad)</span><span style="font-size:14px;font-weight:600;color:var(--text)">85 %</span></div><div style="padding:16px 22px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;gap:12px"><span style="font-size:13px;color:var(--text2)">NOI ročne (stabilizovaný)</span><span style="font-size:14px;font-weight:700;color:var(--gold)">~10,5 M€</span></div><div style="padding:16px 22px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;gap:12px"><span style="font-size:13px;color:var(--text2)">Portfóliová hodnota (4,5 %)</span><span style="font-size:14px;font-weight:700;color:var(--gold)">~233 M€</span></div><div style="padding:16px 22px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;gap:12px"><span style="font-size:13px;color:var(--text2)">EIB financovanie (50–75 %)</span><span style="font-size:14px;font-weight:600;color:var(--text)">~119–179 M€</span></div><div style="padding:16px 22px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;gap:12px"><span style="font-size:13px;color:var(--text2)">Banka (10–30 %)</span><span style="font-size:14px;font-weight:600;color:var(--text)">~24–71 M€</span></div><div style="padding:16px 22px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;gap:12px"><span style="font-size:13px;color:var(--text2)">Equity investor (10–25 %)</span><span style="font-size:14px;font-weight:700;color:var(--gold)">~24–60 M€</span></div><div style="padding:16px 22px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;gap:12px"><span style="font-size:13px;color:var(--text2)">Exitová opcia</span><span style="font-size:14px;font-weight:600;color:var(--text)">Predaj portfólia po 7–10 rokoch</span></div>
+        </div>
+      </div>
+      <div class="reveal reveal-delay-2">
+        <h3 class="h3" style="margin-bottom:20px">Podmienky <span class="gold">EIB financovania</span></h3>
+        <div style="display:flex;flex-direction:column;gap:10px"><div style="background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:16px"><div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:6px">Affordable housing model</div><p style="font-size:13px;color:var(--text2);line-height:1.55">Dlhodobý nájom, nie luxury development. Workforce housing pre pracujúcich. Stabilný 20–30 ročný cashflow.</p></div><div style="background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:16px"><div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:6px">ESG štandard — min. A0/NZEB</div><p style="font-size:13px;color:var(--text2);line-height:1.55">Tepelné čerpadlá, fotovoltika, smart energy management, retenčné systémy, nízka uhlíková stopa.</p></div><div style="background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:16px"><div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:6px">Inštitucionálna štruktúra</div><p style="font-size:13px;color:var(--text2);line-height:1.55">SPV, transparentná správa, DSCR model, ESG reporting, asset management s dlhodobým prevádzkovým modelom.</p></div><div style="background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:16px"><div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:6px">Čo treba pripraviť</div><p style="font-size:13px;color:var(--text2);line-height:1.55">Masterplan, architektonická a dopravná štúdia, energetický koncept, 30Y rental model, DSCR analýza, affordability policy.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SEKCIA B: MESTO -->
+<section class="section" style="background:var(--bg);border-top:3px solid var(--green)">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="tag">Sekcia B</div>
+      <h2 class="h2">Pre mesto — <span class="gold">Mestský nájomný fond</span></h2>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px"><div class="card reveal" style="background:var(--bg2)"><div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:12px">Forma projektu</div><h4 class="h4" style="margin-bottom:8px">Mestský nájomný fond SPV</h4><p class="body" style="font-size:13px">Špeciálne účelové vozidlo mesta — transparentná správa, oddelené od mestského rozpočtu.</p></div><div class="card reveal reveal-delay-1" style="background:var(--bg2)"><div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:12px">Cieľová skupina</div><h4 class="h4" style="margin-bottom:8px">Workforce housing</h4><p class="body" style="font-size:13px">Volvo zamestnanci, zdravotníci, učitelia, administratíva — dostupné nájomné 8–10 €/m²/mes.</p></div><div class="card reveal reveal-delay-2" style="background:var(--bg2)"><div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--green);margin-bottom:12px">Výhody pre mesto</div><h4 class="h4" style="margin-bottom:8px">0 € vlastného kapitálu</h4><p class="body" style="font-size:13px">Mestská garancia nahrádza equity. Referencia: Praha (2 000 bytov), Viedeň, Wroclaw.</p></div>
+    </div>
+    <div style="margin-top:20px;background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:18px" class="reveal">
+      <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--text3);margin-bottom:8px">Realistický pohľad — obmedzenia</div>
+      <p style="font-size:13px;color:var(--text2);line-height:1.65">Výnos pre developera je nižší ako pri predaji bytov · Čas schvaľovania EIB 12–24 mes. · Politická vôľa mesta je nevyhnutná podmienka · Regulácia nájmov je podmienkou EIB · Odporúčanie: Hybrid 30 % prenájom + 70 % predaj.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section-sm" style="background:var(--bg2);border-top:1px solid var(--border)">
+  <div class="container" style="display:flex;gap:12px;flex-wrap:wrap">
+    <a href="varianty.html" class="btn btn-ghost">← Varianty rozvoja</a>
+    <a href="kontakt.html" class="btn btn-primary">Mám záujem o EIB model →</a>
+    <a href="faza3.html" class="btn btn-secondary">Fáza 3 — Prémiové veže</a>
+  </div>
+</section>
+<footer>
+  <div class="container">
+    <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;padding-bottom:48px;border-bottom:1px solid var(--border)">
+      <div>
+        <div class="footer-brand">Areál David</div>
+        <div class="footer-sub">Košice — Strategické rozvojové územie</div>
+        <div style="font-size:13px;color:var(--text2);margin-top:20px;max-width:280px;line-height:1.65">Transformácia priemyselného areálu na nový mestský mixed-use distrikt v Košiciach.</div>
+        <div style="margin-top:24px;display:flex;gap:10px;flex-wrap:wrap">
+          <span class="badge badge-gold">Rozvojové územie</span>
+          <span class="badge badge-gray">98 400 m²</span>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-label">Projekt</div>
+        <a href="index.html" class="footer-link">Domov</a>
+        <a href="uzemie.html" class="footer-link">Územie a regulácia</a>
+        <a href="investicia.html" class="footer-link">Investičná príležitosť</a>
+        <a href="varianty.html" class="footer-link">Varianty rozvoja</a>
+      </div>
+      <div>
+        <div class="footer-col-label">Info</div>
+        <a href="dokumenty.html" class="footer-link">Dokumenty</a>
+        <a href="kontakt.html" class="footer-link">Kontakt</a>
+        <a href="varianty.html" class="footer-link">Data Room (NDA)</a>
+      </div>
+      <div>
+        <div class="footer-col-label">Kontakt</div>
+        <div style="font-size:13px;color:var(--text2);line-height:1.8">
+          Košice, SR<br>
+          <a href="kontakt.html" style="color:var(--gold);text-decoration:none;margin-top:12px;display:inline-block;font-size:12px">Formulár →</a>
+        </div>
+      </div>
+    </div>
+    <div style="display:flex;justify-content:space-between;align-items:center;padding-top:28px;flex-wrap:wrap;gap:12px">
+      <div style="font-size:12px;color:var(--text3)">© 2026 Areál David Košice. Dôverný investičný materiál.</div>
+      <div style="font-family:'DM Mono',monospace;font-size:9px;color:var(--text3);letter-spacing:1.5px">INVESTOR TEASER · v3.0</div>
+    </div>
+  </div>
+</footer>
+<script>
+// Nav scroll state
+const nav = document.getElementById('nav');
+if(nav) window.addEventListener('scroll', () => {
+  nav.style.boxShadow = window.scrollY > 60 ? '0 4px 32px rgba(0,0,0,0.4)' : '';
+});
+
+// Active nav
+const page = document.body.dataset.page;
+document.querySelectorAll('.nav-link[data-page]').forEach(a => {
+  if(a.dataset.page === page) a.classList.add('active');
+});
+
+// Scroll reveal
+const revealObs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) { e.target.classList.add('visible'); }});
+}, { threshold: 0.06, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal, .reveal-left').forEach(el => revealObs.observe(el));
+
+// Number counter
+function animateNum(el) {
+  const raw = el.dataset.target;
+  const suffix = el.dataset.suffix || '';
+  const prefix = el.dataset.prefix || '';
+  const isFloat = raw.includes('.');
+  const target = parseFloat(raw);
+  const dur = 2000;
+  const start = performance.now();
+  const update = t => {
+    const p = Math.min((t-start)/dur,1);
+    const ease = 1 - Math.pow(1-p, 4);
+    const val = target * ease;
+    el.textContent = prefix + (isFloat ? val.toFixed(1) : Math.round(val).toLocaleString('sk')) + suffix;
+    if(p < 1) requestAnimationFrame(update);
+  };
+  requestAnimationFrame(update);
+}
+const numObs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) { animateNum(e.target); numObs.unobserve(e.target); }});
+}, { threshold: 0.5 });
+document.querySelectorAll('[data-target]').forEach(el => numObs.observe(el));
+</script>
+
+<footer>
+  <div class="container">
+    <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;padding-bottom:48px;border-bottom:1px solid var(--border)">
+      <div>
+        <div class="footer-brand">Areál David</div>
+        <div class="footer-sub">Košice — Strategické rozvojové územie</div>
+        <div style="font-size:13px;color:var(--text2);margin-top:20px;max-width:280px;line-height:1.65">Transformácia priemyselného areálu na nový mestský mixed-use distrikt v Košiciach.</div>
+        <div style="margin-top:24px;display:flex;gap:10px;flex-wrap:wrap">
+          <span class="badge badge-gold">Rozvojové územie</span>
+          <span class="badge badge-gray">98 400 m²</span>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-label">Projekt</div>
+        <a href="index.html" class="footer-link">Domov</a>
+        <a href="uzemie.html" class="footer-link">Územie a regulácia</a>
+        <a href="investicia.html" class="footer-link">Investičná príležitosť</a>
+        <a href="varianty.html" class="footer-link">Varianty rozvoja</a>
+      </div>
+      <div>
+        <div class="footer-col-label">Info</div>
+        <a href="dokumenty.html" class="footer-link">Dokumenty</a>
+        <a href="kontakt.html" class="footer-link">Kontakt</a>
+        <a href="varianty.html" class="footer-link">Data Room (NDA)</a>
+      </div>
+      <div>
+        <div class="footer-col-label">Kontakt</div>
+        <div style="font-size:13px;color:var(--text2);line-height:1.8">
+          Košice, SR<br>
+          <a href="kontakt.html" style="color:var(--gold);text-decoration:none;margin-top:12px;display:inline-block;font-size:12px">Formulár →</a>
+        </div>
+      </div>
+    </div>
+    <div style="display:flex;justify-content:space-between;align-items:center;padding-top:28px;flex-wrap:wrap;gap:12px">
+      <div style="font-size:12px;color:var(--text3)">© 2026 Areál David Košice. Dôverný investičný materiál.</div>
+      <div style="font-family:'DM Mono',monospace;font-size:9px;color:var(--text3);letter-spacing:1.5px">INVESTOR TEASER · v3.0</div>
+    </div>
+  </div>
+</footer>
+<script>
+// Nav scroll state
+const nav = document.getElementById('nav');
+if(nav) window.addEventListener('scroll', () => {
+  nav.style.boxShadow = window.scrollY > 60 ? '0 4px 32px rgba(0,0,0,0.4)' : '';
+});
+
+// Active nav
+const page = document.body.dataset.page;
+document.querySelectorAll('.nav-link[data-page]').forEach(a => {
+  if(a.dataset.page === page) a.classList.add('active');
+});
+
+// Scroll reveal
+const revealObs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) { e.target.classList.add('visible'); }});
+}, { threshold: 0.06, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal, .reveal-left').forEach(el => revealObs.observe(el));
+
+// Number counter
+function animateNum(el) {
+  const raw = el.dataset.target;
+  const suffix = el.dataset.suffix || '';
+  const prefix = el.dataset.prefix || '';
+  const isFloat = raw.includes('.');
+  const target = parseFloat(raw);
+  const dur = 2000;
+  const start = performance.now();
+  const update = t => {
+    const p = Math.min((t-start)/dur,1);
+    const ease = 1 - Math.pow(1-p, 4);
+    const val = target * ease;
+    el.textContent = prefix + (isFloat ? val.toFixed(1) : Math.round(val).toLocaleString('sk')) + suffix;
+    if(p < 1) requestAnimationFrame(update);
+  };
+  requestAnimationFrame(update);
+}
+const numObs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) { animateNum(e.target); numObs.unobserve(e.target); }});
+}, { threshold: 0.5 });
+document.querySelectorAll('[data-target]').forEach(el => numObs.observe(el));
+</script>
+</body>
+</html>

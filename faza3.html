@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Územie a regulácia | Areál David Košice</title>
+<title>Fáza 3 — Prémiové veže | Areál David Košice</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=DM+Mono:wght@300;400;500&display=swap');
 
@@ -23,7 +23,7 @@
   --text:     #1A1814;
   --text2:    #5A5650;
   --text3:    #8A8680;
-  --light-bg: #F7F6F3;
+  --light-bg: #F4F5F6;
   --radius:   20px;
   --radius-sm:12px;
 }
@@ -33,7 +33,7 @@ body { font-family: 'Manrope', sans-serif; background: var(--bg); color: var(--t
 
 ::-webkit-scrollbar { width: 4px; }
 ::-webkit-scrollbar-track { background: var(--bg); }
-::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 2px; }
+::-webkit-scrollbar-thumb { background: var(--gold-dim); border-radius: 2px; }
 
 /* ── NAVIGATION ─────────────────────────────────────────── */
 .nav {
@@ -67,7 +67,7 @@ body { font-family: 'Manrope', sans-serif; background: var(--bg); color: var(--t
 .nav-link.active { color: var(--gold); }
 .nav-cta {
   margin-left: 16px; font-size: 11px; font-weight: 700; letter-spacing: 0.1em;
-  text-transform: uppercase; color: #F7F6F3; background: var(--gold);
+  text-transform: uppercase; color: #F8F5EF; background: var(--gold);
   padding: 10px 22px; text-decoration: none; border-radius: 8px;
   transition: all .2s; border: 1px solid transparent;
 }
@@ -134,7 +134,7 @@ body { font-family: 'Manrope', sans-serif; background: var(--bg); color: var(--t
   padding: 14px 28px; border-radius: 10px; border: none; cursor: pointer;
   transition: all .2s; white-space: nowrap;
 }
-.btn-primary { background: var(--gold); color: #F5F0E8; }
+.btn-primary { background: var(--gold); color: #0A0B0D; }
 .btn-primary:hover { background: var(--gold-h); transform: translateY(-2px); box-shadow: 0 12px 32px rgba(184,149,90,0.3); }
 .btn-secondary { background: rgba(255,255,255,0.06); color: var(--text); border: 1px solid var(--border); }
 .btn-secondary:hover { background: rgba(255,255,255,0.1); border-color: rgba(184,149,90,0.4); color: var(--gold); }
@@ -196,7 +196,7 @@ footer { background: var(--bg3); border-top: 1px solid var(--border); padding: 7
   font-size: 8px; letter-spacing: 2px; text-transform: uppercase;
   padding: 3px 10px; border-radius: 4px;
 }
-.badge-gold { background: rgba(138,104,48,0.1); color: var(--gold); border: 1px solid rgba(184,149,90,0.25); }
+.badge-gold { background: rgba(184,149,90,0.15); color: var(--gold); border: 1px solid rgba(184,149,90,0.25); }
 .badge-green { background: rgba(76,119,84,0.15); color: var(--green); border: 1px solid rgba(76,119,84,0.3); }
 .badge-gray { background: rgba(0,0,0,0.06); color: var(--text2); border: 1px solid var(--border); }
 
@@ -218,7 +218,7 @@ footer { background: var(--bg3); border-top: 1px solid var(--border); padding: 7
 }
 </style>
 </head>
-<body data-page="uzemie">
+<body data-page="investicia">
 <nav class="nav" id="nav">
   <a href="index.html" class="nav-logo">
     <div class="nav-logo-main">Areál David</div>
@@ -235,168 +235,155 @@ footer { background: var(--bg3); border-top: 1px solid var(--border); padding: 7
   <a href="kontakt.html" class="nav-cta">Mám záujem</a>
 </nav>
 
-<section style="min-height:52vh;padding:140px 0 80px;background:var(--bg2);border-bottom:1px solid var(--border);position:relative;overflow:hidden">
-  <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(138,104,48,0.05) 1px,transparent 1px),linear-gradient(90deg,rgba(138,104,48,0.05) 1px,transparent 1px);background-size:72px 72px"></div>
-  <div style="position:absolute;right:0;top:0;bottom:0;width:40%;background:radial-gradient(ellipse at right,rgba(138,104,48,0.06) 0%,transparent 70%);pointer-events:none"></div>
-  <div class="container reveal" style="position:relative;z-index:1">
-    <span class="badge badge-gold" style="margin-bottom:20px;display:inline-block">Schválený ÚP · Apríl 2026</span>
-    <div class="tag">Územie a regulácia</div>
-    <h1 class="h1" style="max-width:700px;margin-bottom:20px">Lokalita &amp; <span class="gold">územný potenciál</span></h1>
-    <p class="body-lg" style="max-width:540px">Kompletný prehľad polohy, regulačných podmienok a obmedzení rozvojového územia Areál David v Košiciach.</p>
+<nav class="nav" id="nav">
+  <a href="index.html" class="nav-logo">
+    <div class="nav-logo-main">Areál David</div>
+    <div class="nav-logo-sub">Košice · Rozvojové územie</div>
+  </a>
+  <div class="nav-links">
+    <a href="index.html" class="nav-link" data-page="index">Domov</a>
+    <a href="uzemie.html" class="nav-link" data-page="uzemie">Územie</a>
+    <a href="investicia.html" class="nav-link" data-page="investicia">Investícia</a>
+    <a href="varianty.html" class="nav-link" data-page="varianty">Varianty</a>
+    <a href="dokumenty.html" class="nav-link" data-page="dokumenty">Dokumenty</a>
+    <a href="kontakt.html" class="nav-link" data-page="kontakt">Kontakt</a>
   </div>
+  <a href="kontakt.html" class="nav-cta">Mám záujem</a>
+</nav>
+<section style="min-height:46vh;padding:130px 0 72px;background:var(--bg2);border-bottom:1px solid var(--border);position:relative;overflow:hidden">
+  <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(138,104,48,0.05) 1px,transparent 1px),linear-gradient(90deg,rgba(138,104,48,0.05) 1px,transparent 1px);background-size:72px 72px"></div>
+  <div class="container reveal" style="position:relative;z-index:1"><div style="margin-bottom:20px"><a href="faza2.html" style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--text2);text-decoration:none" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text2)'">← Fáza 2</a></div><div class="tag">Fáza 3 · Rok 5–10</div><h1 class="h1" style="max-width:720px;margin-bottom:20px">Prémiové <span class="gold">veže</span></h1><p class="body-lg" style="max-width:560px">808 bytov v stupňovitej rezidenčnej veži a prémiových blokoch — 8 NP, zelené terasy, panoramatický výhľad. Etablovaná štvrť platí prémiu.</p></div>
 </section>
 
-<!-- LOKALITA -->
 <section class="section" style="background:var(--bg)">
   <div class="container">
-    <div style="display:grid;grid-template-columns:1fr 1.5fr;gap:60px;align-items:start">
+    <div class="grid-2" style="gap:16px;margin-bottom:28px">
+      <div style="background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:24px;border-top:3px solid var(--gold)" class="reveal"><div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--text2);margin-bottom:10px">Bytových jednotiek F3</div><div style="font-size:clamp(28px,3.5vw,44px);font-weight:800;color:var(--gold);line-height:1">808</div></div>
+      <div style="background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:24px;border-top:3px solid var(--gold)" class="reveal"><div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--text2);margin-bottom:10px">Cena bytov</div><div style="font-size:clamp(28px,3.5vw,44px);font-weight:800;color:var(--gold);line-height:1">3 800–4 400 €/m²</div></div>
+      <div style="background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:24px;border-top:3px solid var(--border)" class="reveal"><div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--text2);margin-bottom:10px">Tržby (base)</div><div style="font-size:clamp(28px,3.5vw,44px);font-weight:800;color:var(--text);line-height:1">~189 M€</div></div>
+      <div style="background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:24px;border-top:3px solid var(--border)" class="reveal"><div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--text2);margin-bottom:10px">CAPEX</div><div style="font-size:clamp(28px,3.5vw,44px);font-weight:800;color:var(--text2);line-height:1">~100 M€</div></div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start">
       <div class="reveal">
-        <div class="tag">Poloha</div>
-        <h2 class="h2" style="margin-bottom:32px">Košice —<br><span class="gold">Nad Jazerom</span></h2>
-        <div style="display:flex;flex-direction:column;gap:0;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden">
-          <div style="padding:18px 22px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center">
-            <span style="font-size:12px;color:var(--text2)">Katastrálne územie</span>
-            <span style="font-size:14px;font-weight:600;color:var(--text)">Košice — Nad Jazerom</span>
-          </div>
-          <div style="padding:18px 22px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center">
-            <span style="font-size:12px;color:var(--text2)">Výmera</span>
-            <span style="font-size:14px;font-weight:700;color:var(--gold)">99 125 m²</span>
-          </div>
-          <div style="padding:18px 22px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center">
-            <span style="font-size:12px;color:var(--text2)">Typ územia</span>
-            <span style="font-size:14px;font-weight:600;color:var(--text)">Transformačné / Mixed-use</span>
-          </div>
-          <div style="padding:18px 22px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center">
-            <span style="font-size:12px;color:var(--text2)">Dopravné napojenie</span>
-            <span style="font-size:14px;font-weight:600;color:var(--text)">Cesta, železnica, MHD</span>
-          </div>
-          <div style="padding:18px 22px;display:flex;justify-content:space-between;align-items:center">
-            <span style="font-size:12px;color:var(--text2)">Vzdialenosť od centra KE</span>
-            <span style="font-size:14px;font-weight:600;color:var(--text)">cca 8 km</span>
-          </div>
+        <div class="tag">Prémiový segment</div>
+        <h2 class="h2" style="margin-bottom:20px">Prečo sú ceny<br><span class="gold">vyššie ako F2</span></h2>
+        <p class="body" style="margin-bottom:24px">V čase spustenia F3 je areál etablovaná štvrť so školou, obchodmi, zeleňou a komunitou. Kupujúci platia prémium za overené miesto — nie za prísľub.</p>
+        <div style="display:flex;flex-direction:column;gap:10px"><div style="display:flex;gap:14px;padding:14px;background:var(--bg2);border:1px solid var(--border);border-radius:10px"><div style="font-size:22px;flex-shrink:0">🏙️</div><div><div style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:4px">Etablovaná štvrť</div><div style="font-size:12px;color:var(--text2);line-height:1.55">Po F1+F2 má areál infraštruktúru, obyvateľov, reputáciu a fungujúce prízemie.</div></div></div><div style="display:flex;gap:14px;padding:14px;background:var(--bg2);border:1px solid var(--border);border-radius:10px"><div style="font-size:22px;flex-shrink:0">🏗️</div><div><div style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:4px">Stupňovitá veža</div><div style="font-size:12px;color:var(--text2);line-height:1.55">8 podlaží, zelené terasy na každom stupni. Unikátny produkt na trhu v Košiciach — prémia 15–20 %.</div></div></div><div style="display:flex;gap:14px;padding:14px;background:var(--bg2);border:1px solid var(--border);border-radius:10px"><div style="font-size:22px;flex-shrink:0">🌊</div><div><div style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:4px">Jazero a letisko</div><div style="font-size:12px;color:var(--text2);line-height:1.55">Seligovo jazero a blízkosť letiska — výhľady, ktoré v KE nie sú bežné.</div></div></div>
         </div>
       </div>
       <div class="reveal reveal-delay-2">
-        <div style="border-radius:var(--radius);overflow:hidden;border:1px solid var(--border);height:460px;position:relative;background:var(--bg2)">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d5276.5!2d21.2!3d48.69!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1ssk!2ssk!4v1234567890"
-            style="width:100%;height:100%;border:none;filter:grayscale(30%) brightness(0.8) contrast(1.15)"
-            allowfullscreen loading="lazy">
-          </iframe>
-          <div style="position:absolute;bottom:16px;left:16px;background:rgba(17,19,21,0.95);padding:8px 14px;border-radius:8px;border:1px solid var(--border)">
-            <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;color:var(--gold);text-transform:uppercase">Košice — Nad Jazerom</div>
-          </div>
+        <div class="tag">Parametre Fázy 3</div>
+        <h2 class="h2" style="margin-bottom:20px">Ekonomika <span class="gold">F3</span></h2>
+        <div style="border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-bottom:16px"><div style="padding:16px 22px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;gap:12px"><span style="font-size:13px;color:var(--text2)">Max. výška</span><span style="font-size:14px;font-weight:600;color:var(--text)">8 NP (max. ÚP)</span></div><div style="padding:16px 22px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;gap:12px"><span style="font-size:13px;color:var(--text2)">Počet bytov F3</span><span style="font-size:14px;font-weight:600;color:var(--text)">808 jednotiek</span></div><div style="padding:16px 22px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;gap:12px"><span style="font-size:13px;color:var(--text2)">Konzervatívna cena</span><span style="font-size:14px;font-weight:600;color:var(--text)">3 400 €/m²</span></div><div style="padding:16px 22px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;gap:12px"><span style="font-size:13px;color:var(--text2)">Base cena</span><span style="font-size:14px;font-weight:700;color:var(--gold)">3 800–4 000 €/m²</span></div><div style="padding:16px 22px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;gap:12px"><span style="font-size:13px;color:var(--text2)">Optimistická cena</span><span style="font-size:14px;font-weight:600;color:var(--text)">4 200–4 400 €/m²</span></div><div style="padding:16px 22px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;gap:12px"><span style="font-size:13px;color:var(--text2)">Tržby (base, bez F2)</span><span style="font-size:14px;font-weight:700;color:var(--gold)">~189 M€</span></div><div style="padding:16px 22px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;gap:12px"><span style="font-size:13px;color:var(--text2)">Tempo predaja</span><span style="font-size:14px;font-weight:600;color:var(--text)">150–170 j/rok</span></div><div style="padding:16px 22px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;gap:12px"><span style="font-size:13px;color:var(--text2)">Horizont F3</span><span style="font-size:14px;font-weight:600;color:var(--text)">Rok 5–10</span></div>
+        </div>
+        <div style="background:rgba(138,104,48,0.06);border:1px solid rgba(138,104,48,0.2);border-radius:12px;padding:18px">
+          <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:8px">Kumulatívny efekt fázovania</div>
+          <p style="font-size:13px;color:var(--text2);line-height:1.65">F1 exit financuje equity F2. Predaje F2 generujú cashflow pre F3. Investor neplatí nové kolo kapitálu — projekt sa financuje sám od Roku 4.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ÚZEMNÝ POTENCIÁL -->
-<section class="section" style="background:var(--bg4);border-top:1px solid var(--border)">
+<section class="section-sm" style="background:var(--bg2);border-top:1px solid var(--border)">
   <div class="container">
-    <div class="section-header-split">
-      <div class="reveal">
-        <div class="tag">Funkčné možnosti</div>
-        <h2 class="h2">Územný <span class="gold">potenciál</span></h2>
-      </div>
-      <p class="reveal body" style="max-width:340px">Schválený územný plán umožňuje realizáciu zmiešanej zástavby s komplexnou škálou funkcií.</p>
-    </div>
-    <div class="grid-3" style="gap:16px">
-
-      <div class="card reveal">
-        <div style="font-size:32px;margin-bottom:16px">🏙️</div>
-        <h4 class="h4" style="margin-bottom:10px">Zmiešané územie</h4>
-        <p class="body" style="font-size:13px">Kombinácia funkcií v jednom areáli — bývanie, kancelárie, retail a verejné priestory.</p>
-      </div>
-      <div class="card reveal reveal-delay-2">
-        <div style="font-size:32px;margin-bottom:16px">🏫</div>
-        <h4 class="h4" style="margin-bottom:10px">Občianska vybavenosť</h4>
-        <p class="body" style="font-size:13px">Škôlka, zdravotné centrum, komunitné priestory ako súčasť komplexného rozvoja.</p>
-      </div>
-      <div class="card reveal reveal-delay-3">
-        <div style="font-size:32px;margin-bottom:16px">🛒</div>
-        <h4 class="h4" style="margin-bottom:10px">Retail & Gastro</h4>
-        <p class="body" style="font-size:13px">Aktívny retail parter, obchody, reštaurácie — živé prízemie ako základ komunity.</p>
-      </div>
-      <div class="card reveal reveal-delay-1">
-        <div style="font-size:32px;margin-bottom:16px">🏠</div>
-        <h4 class="h4" style="margin-bottom:10px">Bývanie</h4>
-        <p class="body" style="font-size:13px">Rezidenčné byty na predaj alebo prenájom. Max. 8 nadzemných podlaží podľa ÚP.</p>
-      </div>
-      <div class="card reveal reveal-delay-2">
-        <div style="font-size:32px;margin-bottom:16px">⚕️</div>
-        <h4 class="h4" style="margin-bottom:10px">Zdravotníctvo & Služby</h4>
-        <p class="body" style="font-size:13px">Ambulancie, lekárne, fyzioterapia — stabilní nájomníci s dlhodobými zmluvami.</p>
-      </div>
-      <div class="card reveal reveal-delay-3">
-        <div style="font-size:32px;margin-bottom:16px">🌳</div>
-        <h4 class="h4" style="margin-bottom:10px">Verejné priestory</h4>
-        <p class="body" style="font-size:13px">Parky, promenády, ihriská — min. 30 % plochy ako zelené a verejné plochy.</p>
-      </div>
+    <div class="section-header reveal"><div class="tag">Podmienky spustenia</div><h2 class="h2">GO / <span class="gold">NO-GO Fázy 3</span></h2></div>
+    <div style="background:var(--bg);border:1px solid var(--border);border-top:3px solid var(--text3);border-radius:var(--radius);padding:24px;max-width:640px" class="reveal">
+      <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--text3);margin-bottom:14px">Fáza 3 nespustíme kým</div><div style="display:flex;gap:10px;padding:9px 0;border-bottom:1px solid var(--border);font-size:13px;color:var(--text2)"><span style="color:var(--text3);font-weight:700;flex-shrink:0">✗</span>F2 min. 65 % predaný (525 bytov)</div><div style="display:flex;gap:10px;padding:9px 0;border-bottom:1px solid var(--border);font-size:13px;color:var(--text2)"><span style="color:var(--text3);font-weight:700;flex-shrink:0">✗</span>DSCR F2 ≥ 1,3× aj v stres scenári (+2 % Euribor)</div><div style="display:flex;gap:10px;padding:9px 0;border-bottom:1px solid var(--border);font-size:13px;color:var(--text2)"><span style="color:var(--text3);font-weight:700;flex-shrink:0">✗</span>Euribor cap aktívny alebo sadzba ≤ 6 %</div><div style="display:flex;gap:10px;padding:9px 0;border-bottom:1px solid var(--border);font-size:13px;color:var(--text2)"><span style="color:var(--text3);font-weight:700;flex-shrink:0">✗</span>Ceny KE bytov nepadli pod 3 000 €/m²</div><div style="display:flex;gap:10px;padding:9px 0;border-bottom:1px solid var(--border);font-size:13px;color:var(--text2)"><span style="color:var(--text3);font-weight:700;flex-shrink:0">✗</span>Ak 2+ podmienky nesplnené → pauza 12 mesiacov</div>
     </div>
   </div>
 </section>
 
-<!-- REGULAČNÉ PODMIENKY -->
-<section class="section" style="background:var(--bg)">
-  <div class="container">
-    <div class="section-header reveal">
-      <div class="tag">Územný plán · Apríl 2026</div>
-      <h2 class="h2">Regulačné <span class="gold">podmienky</span></h2>
-    </div>
-    <div class="grid-3" style="gap:16px;margin-bottom:24px">
-      <div style="background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:32px;border-top:3px solid var(--gold)" class="reveal">
-        <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--text2);margin-bottom:12px">Max. zastavanosť</div>
-        <div class="kpi-num">40 %</div>
-        <div style="font-size:13px;color:var(--text2);margin-top:12px">Maximálna plocha zastavenia z celkovej výmery pozemku.</div>
-      </div>
-      <div style="background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:32px;border-top:3px solid var(--gold)" class="reveal reveal-delay-1">
-        <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--text2);margin-bottom:12px">Maximálna výška</div>
-        <div class="kpi-num">8 NP</div>
-        <div style="font-size:13px;color:var(--text2);margin-top:12px">Maximálny počet nadzemných podlaží pre všetky objekty v areáli.</div>
-      </div>
-      <div style="background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:32px;border-top:3px solid var(--green)" class="reveal reveal-delay-2">
-        <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--text2);margin-bottom:12px">Min. vegetačné plochy</div>
-        <div class="kpi-num" style="color:var(--green)">30 %</div>
-        <div style="font-size:13px;color:var(--text2);margin-top:12px">Minimálny podiel zelene a nezastavených plôch na celom území.</div>
-      </div>
-    </div>
-    <div class="grid-3" style="gap:16px">
-      <div class="card reveal"><h4 class="h4" style="margin-bottom:10px">Ochranné pásma</h4><p class="body" style="font-size:13px">Plochy v OP železnice majú obmedzenia pre bytovú zástavbu. Vhodné pre komerčné a ľahké výrobné využitie.</p></div>
-      <div class="card reveal reveal-delay-1"><h4 class="h4" style="margin-bottom:10px">Dopravné väzby</h4><p class="body" style="font-size:13px">Nový rozvoj musí zabezpečiť adekvátne dopravné napojenie vrátane statickej dopravy v areáli.</p></div>
-      <div class="card reveal reveal-delay-2"><h4 class="h4" style="margin-bottom:10px">Technická infraštruktúra</h4><p class="body" style="font-size:13px">Napojenie na siete (voda, kanalizácia, elektro, plyn, teplo) — čiastočne k dispozícii v areáli.</p></div>
-    </div>
+<section class="section-sm" style="background:var(--bg);border-top:1px solid var(--border)">
+  <div class="container" style="display:flex;gap:12px;flex-wrap:wrap">
+    <a href="faza2.html" class="btn btn-ghost">← Fáza 2</a>
+    <a href="najom.html" class="btn btn-primary">EIB Nájomný model →</a>
+    <a href="varianty.html" class="btn btn-secondary">Varianty rozvoja</a>
   </div>
 </section>
+<footer>
+  <div class="container">
+    <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;padding-bottom:48px;border-bottom:1px solid var(--border)">
+      <div>
+        <div class="footer-brand">Areál David</div>
+        <div class="footer-sub">Košice — Strategické rozvojové územie</div>
+        <div style="font-size:13px;color:var(--text2);margin-top:20px;max-width:280px;line-height:1.65">Transformácia priemyselného areálu na nový mestský mixed-use distrikt v Košiciach.</div>
+        <div style="margin-top:24px;display:flex;gap:10px;flex-wrap:wrap">
+          <span class="badge badge-gold">Rozvojové územie</span>
+          <span class="badge badge-gray">98 400 m²</span>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-label">Projekt</div>
+        <a href="index.html" class="footer-link">Domov</a>
+        <a href="uzemie.html" class="footer-link">Územie a regulácia</a>
+        <a href="investicia.html" class="footer-link">Investičná príležitosť</a>
+        <a href="varianty.html" class="footer-link">Varianty rozvoja</a>
+      </div>
+      <div>
+        <div class="footer-col-label">Info</div>
+        <a href="dokumenty.html" class="footer-link">Dokumenty</a>
+        <a href="kontakt.html" class="footer-link">Kontakt</a>
+        <a href="varianty.html" class="footer-link">Data Room (NDA)</a>
+      </div>
+      <div>
+        <div class="footer-col-label">Kontakt</div>
+        <div style="font-size:13px;color:var(--text2);line-height:1.8">
+          Košice, SR<br>
+          <a href="kontakt.html" style="color:var(--gold);text-decoration:none;margin-top:12px;display:inline-block;font-size:12px">Formulár →</a>
+        </div>
+      </div>
+    </div>
+    <div style="display:flex;justify-content:space-between;align-items:center;padding-top:28px;flex-wrap:wrap;gap:12px">
+      <div style="font-size:12px;color:var(--text3)">© 2026 Areál David Košice. Dôverný investičný materiál.</div>
+      <div style="font-family:'DM Mono',monospace;font-size:9px;color:var(--text3);letter-spacing:1.5px">INVESTOR TEASER · v3.0</div>
+    </div>
+  </div>
+</footer>
+<script>
+// Nav scroll state
+const nav = document.getElementById('nav');
+if(nav) window.addEventListener('scroll', () => {
+  nav.style.boxShadow = window.scrollY > 60 ? '0 4px 32px rgba(0,0,0,0.4)' : '';
+});
 
-<!-- OBMEDZENIA -->
-<section class="section-sm" style="background:var(--bg4);border-top:1px solid var(--border)">
-  <div class="container">
-    <div class="section-header reveal">
-      <div class="tag">Obmedzenia</div>
-      <h2 class="h2">Obmedzenia <span class="gold">územia</span></h2>
-    </div>
-    <div class="grid-2" style="gap:16px">
-      <div style="background:var(--bg);border:1px solid var(--border);border-left:3px solid var(--gold-dim);border-radius:var(--radius);padding:24px" class="reveal">
-        <h4 class="h4" style="margin-bottom:10px">OP železnice</h4>
-        <p class="body" style="font-size:13px">Časť územia pri trati má regulácie pre bytovú funkciu. Vhodné pre komerčné, ľahké priemyselné alebo inžinierske využitie.</p>
-      </div>
-      <div style="background:var(--bg);border:1px solid var(--border);border-left:3px solid var(--gold-dim);border-radius:var(--radius);padding:24px" class="reveal reveal-delay-1">
-        <h4 class="h4" style="margin-bottom:10px">Biokoridory</h4>
-        <p class="body" style="font-size:13px">Ochrana zelených koridorov a migračných trás — tieto plochy musia byť zachované alebo kompenzované novými zeleňami.</p>
-      </div>
-      <div style="background:var(--bg);border:1px solid var(--border);border-left:3px solid rgba(184,149,90,0.4);border-radius:var(--radius);padding:24px" class="reveal">
-        <h4 class="h4" style="margin-bottom:10px">Existujúce budovy (mimo predaja)</h4>
-        <p class="body" style="font-size:13px">Budovy č. 2 a 4 nie sú predmetom predaja — sú vo vlastníctve tretích strán. Rozvoj musí rešpektovať tieto hranice.</p>
-      </div>
-      <div style="background:var(--bg);border:1px solid var(--border);border-left:3px solid rgba(184,149,90,0.4);border-radius:var(--radius);padding:24px" class="reveal reveal-delay-1">
-        <h4 class="h4" style="margin-bottom:10px">Inžinierske siete</h4>
-        <p class="body" style="font-size:13px">Prechádzajúce siete (VN, VTL) vyžadujú ochranné pásma alebo preložky — koordinácia s distribútormi energií.</p>
-      </div>
-    </div>
-  </div>
-</section>
+// Active nav
+const page = document.body.dataset.page;
+document.querySelectorAll('.nav-link[data-page]').forEach(a => {
+  if(a.dataset.page === page) a.classList.add('active');
+});
+
+// Scroll reveal
+const revealObs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) { e.target.classList.add('visible'); }});
+}, { threshold: 0.06, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal, .reveal-left').forEach(el => revealObs.observe(el));
+
+// Number counter
+function animateNum(el) {
+  const raw = el.dataset.target;
+  const suffix = el.dataset.suffix || '';
+  const prefix = el.dataset.prefix || '';
+  const isFloat = raw.includes('.');
+  const target = parseFloat(raw);
+  const dur = 2000;
+  const start = performance.now();
+  const update = t => {
+    const p = Math.min((t-start)/dur,1);
+    const ease = 1 - Math.pow(1-p, 4);
+    const val = target * ease;
+    el.textContent = prefix + (isFloat ? val.toFixed(1) : Math.round(val).toLocaleString('sk')) + suffix;
+    if(p < 1) requestAnimationFrame(update);
+  };
+  requestAnimationFrame(update);
+}
+const numObs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) { animateNum(e.target); numObs.unobserve(e.target); }});
+}, { threshold: 0.5 });
+document.querySelectorAll('[data-target]').forEach(el => numObs.observe(el));
+</script>
+
 <footer>
   <div class="container">
     <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;padding-bottom:48px;border-bottom:1px solid var(--border)">

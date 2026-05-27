@@ -3,19 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Územie a regulácia | Areál David Košice</title>
+<title>Nájomné bývanie | Areál David Košice</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=DM+Mono:wght@300;400;500&display=swap');
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
+  /* light theme */
   --bg:       #F7F6F3;
   --bg2:      #EEECEA;
   --bg3:      #E5E3DF;
-  --bg4:      #DDDBD7;
+  --bg4:      #21262D;
   --border:   #D4D0C8;
-  --border-l: rgba(180,175,165,0.5);
+  --border-l: rgba(43,49,56,0.6);
   --gold:     #8A6830;
   --gold-h:   #A07840;
   --gold-dim: #B89860;
@@ -23,7 +24,7 @@
   --text:     #1A1814;
   --text2:    #5A5650;
   --text3:    #8A8680;
-  --light-bg: #F7F6F3;
+  --light-bg: #F4F5F6;
   --radius:   20px;
   --radius-sm:12px;
 }
@@ -33,17 +34,16 @@ body { font-family: 'Manrope', sans-serif; background: var(--bg); color: var(--t
 
 ::-webkit-scrollbar { width: 4px; }
 ::-webkit-scrollbar-track { background: var(--bg); }
-::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 2px; }
+::-webkit-scrollbar-thumb { background: var(--gold-dim); border-radius: 2px; }
 
 /* ── NAVIGATION ─────────────────────────────────────────── */
 .nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 200;
   height: 68px; display: flex; align-items: center;
   padding: 0 48px;
-  background: rgba(247,246,243,0.96);
+  background: rgba(17,19,21,0.92);
   backdrop-filter: blur(20px) saturate(1.2);
-  border-bottom: 1px solid rgba(212,208,200,0.9);
-  box-shadow: 0 1px 0 rgba(0,0,0,0.06);
+  border-bottom: 1px solid rgba(43,49,56,0.8);
   transition: all .3s;
 }
 .nav-logo {
@@ -63,11 +63,11 @@ body { font-family: 'Manrope', sans-serif; background: var(--bg); color: var(--t
   color: var(--text2); text-decoration: none; padding: 8px 14px; border-radius: 6px;
   transition: all .2s; position: relative;
 }
-.nav-link:hover { color: var(--text); background: rgba(0,0,0,0.04); }
+.nav-link:hover { color: var(--text); background: rgba(255,255,255,0.04); }
 .nav-link.active { color: var(--gold); }
 .nav-cta {
   margin-left: 16px; font-size: 11px; font-weight: 700; letter-spacing: 0.1em;
-  text-transform: uppercase; color: #F7F6F3; background: var(--gold);
+  text-transform: uppercase; color: #F8F5EF; background: var(--gold);
   padding: 10px 22px; text-decoration: none; border-radius: 8px;
   transition: all .2s; border: 1px solid transparent;
 }
@@ -110,7 +110,7 @@ body { font-family: 'Manrope', sans-serif; background: var(--bg); color: var(--t
 }
 .card:hover {
   transform: translateY(-4px) scale(1.01);
-  box-shadow: 0 20px 60px rgba(0,0,0,0.12), 0 0 0 1px rgba(138,104,48,0.25);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3), 0 0 0 1px rgba(184,149,90,0.2);
   border-color: rgba(184,149,90,0.3);
 }
 .card-sm { padding: 24px; border-radius: var(--radius-sm); }
@@ -134,7 +134,7 @@ body { font-family: 'Manrope', sans-serif; background: var(--bg); color: var(--t
   padding: 14px 28px; border-radius: 10px; border: none; cursor: pointer;
   transition: all .2s; white-space: nowrap;
 }
-.btn-primary { background: var(--gold); color: #F5F0E8; }
+.btn-primary { background: var(--gold); color: #0A0B0D; }
 .btn-primary:hover { background: var(--gold-h); transform: translateY(-2px); box-shadow: 0 12px 32px rgba(184,149,90,0.3); }
 .btn-secondary { background: rgba(255,255,255,0.06); color: var(--text); border: 1px solid var(--border); }
 .btn-secondary:hover { background: rgba(255,255,255,0.1); border-color: rgba(184,149,90,0.4); color: var(--gold); }
@@ -183,7 +183,7 @@ body { font-family: 'Manrope', sans-serif; background: var(--bg); color: var(--t
 .section-header-split { display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 24px; margin-bottom: 60px; }
 
 /* ── FOOTER ─────────────────────────────────────────────── */
-footer { background: var(--bg3); border-top: 1px solid var(--border); padding: 72px 0 36px; }
+footer { background: var(--bg2); border-top: 1px solid var(--border); padding: 72px 0 36px; }
 .footer-brand { font-size: 20px; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase; }
 .footer-sub { font-family: 'DM Mono', monospace; font-size: 8px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-top: 6px; }
 .footer-link { font-size: 13px; color: var(--text2); text-decoration: none; transition: color .2s; display: block; margin-bottom: 10px; }
@@ -198,7 +198,7 @@ footer { background: var(--bg3); border-top: 1px solid var(--border); padding: 7
 }
 .badge-gold { background: rgba(138,104,48,0.1); color: var(--gold); border: 1px solid rgba(184,149,90,0.25); }
 .badge-green { background: rgba(76,119,84,0.15); color: var(--green); border: 1px solid rgba(76,119,84,0.3); }
-.badge-gray { background: rgba(0,0,0,0.06); color: var(--text2); border: 1px solid var(--border); }
+.badge-gray { background: rgba(43,49,56,0.8); color: var(--text2); border: 1px solid var(--border); }
 
 /* ── RESPONSIVE ─────────────────────────────────────────── */
 @media (max-width: 1024px) {
@@ -218,7 +218,7 @@ footer { background: var(--bg3); border-top: 1px solid var(--border); padding: 7
 }
 </style>
 </head>
-<body data-page="uzemie">
+<body data-page="varianty">
 <nav class="nav" id="nav">
   <a href="index.html" class="nav-logo">
     <div class="nav-logo-main">Areál David</div>
@@ -235,165 +235,50 @@ footer { background: var(--bg3); border-top: 1px solid var(--border); padding: 7
   <a href="kontakt.html" class="nav-cta">Mám záujem</a>
 </nav>
 
-<section style="min-height:52vh;padding:140px 0 80px;background:var(--bg2);border-bottom:1px solid var(--border);position:relative;overflow:hidden">
-  <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(138,104,48,0.05) 1px,transparent 1px),linear-gradient(90deg,rgba(138,104,48,0.05) 1px,transparent 1px);background-size:72px 72px"></div>
-  <div style="position:absolute;right:0;top:0;bottom:0;width:40%;background:radial-gradient(ellipse at right,rgba(138,104,48,0.06) 0%,transparent 70%);pointer-events:none"></div>
+<section style="padding:140px 0 80px;background:var(--bg2);border-bottom:1px solid var(--border);position:relative;overflow:hidden">
+  <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(184,149,90,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(184,149,90,0.04) 1px,transparent 1px);background-size:72px 72px"></div>
   <div class="container reveal" style="position:relative;z-index:1">
-    <span class="badge badge-gold" style="margin-bottom:20px;display:inline-block">Schválený ÚP · Apríl 2026</span>
-    <div class="tag">Územie a regulácia</div>
-    <h1 class="h1" style="max-width:700px;margin-bottom:20px">Lokalita &amp; <span class="gold">územný potenciál</span></h1>
-    <p class="body-lg" style="max-width:540px">Kompletný prehľad polohy, regulačných podmienok a obmedzení rozvojového územia Areál David v Košiciach.</p>
+    <div style="margin-bottom:20px"><a href="varianty.html" style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--text2);text-decoration:none">← Varianty rozvoja</a></div>
+    <div class="tag">Varianta 03</div>
+    <h1 class="h1" style="margin-bottom:16px">🏠 <span class="gold">Nájomné bývanie</span></h1>
   </div>
 </section>
-
-<!-- LOKALITA -->
 <section class="section" style="background:var(--bg)">
   <div class="container">
-    <div style="display:grid;grid-template-columns:1fr 1.5fr;gap:60px;align-items:start">
-      <div class="reveal">
-        <div class="tag">Poloha</div>
-        <h2 class="h2" style="margin-bottom:32px">Košice —<br><span class="gold">Nad Jazerom</span></h2>
-        <div style="display:flex;flex-direction:column;gap:0;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden">
-          <div style="padding:18px 22px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center">
-            <span style="font-size:12px;color:var(--text2)">Katastrálne územie</span>
-            <span style="font-size:14px;font-weight:600;color:var(--text)">Košice — Nad Jazerom</span>
-          </div>
-          <div style="padding:18px 22px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center">
-            <span style="font-size:12px;color:var(--text2)">Výmera</span>
-            <span style="font-size:14px;font-weight:700;color:var(--gold)">99 125 m²</span>
-          </div>
-          <div style="padding:18px 22px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center">
-            <span style="font-size:12px;color:var(--text2)">Typ územia</span>
-            <span style="font-size:14px;font-weight:600;color:var(--text)">Transformačné / Mixed-use</span>
-          </div>
-          <div style="padding:18px 22px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center">
-            <span style="font-size:12px;color:var(--text2)">Dopravné napojenie</span>
-            <span style="font-size:14px;font-weight:600;color:var(--text)">Cesta, železnica, MHD</span>
-          </div>
-          <div style="padding:18px 22px;display:flex;justify-content:space-between;align-items:center">
-            <span style="font-size:12px;color:var(--text2)">Vzdialenosť od centra KE</span>
-            <span style="font-size:14px;font-weight:600;color:var(--text)">cca 8 km</span>
-          </div>
-        </div>
-      </div>
-      <div class="reveal reveal-delay-2">
-        <div style="border-radius:var(--radius);overflow:hidden;border:1px solid var(--border);height:460px;position:relative;background:var(--bg2)">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d5276.5!2d21.2!3d48.69!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1ssk!2ssk!4v1234567890"
-            style="width:100%;height:100%;border:none;filter:grayscale(30%) brightness(0.8) contrast(1.15)"
-            allowfullscreen loading="lazy">
-          </iframe>
-          <div style="position:absolute;bottom:16px;left:16px;background:rgba(17,19,21,0.95);padding:8px 14px;border-radius:8px;border:1px solid var(--border)">
-            <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;color:var(--gold);text-transform:uppercase">Košice — Nad Jazerom</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ÚZEMNÝ POTENCIÁL -->
-<section class="section" style="background:var(--bg4);border-top:1px solid var(--border)">
-  <div class="container">
-    <div class="section-header-split">
-      <div class="reveal">
-        <div class="tag">Funkčné možnosti</div>
-        <h2 class="h2">Územný <span class="gold">potenciál</span></h2>
-      </div>
-      <p class="reveal body" style="max-width:340px">Schválený územný plán umožňuje realizáciu zmiešanej zástavby s komplexnou škálou funkcií.</p>
-    </div>
     <div class="grid-3" style="gap:16px">
-
       <div class="card reveal">
-        <div style="font-size:32px;margin-bottom:16px">🏙️</div>
-        <h4 class="h4" style="margin-bottom:10px">Zmiešané územie</h4>
-        <p class="body" style="font-size:13px">Kombinácia funkcií v jednom areáli — bývanie, kancelárie, retail a verejné priestory.</p>
+        <div style="font-size:32px;margin-bottom:14px">📋</div>
+        <h4 class="h4" style="margin-bottom:10px">BTR model</h4>
+        <p class="body" style="font-size:13px">Build-to-Rent — špeciálne navrhnuté pre nájom s dôrazom na komunitu a služby.</p>
       </div>
       <div class="card reveal reveal-delay-2">
-        <div style="font-size:32px;margin-bottom:16px">🏫</div>
-        <h4 class="h4" style="margin-bottom:10px">Občianska vybavenosť</h4>
-        <p class="body" style="font-size:13px">Škôlka, zdravotné centrum, komunitné priestory ako súčasť komplexného rozvoja.</p>
+        <div style="font-size:32px;margin-bottom:14px">💶</div>
+        <h4 class="h4" style="margin-bottom:10px">Dlhodobý prenájom</h4>
+        <p class="body" style="font-size:13px">Byty výhradne na dlhodobý prenájom. Stabilný opakujúci sa cashflow.</p>
       </div>
       <div class="card reveal reveal-delay-3">
-        <div style="font-size:32px;margin-bottom:16px">🛒</div>
-        <h4 class="h4" style="margin-bottom:10px">Retail & Gastro</h4>
-        <p class="body" style="font-size:13px">Aktívny retail parter, obchody, reštaurácie — živé prízemie ako základ komunity.</p>
+        <div style="font-size:32px;margin-bottom:14px">🏘️</div>
+        <h4 class="h4" style="margin-bottom:10px">Dostupné bývanie</h4>
+        <p class="body" style="font-size:13px">Cenovo dostupné nájomné pre pracujúcu strednú triedu a rodiny.</p>
       </div>
       <div class="card reveal reveal-delay-1">
-        <div style="font-size:32px;margin-bottom:16px">🏠</div>
-        <h4 class="h4" style="margin-bottom:10px">Bývanie</h4>
-        <p class="body" style="font-size:13px">Rezidenčné byty na predaj alebo prenájom. Max. 8 nadzemných podlaží podľa ÚP.</p>
+        <div style="font-size:32px;margin-bottom:14px">🤝</div>
+        <h4 class="h4" style="margin-bottom:10px">Komunitné priestory</h4>
+        <p class="body" style="font-size:13px">Coworking, terasa, práčovňa, fitness, komunitná miestnosť.</p>
       </div>
       <div class="card reveal reveal-delay-2">
-        <div style="font-size:32px;margin-bottom:16px">⚕️</div>
-        <h4 class="h4" style="margin-bottom:10px">Zdravotníctvo & Služby</h4>
-        <p class="body" style="font-size:13px">Ambulancie, lekárne, fyzioterapia — stabilní nájomníci s dlhodobými zmluvami.</p>
+        <div style="font-size:32px;margin-bottom:14px">⚙️</div>
+        <h4 class="h4" style="margin-bottom:10px">Profesionálna správa</h4>
+        <p class="body" style="font-size:13px">Centralizovaná správa, rýchla údržba, digitálne služby pre nájomníkov.</p>
       </div>
       <div class="card reveal reveal-delay-3">
-        <div style="font-size:32px;margin-bottom:16px">🌳</div>
-        <h4 class="h4" style="margin-bottom:10px">Verejné priestory</h4>
-        <p class="body" style="font-size:13px">Parky, promenády, ihriská — min. 30 % plochy ako zelené a verejné plochy.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- REGULAČNÉ PODMIENKY -->
-<section class="section" style="background:var(--bg)">
-  <div class="container">
-    <div class="section-header reveal">
-      <div class="tag">Územný plán · Apríl 2026</div>
-      <h2 class="h2">Regulačné <span class="gold">podmienky</span></h2>
-    </div>
-    <div class="grid-3" style="gap:16px;margin-bottom:24px">
-      <div style="background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:32px;border-top:3px solid var(--gold)" class="reveal">
-        <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--text2);margin-bottom:12px">Max. zastavanosť</div>
-        <div class="kpi-num">40 %</div>
-        <div style="font-size:13px;color:var(--text2);margin-top:12px">Maximálna plocha zastavenia z celkovej výmery pozemku.</div>
-      </div>
-      <div style="background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:32px;border-top:3px solid var(--gold)" class="reveal reveal-delay-1">
-        <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--text2);margin-bottom:12px">Maximálna výška</div>
-        <div class="kpi-num">8 NP</div>
-        <div style="font-size:13px;color:var(--text2);margin-top:12px">Maximálny počet nadzemných podlaží pre všetky objekty v areáli.</div>
-      </div>
-      <div style="background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:32px;border-top:3px solid var(--green)" class="reveal reveal-delay-2">
-        <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--text2);margin-bottom:12px">Min. vegetačné plochy</div>
-        <div class="kpi-num" style="color:var(--green)">30 %</div>
-        <div style="font-size:13px;color:var(--text2);margin-top:12px">Minimálny podiel zelene a nezastavených plôch na celom území.</div>
-      </div>
-    </div>
-    <div class="grid-3" style="gap:16px">
-      <div class="card reveal"><h4 class="h4" style="margin-bottom:10px">Ochranné pásma</h4><p class="body" style="font-size:13px">Plochy v OP železnice majú obmedzenia pre bytovú zástavbu. Vhodné pre komerčné a ľahké výrobné využitie.</p></div>
-      <div class="card reveal reveal-delay-1"><h4 class="h4" style="margin-bottom:10px">Dopravné väzby</h4><p class="body" style="font-size:13px">Nový rozvoj musí zabezpečiť adekvátne dopravné napojenie vrátane statickej dopravy v areáli.</p></div>
-      <div class="card reveal reveal-delay-2"><h4 class="h4" style="margin-bottom:10px">Technická infraštruktúra</h4><p class="body" style="font-size:13px">Napojenie na siete (voda, kanalizácia, elektro, plyn, teplo) — čiastočne k dispozícii v areáli.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- OBMEDZENIA -->
-<section class="section-sm" style="background:var(--bg4);border-top:1px solid var(--border)">
-  <div class="container">
-    <div class="section-header reveal">
-      <div class="tag">Obmedzenia</div>
-      <h2 class="h2">Obmedzenia <span class="gold">územia</span></h2>
-    </div>
-    <div class="grid-2" style="gap:16px">
-      <div style="background:var(--bg);border:1px solid var(--border);border-left:3px solid var(--gold-dim);border-radius:var(--radius);padding:24px" class="reveal">
-        <h4 class="h4" style="margin-bottom:10px">OP železnice</h4>
-        <p class="body" style="font-size:13px">Časť územia pri trati má regulácie pre bytovú funkciu. Vhodné pre komerčné, ľahké priemyselné alebo inžinierske využitie.</p>
-      </div>
-      <div style="background:var(--bg);border:1px solid var(--border);border-left:3px solid var(--gold-dim);border-radius:var(--radius);padding:24px" class="reveal reveal-delay-1">
-        <h4 class="h4" style="margin-bottom:10px">Biokoridory</h4>
-        <p class="body" style="font-size:13px">Ochrana zelených koridorov a migračných trás — tieto plochy musia byť zachované alebo kompenzované novými zeleňami.</p>
-      </div>
-      <div style="background:var(--bg);border:1px solid var(--border);border-left:3px solid rgba(184,149,90,0.4);border-radius:var(--radius);padding:24px" class="reveal">
-        <h4 class="h4" style="margin-bottom:10px">Existujúce budovy (mimo predaja)</h4>
-        <p class="body" style="font-size:13px">Budovy č. 2 a 4 nie sú predmetom predaja — sú vo vlastníctve tretích strán. Rozvoj musí rešpektovať tieto hranice.</p>
-      </div>
-      <div style="background:var(--bg);border:1px solid var(--border);border-left:3px solid rgba(184,149,90,0.4);border-radius:var(--radius);padding:24px" class="reveal reveal-delay-1">
-        <h4 class="h4" style="margin-bottom:10px">Inžinierske siete</h4>
-        <p class="body" style="font-size:13px">Prechádzajúce siete (VN, VTL) vyžadujú ochranné pásma alebo preložky — koordinácia s distribútormi energií.</p>
-      </div>
+        <div style="font-size:32px;margin-bottom:14px">🌿</div>
+        <h4 class="h4" style="margin-bottom:10px">ESG štandard</h4>
+        <p class="body" style="font-size:13px">Energeticky efektívne budovy, zelené strechy, smart energy management.</p>
+      </div></div>
+    <div style="margin-top:48px;display:flex;gap:12px;justify-content:center">
+      <a href="kontakt.html" class="btn btn-primary">Mám záujem o túto variantu →</a>
+      <a href="varianty.html" class="btn btn-ghost">← Späť na varianty</a>
     </div>
   </div>
 </section>
