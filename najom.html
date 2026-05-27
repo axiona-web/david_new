@@ -65,6 +65,36 @@ body { font-family: 'Manrope', sans-serif; background: var(--bg); color: var(--t
 }
 .nav-link:hover { color: var(--text); background: rgba(0,0,0,0.04); }
 .nav-link.active { color: var(--gold); }
+
+/* DROPDOWN */
+.nav-item { position: relative; display: flex; align-items: center; }
+.nav-dropdown {
+  position: absolute; top: calc(100% + 1px); left: 0;
+  background: rgba(247,246,243,0.98); border: 1px solid var(--border);
+  border-top: 2px solid var(--gold); border-radius: 0 0 12px 12px;
+  padding: 8px 0; min-width: 200px;
+  box-shadow: 0 12px 32px rgba(0,0,0,0.1);
+  opacity: 0; visibility: hidden; transform: translateY(-6px);
+  transition: all .2s ease; z-index: 200; pointer-events: none;
+}
+.nav-item:hover .nav-dropdown,
+.nav-item:focus-within .nav-dropdown {
+  opacity: 1; visibility: visible; transform: translateY(0); pointer-events: all;
+}
+.nav-dropdown a {
+  display: flex; align-items: center; gap: 10px;
+  padding: 9px 18px; font-size: 12px; font-weight: 600;
+  letter-spacing: 0.04em; color: var(--text2); text-decoration: none;
+  transition: all .15s; white-space: nowrap;
+}
+.nav-dropdown a:hover { color: var(--gold); background: rgba(138,104,48,0.06); }
+.nav-dropdown a .dd-num {
+  font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 2px;
+  color: var(--gold); opacity: 0.7; flex-shrink: 0;
+}
+.nav-dropdown-divider { height: 1px; background: var(--border); margin: 4px 0; }
+.nav-link-arrow::after { content: ' ▾'; font-size: 8px; opacity: 0.5; }
+
 .nav-cta {
   margin-left: 16px; font-size: 11px; font-weight: 700; letter-spacing: 0.1em;
   text-transform: uppercase; color: #F8F5EF; background: var(--gold);
@@ -227,7 +257,16 @@ footer { background: var(--bg3); border-top: 1px solid var(--border); padding: 7
   <div class="nav-links">
     <a href="index.html" class="nav-link" data-page="index">Domov</a>
     <a href="uzemie.html" class="nav-link" data-page="uzemie">Územie</a>
-    <a href="investicia.html" class="nav-link" data-page="investicia">Investícia</a>
+    <div class="nav-item">
+      <a href="investicia.html" class="nav-link nav-link-arrow" data-page="investicia">Investícia</a>
+      <div class="nav-dropdown">
+        <a href="investicia.html"><span class="dd-num">00</span> Investičný prehľad</a>
+        <div class="nav-dropdown-divider"></div>
+        <a href="faza1.html"><span class="dd-num">01</span> Fáza 1 — Infraštruktúra</a>
+        <a href="faza2.html"><span class="dd-num">02</span> Fáza 2 — Rezidenčné bloky</a>
+        <a href="faza3.html"><span class="dd-num">03</span> Fáza 3 — Prémiové veže</a>
+      </div>
+    </div>
     <a href="varianty.html" class="nav-link" data-page="varianty">Varianty</a>
     <a href="dokumenty.html" class="nav-link" data-page="dokumenty">Dokumenty</a>
     <a href="kontakt.html" class="nav-link" data-page="kontakt">Kontakt</a>
@@ -243,7 +282,16 @@ footer { background: var(--bg3); border-top: 1px solid var(--border); padding: 7
   <div class="nav-links">
     <a href="index.html" class="nav-link" data-page="index">Domov</a>
     <a href="uzemie.html" class="nav-link" data-page="uzemie">Územie</a>
-    <a href="investicia.html" class="nav-link" data-page="investicia">Investícia</a>
+    <div class="nav-item">
+      <a href="investicia.html" class="nav-link nav-link-arrow" data-page="investicia">Investícia</a>
+      <div class="nav-dropdown">
+        <a href="investicia.html"><span class="dd-num">00</span> Investičný prehľad</a>
+        <div class="nav-dropdown-divider"></div>
+        <a href="faza1.html"><span class="dd-num">01</span> Fáza 1 — Infraštruktúra</a>
+        <a href="faza2.html"><span class="dd-num">02</span> Fáza 2 — Rezidenčné bloky</a>
+        <a href="faza3.html"><span class="dd-num">03</span> Fáza 3 — Prémiové veže</a>
+      </div>
+    </div>
     <a href="varianty.html" class="nav-link" data-page="varianty">Varianty</a>
     <a href="dokumenty.html" class="nav-link" data-page="dokumenty">Dokumenty</a>
     <a href="kontakt.html" class="nav-link" data-page="kontakt">Kontakt</a>
@@ -271,7 +319,7 @@ footer { background: var(--bg3); border-top: 1px solid var(--border); padding: 7
         <span style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text3)">Parameter</span>
         <span style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold)">Predaj (Str. A)</span>
         <span style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--green)">EIB Prenájom</span>
-      </div><div style="padding:14px 22px;border-top:1px solid var(--border);display:grid;grid-template-columns:2fr 1fr 1fr;gap:16px;align-items:center"><span style="font-size:13px;color:var(--text2)">Celkové výnosy</span><span style="font-size:13px;font-weight:600;color:var(--gold)">405 M€</span><span style="font-size:13px;font-weight:600;color:var(--text2)">~309 M€</span></div><div style="padding:14px 22px;border-top:1px solid var(--border);display:grid;grid-template-columns:2fr 1fr 1fr;gap:16px;align-items:center"><span style="font-size:13px;color:var(--text2)">Zisk (bez EÚ)</span><span style="font-size:13px;font-weight:600;color:var(--gold)">+43 M€</span><span style="font-size:13px;font-weight:600;color:var(--text3)">–53 M€ (strata)</span></div><div style="padding:14px 22px;border-top:1px solid var(--border);display:grid;grid-template-columns:2fr 1fr 1fr;gap:16px;align-items:center"><span style="font-size:13px;color:var(--text2)">Ročný NOI</span><span style="font-size:13px;font-weight:600;color:var(--gold)">—</span><span style="font-size:13px;font-weight:600;color:var(--green)">~10,5 M€/rok</span></div><div style="padding:14px 22px;border-top:1px solid var(--border);display:grid;grid-template-columns:2fr 1fr 1fr;gap:16px;align-items:center"><span style="font-size:13px;color:var(--text2)">Typ výnosu</span><span style="font-size:13px;font-weight:600;color:var(--gold)">Jednorazový</span><span style="font-size:13px;font-weight:600;color:var(--green)">Opakovaný (perpetuita)</span></div><div style="padding:14px 22px;border-top:1px solid var(--border);display:grid;grid-template-columns:2fr 1fr 1fr;gap:16px;align-items:center"><span style="font-size:13px;color:var(--text2)">Vhodný pre</span><span style="font-size:13px;font-weight:600;color:var(--gold)">Developer / Value-add fond</span><span style="font-size:13px;font-weight:600;color:var(--green)">Mesto, EIB, Core fond, Inštitúcia</span></div><div style="padding:14px 22px;border-top:1px solid var(--border);display:grid;grid-template-columns:2fr 1fr 1fr;gap:16px;align-items:center"><span style="font-size:13px;color:var(--text2)">Odporúčanie</span><span style="font-size:13px;font-weight:600;color:var(--gold)">★ Primárna stratégia</span><span style="font-size:13px;font-weight:600;color:var(--text2)">Fallback / Alternatíva</span></div>
+      </div><div style="padding:14px 22px;border-top:1px solid var(--border);display:grid;grid-template-columns:2fr 1fr 1fr;gap:16px;align-items:center"><span style="font-size:13px;color:var(--text2)">Celkové výnosy</span><span style="font-size:13px;font-weight:600;color:var(--gold)">325 M€</span><span style="font-size:13px;font-weight:600;color:var(--text2)">~309 M€</span></div><div style="padding:14px 22px;border-top:1px solid var(--border);display:grid;grid-template-columns:2fr 1fr 1fr;gap:16px;align-items:center"><span style="font-size:13px;color:var(--text2)">Zisk (bez EÚ)</span><span style="font-size:13px;font-weight:600;color:var(--gold)">+43 M€</span><span style="font-size:13px;font-weight:600;color:var(--text3)">–53 M€ (strata)</span></div><div style="padding:14px 22px;border-top:1px solid var(--border);display:grid;grid-template-columns:2fr 1fr 1fr;gap:16px;align-items:center"><span style="font-size:13px;color:var(--text2)">Ročný NOI</span><span style="font-size:13px;font-weight:600;color:var(--gold)">—</span><span style="font-size:13px;font-weight:600;color:var(--green)">~7,9 M€/rok</span></div><div style="padding:14px 22px;border-top:1px solid var(--border);display:grid;grid-template-columns:2fr 1fr 1fr;gap:16px;align-items:center"><span style="font-size:13px;color:var(--text2)">Typ výnosu</span><span style="font-size:13px;font-weight:600;color:var(--gold)">Jednorazový</span><span style="font-size:13px;font-weight:600;color:var(--green)">Opakovaný (perpetuita)</span></div><div style="padding:14px 22px;border-top:1px solid var(--border);display:grid;grid-template-columns:2fr 1fr 1fr;gap:16px;align-items:center"><span style="font-size:13px;color:var(--text2)">Vhodný pre</span><span style="font-size:13px;font-weight:600;color:var(--gold)">Developer / Value-add fond</span><span style="font-size:13px;font-weight:600;color:var(--green)">Mesto, EIB, Core fond, Inštitúcia</span></div><div style="padding:14px 22px;border-top:1px solid var(--border);display:grid;grid-template-columns:2fr 1fr 1fr;gap:16px;align-items:center"><span style="font-size:13px;color:var(--text2)">Odporúčanie</span><span style="font-size:13px;font-weight:600;color:var(--gold)">★ Primárna stratégia</span><span style="font-size:13px;font-weight:600;color:var(--text2)">Fallback / Alternatíva</span></div>
     </div>
     <div class="grid-2" style="gap:16px"><div style="background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:24px;border-top:3px solid var(--green)" class="reveal"><div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--text2);margin-bottom:10px">EIB pokrytie (max.)</div><div style="font-size:clamp(26px,3vw,40px);font-weight:800;color:var(--green);line-height:1">50–75 %</div></div><div style="background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:24px;border-top:3px solid var(--gold)" class="reveal"><div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--text2);margin-bottom:10px">All-in úrok</div><div style="font-size:clamp(26px,3vw,40px);font-weight:800;color:var(--gold);line-height:1">2,7–4,2 %</div></div><div style="background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:24px;border-top:3px solid var(--border)" class="reveal"><div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--text2);margin-bottom:10px">Splatnosť</div><div style="font-size:clamp(26px,3vw,40px);font-weight:800;color:var(--text);line-height:1">20–30 r.</div></div><div style="background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:24px;border-top:3px solid var(--border)" class="reveal"><div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--text2);margin-bottom:10px">DSCR minimum</div><div style="font-size:clamp(26px,3vw,40px);font-weight:800;color:var(--text);line-height:1">≥ 1,2×</div></div>
     </div>
@@ -287,7 +335,7 @@ footer { background: var(--bg3); border-top: 1px solid var(--border); padding: 7
     </div>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start">
       <div class="reveal">
-        <div style="border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-bottom:16px"><div style="padding:16px 22px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;gap:12px"><span style="font-size:13px;color:var(--text2)">Prenajímateľná plocha (NLA)</span><span style="font-size:14px;font-weight:600;color:var(--text)">~105 000 m²</span></div><div style="padding:16px 22px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;gap:12px"><span style="font-size:13px;color:var(--text2)">Počet bytov</span><span style="font-size:14px;font-weight:600;color:var(--text)">~1 616 jednotiek</span></div><div style="padding:16px 22px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;gap:12px"><span style="font-size:13px;color:var(--text2)">Nájom / mesiac</span><span style="font-size:14px;font-weight:600;color:var(--text)">~13 €/m²</span></div><div style="padding:16px 22px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;gap:12px"><span style="font-size:13px;color:var(--text2)">Obsadenosť (predpoklad)</span><span style="font-size:14px;font-weight:600;color:var(--text)">85 %</span></div><div style="padding:16px 22px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;gap:12px"><span style="font-size:13px;color:var(--text2)">NOI ročne (stabilizovaný)</span><span style="font-size:14px;font-weight:700;color:var(--gold)">~10,5 M€</span></div><div style="padding:16px 22px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;gap:12px"><span style="font-size:13px;color:var(--text2)">Portfóliová hodnota (4,5 %)</span><span style="font-size:14px;font-weight:700;color:var(--gold)">~233 M€</span></div><div style="padding:16px 22px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;gap:12px"><span style="font-size:13px;color:var(--text2)">EIB financovanie (50–75 %)</span><span style="font-size:14px;font-weight:600;color:var(--text)">~119–179 M€</span></div><div style="padding:16px 22px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;gap:12px"><span style="font-size:13px;color:var(--text2)">Banka (10–30 %)</span><span style="font-size:14px;font-weight:600;color:var(--text)">~24–71 M€</span></div><div style="padding:16px 22px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;gap:12px"><span style="font-size:13px;color:var(--text2)">Equity investor (10–25 %)</span><span style="font-size:14px;font-weight:700;color:var(--gold)">~24–60 M€</span></div><div style="padding:16px 22px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;gap:12px"><span style="font-size:13px;color:var(--text2)">Exitová opcia</span><span style="font-size:14px;font-weight:600;color:var(--text)">Predaj portfólia po 7–10 rokoch</span></div>
+        <div style="border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-bottom:16px"><div style="padding:16px 22px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;gap:12px"><span style="font-size:13px;color:var(--text2)">Prenajímateľná plocha (NLA)</span><span style="font-size:14px;font-weight:600;color:var(--text)">~78 000 m²</span></div><div style="padding:16px 22px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;gap:12px"><span style="font-size:13px;color:var(--text2)">Počet bytov</span><span style="font-size:14px;font-weight:600;color:var(--text)">~1 200 jednotiek</span></div><div style="padding:16px 22px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;gap:12px"><span style="font-size:13px;color:var(--text2)">Nájom / mesiac</span><span style="font-size:14px;font-weight:600;color:var(--text)">~13 €/m²</span></div><div style="padding:16px 22px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;gap:12px"><span style="font-size:13px;color:var(--text2)">Obsadenosť (predpoklad)</span><span style="font-size:14px;font-weight:600;color:var(--text)">85 %</span></div><div style="padding:16px 22px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;gap:12px"><span style="font-size:13px;color:var(--text2)">NOI ročne (stabilizovaný)</span><span style="font-size:14px;font-weight:700;color:var(--gold)">~7,9 M€</span></div><div style="padding:16px 22px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;gap:12px"><span style="font-size:13px;color:var(--text2)">Portfóliová hodnota (4,5 %)</span><span style="font-size:14px;font-weight:700;color:var(--gold)">~175 M€</span></div><div style="padding:16px 22px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;gap:12px"><span style="font-size:13px;color:var(--text2)">EIB financovanie (50–75 %)</span><span style="font-size:14px;font-weight:600;color:var(--text)">~119–179 M€</span></div><div style="padding:16px 22px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;gap:12px"><span style="font-size:13px;color:var(--text2)">Banka (10–30 %)</span><span style="font-size:14px;font-weight:600;color:var(--text)">~24–71 M€</span></div><div style="padding:16px 22px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;gap:12px"><span style="font-size:13px;color:var(--text2)">Equity investor (10–25 %)</span><span style="font-size:14px;font-weight:700;color:var(--gold)">~24–60 M€</span></div><div style="padding:16px 22px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;gap:12px"><span style="font-size:13px;color:var(--text2)">Exitová opcia</span><span style="font-size:14px;font-weight:600;color:var(--text)">Predaj portfólia po 7–10 rokoch</span></div>
         </div>
       </div>
       <div class="reveal reveal-delay-2">
@@ -331,7 +379,7 @@ footer { background: var(--bg3); border-top: 1px solid var(--border); padding: 7
         <div style="font-size:13px;color:var(--text2);margin-top:20px;max-width:280px;line-height:1.65">Transformácia priemyselného areálu na nový mestský mixed-use distrikt v Košiciach.</div>
         <div style="margin-top:24px;display:flex;gap:10px;flex-wrap:wrap">
           <span class="badge badge-gold">Rozvojové územie</span>
-          <span class="badge badge-gray">99 125 m²</span>
+          <span class="badge badge-gray">98 400 m²</span>
         </div>
       </div>
       <div>
@@ -413,7 +461,7 @@ document.querySelectorAll('[data-target]').forEach(el => numObs.observe(el));
         <div style="font-size:13px;color:var(--text2);margin-top:20px;max-width:280px;line-height:1.65">Transformácia priemyselného areálu na nový mestský mixed-use distrikt v Košiciach.</div>
         <div style="margin-top:24px;display:flex;gap:10px;flex-wrap:wrap">
           <span class="badge badge-gold">Rozvojové územie</span>
-          <span class="badge badge-gray">99 125 m²</span>
+          <span class="badge badge-gray">98 400 m²</span>
         </div>
       </div>
       <div>

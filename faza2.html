@@ -65,6 +65,36 @@ body { font-family: 'Manrope', sans-serif; background: var(--bg); color: var(--t
 }
 .nav-link:hover { color: var(--text); background: rgba(0,0,0,0.04); }
 .nav-link.active { color: var(--gold); }
+
+/* DROPDOWN */
+.nav-item { position: relative; display: flex; align-items: center; }
+.nav-dropdown {
+  position: absolute; top: calc(100% + 1px); left: 0;
+  background: rgba(247,246,243,0.98); border: 1px solid var(--border);
+  border-top: 2px solid var(--gold); border-radius: 0 0 12px 12px;
+  padding: 8px 0; min-width: 200px;
+  box-shadow: 0 12px 32px rgba(0,0,0,0.1);
+  opacity: 0; visibility: hidden; transform: translateY(-6px);
+  transition: all .2s ease; z-index: 200; pointer-events: none;
+}
+.nav-item:hover .nav-dropdown,
+.nav-item:focus-within .nav-dropdown {
+  opacity: 1; visibility: visible; transform: translateY(0); pointer-events: all;
+}
+.nav-dropdown a {
+  display: flex; align-items: center; gap: 10px;
+  padding: 9px 18px; font-size: 12px; font-weight: 600;
+  letter-spacing: 0.04em; color: var(--text2); text-decoration: none;
+  transition: all .15s; white-space: nowrap;
+}
+.nav-dropdown a:hover { color: var(--gold); background: rgba(138,104,48,0.06); }
+.nav-dropdown a .dd-num {
+  font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 2px;
+  color: var(--gold); opacity: 0.7; flex-shrink: 0;
+}
+.nav-dropdown-divider { height: 1px; background: var(--border); margin: 4px 0; }
+.nav-link-arrow::after { content: ' ▾'; font-size: 8px; opacity: 0.5; }
+
 .nav-cta {
   margin-left: 16px; font-size: 11px; font-weight: 700; letter-spacing: 0.1em;
   text-transform: uppercase; color: #F8F5EF; background: var(--gold);
@@ -227,7 +257,16 @@ footer { background: var(--bg3); border-top: 1px solid var(--border); padding: 7
   <div class="nav-links">
     <a href="index.html" class="nav-link" data-page="index">Domov</a>
     <a href="uzemie.html" class="nav-link" data-page="uzemie">Územie</a>
-    <a href="investicia.html" class="nav-link" data-page="investicia">Investícia</a>
+    <div class="nav-item">
+      <a href="investicia.html" class="nav-link nav-link-arrow" data-page="investicia">Investícia</a>
+      <div class="nav-dropdown">
+        <a href="investicia.html"><span class="dd-num">00</span> Investičný prehľad</a>
+        <div class="nav-dropdown-divider"></div>
+        <a href="faza1.html"><span class="dd-num">01</span> Fáza 1 — Infraštruktúra</a>
+        <a href="faza2.html"><span class="dd-num">02</span> Fáza 2 — Rezidenčné bloky</a>
+        <a href="faza3.html"><span class="dd-num">03</span> Fáza 3 — Prémiové veže</a>
+      </div>
+    </div>
     <a href="varianty.html" class="nav-link" data-page="varianty">Varianty</a>
     <a href="dokumenty.html" class="nav-link" data-page="dokumenty">Dokumenty</a>
     <a href="kontakt.html" class="nav-link" data-page="kontakt">Kontakt</a>
@@ -243,7 +282,16 @@ footer { background: var(--bg3); border-top: 1px solid var(--border); padding: 7
   <div class="nav-links">
     <a href="index.html" class="nav-link" data-page="index">Domov</a>
     <a href="uzemie.html" class="nav-link" data-page="uzemie">Územie</a>
-    <a href="investicia.html" class="nav-link" data-page="investicia">Investícia</a>
+    <div class="nav-item">
+      <a href="investicia.html" class="nav-link nav-link-arrow" data-page="investicia">Investícia</a>
+      <div class="nav-dropdown">
+        <a href="investicia.html"><span class="dd-num">00</span> Investičný prehľad</a>
+        <div class="nav-dropdown-divider"></div>
+        <a href="faza1.html"><span class="dd-num">01</span> Fáza 1 — Infraštruktúra</a>
+        <a href="faza2.html"><span class="dd-num">02</span> Fáza 2 — Rezidenčné bloky</a>
+        <a href="faza3.html"><span class="dd-num">03</span> Fáza 3 — Prémiové veže</a>
+      </div>
+    </div>
     <a href="varianty.html" class="nav-link" data-page="varianty">Varianty</a>
     <a href="dokumenty.html" class="nav-link" data-page="dokumenty">Dokumenty</a>
     <a href="kontakt.html" class="nav-link" data-page="kontakt">Kontakt</a>
@@ -258,10 +306,10 @@ footer { background: var(--bg3); border-top: 1px solid var(--border); padding: 7
 <section class="section" style="background:var(--bg)">
   <div class="container">
     <div class="grid-2" style="gap:16px;margin-bottom:20px">
-      <div style="background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:24px;border-top:3px solid var(--gold)" class="reveal"><div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--text2);margin-bottom:10px">Bytových jednotiek F2</div><div style="font-size:clamp(28px,3.5vw,44px);font-weight:800;color:var(--gold);line-height:1">808</div></div>
+      <div style="background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:24px;border-top:3px solid var(--gold)" class="reveal"><div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--text2);margin-bottom:10px">Bytových jednotiek F2</div><div style="font-size:clamp(28px,3.5vw,44px);font-weight:800;color:var(--gold);line-height:1">600</div></div>
       <div style="background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:24px;border-top:3px solid var(--gold)" class="reveal"><div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--text2);margin-bottom:10px">Base cena</div><div style="font-size:clamp(28px,3.5vw,44px);font-weight:800;color:var(--gold);line-height:1">3 430 €/m²</div></div>
-      <div style="background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:24px;border-top:3px solid var(--border)" class="reveal"><div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--text2);margin-bottom:10px">Tržby (base)</div><div style="font-size:clamp(28px,3.5vw,44px);font-weight:800;color:var(--text);line-height:1">~178 M€</div></div>
-      <div style="background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:24px;border-top:3px solid var(--border)" class="reveal"><div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--text2);margin-bottom:10px">CAPEX</div><div style="font-size:clamp(28px,3.5vw,44px);font-weight:800;color:var(--text2);line-height:1">~88 M€</div></div>
+      <div style="background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:24px;border-top:3px solid var(--border)" class="reveal"><div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--text2);margin-bottom:10px">Tržby (base)</div><div style="font-size:clamp(28px,3.5vw,44px);font-weight:800;color:var(--text);line-height:1">~134 M€</div></div>
+      <div style="background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:24px;border-top:3px solid var(--border)" class="reveal"><div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--text2);margin-bottom:10px">CAPEX</div><div style="font-size:clamp(28px,3.5vw,44px);font-weight:800;color:var(--text2);line-height:1">~65 M€</div></div>
     </div>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start">
       <div class="reveal">
@@ -280,7 +328,7 @@ footer { background: var(--bg3); border-top: 1px solid var(--border); padding: 7
       <div class="reveal reveal-delay-2">
         <div class="tag">Predajná stratégia</div>
         <h2 class="h2" style="margin-bottom:24px">Model <span class="gold">predaja</span></h2>
-        <div style="border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-bottom:16px"><div style="padding:16px 22px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;gap:12px"><span style="font-size:13px;color:var(--text2)">Predpredaj (podmienka banky)</span><span style="font-size:14px;font-weight:600;color:var(--text)">Min. 40 % (323 bytov)</span></div><div style="padding:16px 22px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;gap:12px"><span style="font-size:13px;color:var(--text2)">Tempo predaja (base)</span><span style="font-size:14px;font-weight:600;color:var(--text)">160–180 j/rok</span></div><div style="padding:16px 22px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;gap:12px"><span style="font-size:13px;color:var(--text2)">Horizont predaja</span><span style="font-size:14px;font-weight:600;color:var(--text)">~3,5 roka</span></div><div style="padding:16px 22px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;gap:12px"><span style="font-size:13px;color:var(--text2)">Early-bird zľava</span><span style="font-size:14px;font-weight:600;color:var(--text)">–4 % (pred výstavbou)</span></div><div style="padding:16px 22px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;gap:12px"><span style="font-size:13px;color:var(--text2)">Kanály</span><span style="font-size:14px;font-weight:600;color:var(--text)">Volvo HR, brokerská sieť, digitál</span></div>
+        <div style="border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-bottom:16px"><div style="padding:16px 22px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;gap:12px"><span style="font-size:13px;color:var(--text2)">Predpredaj (podmienka banky)</span><span style="font-size:14px;font-weight:600;color:var(--text)">Min. 40 % (240 bytov)</span></div><div style="padding:16px 22px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;gap:12px"><span style="font-size:13px;color:var(--text2)">Tempo predaja (base)</span><span style="font-size:14px;font-weight:600;color:var(--text)">140–160 j/rok</span></div><div style="padding:16px 22px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;gap:12px"><span style="font-size:13px;color:var(--text2)">Horizont predaja</span><span style="font-size:14px;font-weight:600;color:var(--text)">~3,5 roka</span></div><div style="padding:16px 22px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;gap:12px"><span style="font-size:13px;color:var(--text2)">Early-bird zľava</span><span style="font-size:14px;font-weight:600;color:var(--text)">–4 % (pred výstavbou)</span></div><div style="padding:16px 22px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;gap:12px"><span style="font-size:13px;color:var(--text2)">Kanály</span><span style="font-size:14px;font-weight:600;color:var(--text)">Volvo HR, brokerská sieť, digitál</span></div>
         </div>
         <div style="background:rgba(58,96,64,0.06);border:1px solid rgba(58,96,64,0.2);border-radius:12px;padding:18px">
           <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--green);margin-bottom:8px">Prečo kupujúci zaplatia viac ako v Roku 1</div>
@@ -310,7 +358,7 @@ footer { background: var(--bg3); border-top: 1px solid var(--border); padding: 7
         <ul style="list-style:none;display:flex;flex-direction:column;gap:5px">
           <li style="font-size:12px;color:var(--text2)">· Projektová dokumentácia F2</li>
           <li style="font-size:12px;color:var(--text2)">· Early-bird predaj (–5 %)</li>
-          <li style="font-size:12px;color:var(--text2)">· <strong style="color:var(--gold)">Cieľ: 323 zmlúv (40 %)</strong></li>
+          <li style="font-size:12px;color:var(--text2)">· <strong style="color:var(--gold)">Cieľ: 240 zmlúv (40 %)</strong></li>
           <li style="font-size:12px;color:var(--text2)">· Bankový úver F2 schválený</li>
         </ul>
       </div>
@@ -330,7 +378,7 @@ footer { background: var(--bg3); border-top: 1px solid var(--border); padding: 7
         <ul style="list-style:none;display:flex;flex-direction:column;gap:5px">
           <li style="font-size:12px;color:var(--text2)">· Dokončenie + kolaudácie</li>
           <li style="font-size:12px;color:var(--text2)">· Odovzdanie bytov (Rok 3–4)</li>
-          <li style="font-size:12px;color:var(--text2)">· <strong style="color:var(--gold)">~70 % bytov predaných</strong></li>
+          <li style="font-size:12px;color:var(--text2)">· <strong style="color:var(--gold)">~70 % z 600 bytov predaných</strong></li>
           <li style="font-size:12px;color:var(--text2)">· F3 výstavba štartuje</li>
         </ul>
       </div>
@@ -339,7 +387,7 @@ footer { background: var(--bg3); border-top: 1px solid var(--border); padding: 7
         <div style="font-size:14px;font-weight:700;color:var(--text);margin-bottom:8px">Uzavretie F2</div>
         <ul style="list-style:none;display:flex;flex-direction:column;gap:5px">
           <li style="font-size:12px;color:var(--text2)">· Posledné byty F2 predané</li>
-          <li style="font-size:12px;color:var(--text2)">· <strong style="color:var(--gold)">F2 tržby: ~178 M€</strong></li>
+          <li style="font-size:12px;color:var(--text2)">· <strong style="color:var(--gold)">F2 tržby: ~134 M€</strong></li>
           <li style="font-size:12px;color:var(--text2)">· F3 hrubá stavba beží</li>
           <li style="font-size:12px;color:var(--text2)">· Splácanie bankového dlhu F2</li>
         </ul>
