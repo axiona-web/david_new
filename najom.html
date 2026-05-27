@@ -274,30 +274,7 @@ footer { background: var(--bg3); border-top: 1px solid var(--border); padding: 7
   <a href="kontakt.html" class="nav-cta">Mám záujem</a>
 </nav>
 
-<nav class="nav" id="nav">
-  <a href="index.html" class="nav-logo">
-    <div class="nav-logo-main">Areál David</div>
-    <div class="nav-logo-sub">Košice · Rozvojové územie</div>
-  </a>
-  <div class="nav-links">
-    <a href="index.html" class="nav-link" data-page="index">Domov</a>
-    <a href="uzemie.html" class="nav-link" data-page="uzemie">Územie</a>
-    <div class="nav-item">
-      <a href="investicia.html" class="nav-link nav-link-arrow" data-page="investicia">Investícia</a>
-      <div class="nav-dropdown">
-        <a href="investicia.html"><span class="dd-num">00</span> Investičný prehľad</a>
-        <div class="nav-dropdown-divider"></div>
-        <a href="faza1.html"><span class="dd-num">01</span> Fáza 1 — Infraštruktúra</a>
-        <a href="faza2.html"><span class="dd-num">02</span> Fáza 2 — Rezidenčné bloky</a>
-        <a href="faza3.html"><span class="dd-num">03</span> Fáza 3 — Prémiové veže</a>
-      </div>
-    </div>
-    <a href="varianty.html" class="nav-link" data-page="varianty">Varianty</a>
-    <a href="dokumenty.html" class="nav-link" data-page="dokumenty">Dokumenty</a>
-    <a href="kontakt.html" class="nav-link" data-page="kontakt">Kontakt</a>
-  </div>
-  <a href="kontakt.html" class="nav-cta">Mám záujem</a>
-</nav>
+
 <section style="min-height:48vh;padding:130px 0 72px;background:var(--bg2);border-bottom:1px solid var(--border);position:relative;overflow:hidden">
   <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(138,104,48,0.05) 1px,transparent 1px),linear-gradient(90deg,rgba(138,104,48,0.05) 1px,transparent 1px);background-size:72px 72px"></div>
   <div style="position:absolute;right:0;top:0;bottom:0;width:35%;background:radial-gradient(ellipse at right,rgba(58,96,64,0.08) 0%,transparent 70%);pointer-events:none"></div>
@@ -452,45 +429,7 @@ const numObs = new IntersectionObserver(entries => {
 document.querySelectorAll('[data-target]').forEach(el => numObs.observe(el));
 </script>
 
-<footer>
-  <div class="container">
-    <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;padding-bottom:48px;border-bottom:1px solid var(--border)">
-      <div>
-        <div class="footer-brand">Areál David</div>
-        <div class="footer-sub">Košice — Strategické rozvojové územie</div>
-        <div style="font-size:13px;color:var(--text2);margin-top:20px;max-width:280px;line-height:1.65">Transformácia priemyselného areálu na nový mestský mixed-use distrikt v Košiciach.</div>
-        <div style="margin-top:24px;display:flex;gap:10px;flex-wrap:wrap">
-          <span class="badge badge-gold">Rozvojové územie</span>
-          <span class="badge badge-gray">98 400 m²</span>
-        </div>
-      </div>
-      <div>
-        <div class="footer-col-label">Projekt</div>
-        <a href="index.html" class="footer-link">Domov</a>
-        <a href="uzemie.html" class="footer-link">Územie a regulácia</a>
-        <a href="investicia.html" class="footer-link">Investičná príležitosť</a>
-        <a href="varianty.html" class="footer-link">Varianty rozvoja</a>
-      </div>
-      <div>
-        <div class="footer-col-label">Info</div>
-        <a href="dokumenty.html" class="footer-link">Dokumenty</a>
-        <a href="kontakt.html" class="footer-link">Kontakt</a>
-        <a href="dokumenty.html" class="footer-link">Data Room (NDA)</a>
-      </div>
-      <div>
-        <div class="footer-col-label">Kontakt</div>
-        <div style="font-size:13px;color:var(--text2);line-height:1.8">
-          Košice, SR<br>
-          <a href="kontakt.html" style="color:var(--gold);text-decoration:none;margin-top:12px;display:inline-block;font-size:12px">Formulár →</a>
-        </div>
-      </div>
-    </div>
-    <div style="display:flex;justify-content:space-between;align-items:center;padding-top:28px;flex-wrap:wrap;gap:12px">
-      <div style="font-size:12px;color:var(--text3)">© 2026 Areál David Košice. Dôverný investičný materiál.</div>
-      <div style="font-family:'DM Mono',monospace;font-size:9px;color:var(--text3);letter-spacing:1.5px">INVESTOR TEASER · v3.0</div>
-    </div>
-  </div>
-</footer>
+
 
 </body>
 </html>
