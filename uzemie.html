@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Územie a regulácia | Areál David Košice</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=DM+Mono:wght@300;400;500&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:       #F7F6F3;
+  --bg2:      #EEECEA;
+  --bg3:      #E5E3DF;
+  --bg4:      #DDDBD7;
+  --border:   #D4D0C8;
+  --border-l: rgba(180,175,165,0.5);
+  --gold:     #8A6830;
+  --gold-h:   #A07840;
+  --gold-dim: #B89860;
+  --green:    #3A6040;
+  --text:     #1A1814;
+  --text2:    #5A5650;
+  --text3:    #8A8680;
+  --light-bg: #F7F6F3;
+  --radius:   20px;
+  --radius-sm:12px;
+}
+
+html { scroll-behavior: smooth; }
+body { font-family: 'Manrope', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden; }
+
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 2px; }
+
+/* ── NAVIGATION ─────────────────────────────────────────── */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  height: 68px; display: flex; align-items: center;
+  padding: 0 48px;
+  background: rgba(247,246,243,0.96);
+  backdrop-filter: blur(20px) saturate(1.2);
+  border-bottom: 1px solid rgba(212,208,200,0.9);
+  box-shadow: 0 1px 0 rgba(0,0,0,0.06);
+  transition: all .3s;
+}
+.nav-logo {
+  text-decoration: none; margin-right: auto; display: flex; flex-direction: column;
+}
+.nav-logo-main {
+  font-size: 16px; font-weight: 700; letter-spacing: 0.06em;
+  text-transform: uppercase; color: var(--text); line-height: 1;
+}
+.nav-logo-sub {
+  font-family: 'DM Mono', monospace; font-size: 8px; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--gold); margin-top: 3px; opacity: 0.8;
+}
+.nav-links { display: flex; align-items: center; gap: 4px; }
+.nav-link {
+  font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--text2); text-decoration: none; padding: 8px 14px; border-radius: 6px;
+  transition: all .2s; position: relative;
+}
+.nav-link:hover { color: var(--text); background: rgba(0,0,0,0.04); }
+.nav-link.active { color: var(--gold); }
+
+/* DROPDOWN */
+.nav-item { position: relative; display: flex; align-items: center; }
+.nav-dropdown {
+  position: absolute; top: calc(100% + 1px); left: 0;
+  background: rgba(247,246,243,0.98); border: 1px solid var(--border);
+  border-top: 2px solid var(--gold); border-radius: 0 0 12px 12px;
+  padding: 8px 0; min-width: 200px;
+  box-shadow: 0 12px 32px rgba(0,0,0,0.1);
+  opacity: 0; visibility: hidden; transform: translateY(-6px);
+  transition: all .2s ease; z-index: 200; pointer-events: none;
+}
+.nav-item:hover .nav-dropdown,
+.nav-item:focus-within .nav-dropdown {
+  opacity: 1; visibility: visible; transform: translateY(0); pointer-events: all;
+}
+.nav-dropdown a {
+  display: flex; align-items: center; gap: 10px;
+  padding: 9px 18px; font-size: 12px; font-weight: 600;
+  letter-spacing: 0.04em; color: var(--text2); text-decoration: none;
+  transition: all .15s; white-space: nowrap;
+}
+.nav-dropdown a:hover { color: var(--gold); background: rgba(138,104,48,0.06); }
+.nav-dropdown a .dd-num {
+  font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 2px;
+  color: var(--gold); opacity: 0.7; flex-shrink: 0;
+}
+.nav-dropdown-divider { height: 1px; background: var(--border); margin: 4px 0; }
+.nav-link-arrow::after { content: ' ▾'; font-size: 8px; opacity: 0.5; }
+
+.nav-cta {
+  margin-left: 16px; font-size: 11px; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; color: #F7F6F3; background: var(--gold);
+  padding: 10px 22px; text-decoration: none; border-radius: 8px;
+  transition: all .2s; border: 1px solid transparent;
+}
+.nav-cta:hover { background: var(--gold-h); transform: translateY(-1px); box-shadow: 0 8px 24px rgba(184,149,90,0.25); }
+
+/* ── LAYOUT ─────────────────────────────────────────────── */
+.container { max-width: 1240px; margin: 0 auto; padding: 0 48px; }
+.section { padding: 100px 0; }
+.section-sm { padding: 64px 0; }
+.section-lg { padding: 140px 0; }
+
+/* ── TAGS & LABELS ──────────────────────────────────────── */
+.tag {
+  display: inline-block; font-family: 'DM Mono', monospace;
+  font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--gold); background: rgba(184,149,90,0.1);
+  border: 1px solid rgba(184,149,90,0.2); padding: 4px 12px; border-radius: 4px;
+  margin-bottom: 20px;
+}
+.overline {
+  font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--text2); display: block; margin-bottom: 16px;
+}
+
+/* ── HEADINGS ───────────────────────────────────────────── */
+.h1 { font-size: clamp(44px, 5.5vw, 80px); font-weight: 800; line-height: 1.02; letter-spacing: -0.02em; }
+.h2 { font-size: clamp(32px, 3.5vw, 52px); font-weight: 700; line-height: 1.1; letter-spacing: -0.01em; }
+.h3 { font-size: clamp(22px, 2.5vw, 32px); font-weight: 700; line-height: 1.2; }
+.h4 { font-size: 18px; font-weight: 700; line-height: 1.3; }
+.body-lg { font-size: 18px; line-height: 1.7; color: var(--text2); }
+.body { font-size: 15px; line-height: 1.65; color: var(--text2); }
+.gold { color: var(--gold) !important; }
+.white { color: var(--text) !important; }
+
+/* ── CARDS ──────────────────────────────────────────────── */
+.card {
+  background: var(--bg2); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 36px;
+  transition: transform .25s, box-shadow .25s, border-color .25s;
+}
+.card:hover {
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.12), 0 0 0 1px rgba(138,104,48,0.25);
+  border-color: rgba(184,149,90,0.3);
+}
+.card-sm { padding: 24px; border-radius: var(--radius-sm); }
+
+/* ── KPI CARDS ──────────────────────────────────────────── */
+.kpi-num {
+  font-size: clamp(42px, 5vw, 64px); font-weight: 800;
+  color: var(--gold); line-height: 1; letter-spacing: -0.02em;
+}
+.kpi-label {
+  font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 2.5px;
+  text-transform: uppercase; color: var(--text2); margin-top: 8px;
+}
+.kpi-desc { font-size: 12px; color: var(--text3); margin-top: 4px; }
+
+/* ── BUTTONS ────────────────────────────────────────────── */
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: 'Manrope', sans-serif; font-size: 12px; font-weight: 700;
+  letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none;
+  padding: 14px 28px; border-radius: 10px; border: none; cursor: pointer;
+  transition: all .2s; white-space: nowrap;
+}
+.btn-primary { background: var(--gold); color: #F5F0E8; }
+.btn-primary:hover { background: var(--gold-h); transform: translateY(-2px); box-shadow: 0 12px 32px rgba(184,149,90,0.3); }
+.btn-secondary { background: rgba(255,255,255,0.06); color: var(--text); border: 1px solid var(--border); }
+.btn-secondary:hover { background: rgba(255,255,255,0.1); border-color: rgba(184,149,90,0.4); color: var(--gold); }
+.btn-outline { background: transparent; color: var(--gold); border: 1.5px solid var(--gold); }
+.btn-outline:hover { background: rgba(184,149,90,0.1); }
+.btn-ghost { background: transparent; color: var(--text2); border: 1px solid var(--border); }
+.btn-ghost:hover { color: var(--text); border-color: var(--text2); }
+
+/* ── FEATURE LIST ───────────────────────────────────────── */
+.feat-item {
+  display: flex; gap: 16px; padding: 18px 0;
+  border-bottom: 1px solid var(--border); align-items: flex-start;
+}
+.feat-item:last-child { border-bottom: none; }
+.feat-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); margin-top: 7px; flex-shrink: 0; }
+.feat-content h4 { font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+.feat-content p { font-size: 13px; color: var(--text2); line-height: 1.55; }
+
+/* ── GLASS CARD ─────────────────────────────────────────── */
+.glass {
+  background: rgba(27,31,36,0.7); border: 1px solid rgba(43,49,56,0.8);
+  backdrop-filter: blur(16px); border-radius: var(--radius);
+}
+
+/* ── DIVIDER LINE ───────────────────────────────────────── */
+.hr { height: 1px; background: var(--border); margin: 0; }
+.hr-gold { height: 1px; background: linear-gradient(90deg, var(--gold), transparent); width: 80px; margin: 24px 0; }
+
+/* ── GRID HELPERS ───────────────────────────────────────── */
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.grid-3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+.grid-4 { display: grid; grid-template-columns: repeat(4,1fr); gap: 20px; }
+
+/* ── SCROLL REVEAL ──────────────────────────────────────── */
+.reveal { opacity: 0; transform: translateY(32px); transition: opacity .65s ease, transform .65s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-delay-1 { transition-delay: .1s; }
+.reveal-delay-2 { transition-delay: .2s; }
+.reveal-delay-3 { transition-delay: .3s; }
+.reveal-delay-4 { transition-delay: .4s; }
+.reveal-left { opacity: 0; transform: translateX(-24px); transition: opacity .65s ease, transform .65s ease; }
+.reveal-left.visible { opacity: 1; transform: translateX(0); }
+
+/* ── SECTION DIVIDER ────────────────────────────────────── */
+.section-header { margin-bottom: 60px; }
+.section-header-split { display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 24px; margin-bottom: 60px; }
+
+/* ── FOOTER ─────────────────────────────────────────────── */
+footer { background: var(--bg3); border-top: 1px solid var(--border); padding: 72px 0 36px; }
+.footer-brand { font-size: 20px; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase; }
+.footer-sub { font-family: 'DM Mono', monospace; font-size: 8px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-top: 6px; }
+.footer-link { font-size: 13px; color: var(--text2); text-decoration: none; transition: color .2s; display: block; margin-bottom: 10px; }
+.footer-link:hover { color: var(--gold); }
+.footer-col-label { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--text3); margin-bottom: 20px; }
+
+/* ── BADGE ──────────────────────────────────────────────── */
+.badge {
+  display: inline-block; font-family: 'DM Mono', monospace;
+  font-size: 8px; letter-spacing: 2px; text-transform: uppercase;
+  padding: 3px 10px; border-radius: 4px;
+}
+.badge-gold { background: rgba(138,104,48,0.1); color: var(--gold); border: 1px solid rgba(184,149,90,0.25); }
+.badge-green { background: rgba(76,119,84,0.15); color: var(--green); border: 1px solid rgba(76,119,84,0.3); }
+.badge-gray { background: rgba(0,0,0,0.06); color: var(--text2); border: 1px solid var(--border); }
+
+/* ── RESPONSIVE ─────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .container { padding: 0 28px; }
+  .grid-4 { grid-template-columns: repeat(2,1fr); }
+}
+@media (max-width: 768px) {
+  .nav { padding: 0 20px; }
+  .nav-links { display: none; }
+  .container { padding: 0 20px; }
+  .section { padding: 64px 0; }
+  .section-lg { padding: 80px 0; }
+  .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+  .h1 { font-size: 38px; }
+  .h2 { font-size: 28px; }
+  .section-header-split { flex-direction: column; }
+}
+</style>
+</head>
+<body data-page="uzemie">
+<nav class="nav" id="nav">
+  <a href="index.html" class="nav-logo">
+    <div class="nav-logo-main">Areál David</div>
+    <div class="nav-logo-sub">Košice · Rozvojové územie</div>
+  </a>
+  <div class="nav-links">
+    <a href="index.html" class="nav-link" data-page="index">Domov</a>
+    <a href="uzemie.html" class="nav-link" data-page="uzemie">Územie</a>
+    <div class="nav-item">
+      <a href="investicia.html" class="nav-link nav-link-arrow" data-page="investicia">Investícia</a>
+      <div class="nav-dropdown">
+        <a href="investicia.html"><span class="dd-num">00</span> Investičný prehľad</a>
+        <div class="nav-dropdown-divider"></div>
+        <a href="faza1.html"><span class="dd-num">01</span> Fáza 1 — Infraštruktúra</a>
+        <a href="faza2.html"><span class="dd-num">02</span> Fáza 2 — Rezidenčné bloky</a>
+        <a href="faza3.html"><span class="dd-num">03</span> Fáza 3 — Prémiové veže</a>
+      </div>
+    </div>
+    <a href="varianty.html" class="nav-link" data-page="varianty">Varianty</a>
+    <a href="dokumenty.html" class="nav-link" data-page="dokumenty">Dokumenty</a>
+    <a href="kontakt.html" class="nav-link" data-page="kontakt">Kontakt</a>
+  </div>
+  <a href="kontakt.html" class="nav-cta">Mám záujem</a>
+</nav>
+
+<section style="min-height:52vh;padding:140px 0 80px;background:var(--bg2);border-bottom:1px solid var(--border);position:relative;overflow:hidden">
+  <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(138,104,48,0.05) 1px,transparent 1px),linear-gradient(90deg,rgba(138,104,48,0.05) 1px,transparent 1px);background-size:72px 72px"></div>
+  <div style="position:absolute;right:0;top:0;bottom:0;width:40%;background:radial-gradient(ellipse at right,rgba(138,104,48,0.06) 0%,transparent 70%);pointer-events:none"></div>
+  <div class="container reveal" style="position:relative;z-index:1">
+    <span class="badge badge-gold" style="margin-bottom:20px;display:inline-block">Schválený ÚP · Apríl 2026</span>
+    <div class="tag">Územie a regulácia</div>
+    <h1 class="h1" style="max-width:700px;margin-bottom:20px">Lokalita &amp; <span class="gold">územný potenciál</span></h1>
+    <p class="body-lg" style="max-width:540px">Kompletný prehľad polohy, regulačných podmienok a obmedzení rozvojového územia Areál David v Košiciach.</p>
+  </div>
+</section>
+
+<!-- LOKALITA -->
+<section class="section" style="background:var(--bg)">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1.5fr;gap:60px;align-items:start">
+      <div class="reveal">
+        <div class="tag">Poloha</div>
+        <h2 class="h2" style="margin-bottom:32px">Košice —<br><span class="gold">Nad Jazerom</span></h2>
+        <div style="display:flex;flex-direction:column;gap:0;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden">
+          <div style="padding:18px 22px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center">
+            <span style="font-size:12px;color:var(--text2)">Katastrálne územie</span>
+            <span style="font-size:14px;font-weight:600;color:var(--text)">Košice — Nad Jazerom</span>
+          </div>
+          <div style="padding:18px 22px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center">
+            <span style="font-size:12px;color:var(--text2)">Výmera</span>
+            <span style="font-size:14px;font-weight:700;color:var(--gold)">98 400 m²</span>
+          </div>
+          <div style="padding:18px 22px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center">
+            <span style="font-size:12px;color:var(--text2)">Typ územia</span>
+            <span style="font-size:14px;font-weight:600;color:var(--text)">Transformačné / Mixed-use</span>
+          </div>
+          <div style="padding:18px 22px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center">
+            <span style="font-size:12px;color:var(--text2)">Dopravné napojenie</span>
+            <span style="font-size:14px;font-weight:600;color:var(--text)">Cesta, železnica, MHD</span>
+          </div>
+          <div style="padding:18px 22px;display:flex;justify-content:space-between;align-items:center">
+            <span style="font-size:12px;color:var(--text2)">Vzdialenosť od centra KE</span>
+            <span style="font-size:14px;font-weight:600;color:var(--text)">cca 8 km</span>
+          </div>
+        </div>
+      </div>
+      <div class="reveal reveal-delay-2">
+        <div style="border-radius:var(--radius);overflow:hidden;border:1px solid var(--border);height:460px;position:relative;background:var(--bg2)">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d5276.5!2d21.2!3d48.69!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1ssk!2ssk!4v1234567890"
+            style="width:100%;height:100%;border:none;filter:grayscale(30%) brightness(0.8) contrast(1.15)"
+            allowfullscreen loading="lazy">
+          </iframe>
+          <div style="position:absolute;bottom:16px;left:16px;background:rgba(17,19,21,0.95);padding:8px 14px;border-radius:8px;border:1px solid var(--border)">
+            <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;color:var(--gold);text-transform:uppercase">Košice — Nad Jazerom</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ÚZEMNÝ POTENCIÁL -->
+<section class="section" style="background:var(--bg4);border-top:1px solid var(--border)">
+  <div class="container">
+    <div class="section-header-split">
+      <div class="reveal">
+        <div class="tag">Funkčné možnosti</div>
+        <h2 class="h2">Územný <span class="gold">potenciál</span></h2>
+      </div>
+      <p class="reveal body" style="max-width:340px">Schválený územný plán umožňuje realizáciu zmiešanej zástavby s komplexnou škálou funkcií.</p>
+    </div>
+    <div class="grid-3" style="gap:16px">
+
+      <div class="card reveal">
+        <div style="font-size:32px;margin-bottom:16px">🏙️</div>
+        <h4 class="h4" style="margin-bottom:10px">Zmiešané územie</h4>
+        <p class="body" style="font-size:13px">Kombinácia funkcií v jednom areáli — bývanie, kancelárie, retail a verejné priestory.</p>
+      </div>
+      <div class="card reveal reveal-delay-2">
+        <div style="font-size:32px;margin-bottom:16px">🏫</div>
+        <h4 class="h4" style="margin-bottom:10px">Občianska vybavenosť</h4>
+        <p class="body" style="font-size:13px">Škôlka, zdravotné centrum, komunitné priestory ako súčasť komplexného rozvoja.</p>
+      </div>
+      <div class="card reveal reveal-delay-3">
+        <div style="font-size:32px;margin-bottom:16px">🛒</div>
+        <h4 class="h4" style="margin-bottom:10px">Retail & Gastro</h4>
+        <p class="body" style="font-size:13px">Aktívny retail parter, obchody, reštaurácie — živé prízemie ako základ komunity.</p>
+      </div>
+      <div class="card reveal reveal-delay-1">
+        <div style="font-size:32px;margin-bottom:16px">🏠</div>
+        <h4 class="h4" style="margin-bottom:10px">Bývanie</h4>
+        <p class="body" style="font-size:13px">Rezidenčné byty na predaj alebo prenájom. Max. 8 nadzemných podlaží podľa ÚP.</p>
+      </div>
+      <div class="card reveal reveal-delay-2">
+        <div style="font-size:32px;margin-bottom:16px">⚕️</div>
+        <h4 class="h4" style="margin-bottom:10px">Zdravotníctvo & Služby</h4>
+        <p class="body" style="font-size:13px">Ambulancie, lekárne, fyzioterapia — stabilní nájomníci s dlhodobými zmluvami.</p>
+      </div>
+      <div class="card reveal reveal-delay-3">
+        <div style="font-size:32px;margin-bottom:16px">🌳</div>
+        <h4 class="h4" style="margin-bottom:10px">Verejné priestory</h4>
+        <p class="body" style="font-size:13px">Parky, promenády, ihriská — min. 30 % plochy ako zelené a verejné plochy.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REGULAČNÉ PODMIENKY -->
+<section class="section" style="background:var(--bg)">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="tag">Územný plán · Apríl 2026</div>
+      <h2 class="h2">Regulačné <span class="gold">podmienky</span></h2>
+    </div>
+    <div class="grid-3" style="gap:16px;margin-bottom:24px">
+      <div style="background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:32px;border-top:3px solid var(--gold)" class="reveal">
+        <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--text2);margin-bottom:12px">Max. zastavanosť</div>
+        <div class="kpi-num">40 %</div>
+        <div style="font-size:13px;color:var(--text2);margin-top:12px">Maximálna plocha zastavenia z celkovej výmery pozemku.</div>
+      </div>
+      <div style="background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:32px;border-top:3px solid var(--gold)" class="reveal reveal-delay-1">
+        <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--text2);margin-bottom:12px">Maximálna výška</div>
+        <div class="kpi-num">8 NP</div>
+        <div style="font-size:13px;color:var(--text2);margin-top:12px">Maximálny počet nadzemných podlaží pre všetky objekty v areáli.</div>
+      </div>
+      <div style="background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:32px;border-top:3px solid var(--green)" class="reveal reveal-delay-2">
+        <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--text2);margin-bottom:12px">Min. vegetačné plochy</div>
+        <div class="kpi-num" style="color:var(--green)">30 %</div>
+        <div style="font-size:13px;color:var(--text2);margin-top:12px">Minimálny podiel zelene a nezastavených plôch na celom území.</div>
+      </div>
+    </div>
+    <div class="grid-3" style="gap:16px">
+      <div class="card reveal"><h4 class="h4" style="margin-bottom:10px">Ochranné pásma</h4><p class="body" style="font-size:13px">Plochy v OP železnice majú obmedzenia pre bytovú zástavbu. Vhodné pre komerčné a ľahké výrobné využitie.</p></div>
+      <div class="card reveal reveal-delay-1"><h4 class="h4" style="margin-bottom:10px">Dopravné väzby</h4><p class="body" style="font-size:13px">Nový rozvoj musí zabezpečiť adekvátne dopravné napojenie vrátane statickej dopravy v areáli.</p></div>
+      <div class="card reveal reveal-delay-2"><h4 class="h4" style="margin-bottom:10px">Technická infraštruktúra</h4><p class="body" style="font-size:13px">Napojenie na siete (voda, kanalizácia, elektro, plyn, teplo) — čiastočne k dispozícii v areáli.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- OBMEDZENIA -->
+<section class="section-sm" style="background:var(--bg4);border-top:1px solid var(--border)">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="tag">Obmedzenia</div>
+      <h2 class="h2">Obmedzenia <span class="gold">územia</span></h2>
+    </div>
+    <div class="grid-2" style="gap:16px">
+      <div style="background:var(--bg);border:1px solid var(--border);border-left:3px solid var(--gold-dim);border-radius:var(--radius);padding:24px" class="reveal">
+        <h4 class="h4" style="margin-bottom:10px">OP železnice</h4>
+        <p class="body" style="font-size:13px">Časť územia pri trati má regulácie pre bytovú funkciu. Vhodné pre komerčné, ľahké priemyselné alebo inžinierske využitie.</p>
+      </div>
+      <div style="background:var(--bg);border:1px solid var(--border);border-left:3px solid var(--gold-dim);border-radius:var(--radius);padding:24px" class="reveal reveal-delay-1">
+        <h4 class="h4" style="margin-bottom:10px">Biokoridory</h4>
+        <p class="body" style="font-size:13px">Ochrana zelených koridorov a migračných trás — tieto plochy musia byť zachované alebo kompenzované novými zeleňami.</p>
+      </div>
+      <div style="background:var(--bg);border:1px solid var(--border);border-left:3px solid rgba(184,149,90,0.4);border-radius:var(--radius);padding:24px" class="reveal">
+        <h4 class="h4" style="margin-bottom:10px">Existujúce budovy (mimo predaja)</h4>
+        <p class="body" style="font-size:13px">Budovy č. 2 a 4 nie sú predmetom predaja — sú vo vlastníctve tretích strán. Rozvoj musí rešpektovať tieto hranice.</p>
+      </div>
+      <div style="background:var(--bg);border:1px solid var(--border);border-left:3px solid rgba(184,149,90,0.4);border-radius:var(--radius);padding:24px" class="reveal reveal-delay-1">
+        <h4 class="h4" style="margin-bottom:10px">Inžinierske siete</h4>
+        <p class="body" style="font-size:13px">Prechádzajúce siete (VN, VTL) vyžadujú ochranné pásma alebo preložky — koordinácia s distribútormi energií.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<footer>
+  <div class="container">
+    <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;padding-bottom:48px;border-bottom:1px solid var(--border)">
+      <div>
+        <div class="footer-brand">Areál David</div>
+        <div class="footer-sub">Košice — Strategické rozvojové územie</div>
+        <div style="font-size:13px;color:var(--text2);margin-top:20px;max-width:280px;line-height:1.65">Transformácia priemyselného areálu na nový mestský mixed-use distrikt v Košiciach.</div>
+        <div style="margin-top:24px;display:flex;gap:10px;flex-wrap:wrap">
+          <span class="badge badge-gold">Rozvojové územie</span>
+          <span class="badge badge-gray">98 400 m²</span>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-label">Projekt</div>
+        <a href="index.html" class="footer-link">Domov</a>
+        <a href="uzemie.html" class="footer-link">Územie a regulácia</a>
+        <a href="investicia.html" class="footer-link">Investičná príležitosť</a>
+        <a href="varianty.html" class="footer-link">Varianty rozvoja</a>
+      </div>
+      <div>
+        <div class="footer-col-label">Info</div>
+        <a href="dokumenty.html" class="footer-link">Dokumenty</a>
+        <a href="kontakt.html" class="footer-link">Kontakt</a>
+        <a href="dokumenty.html" class="footer-link">Data Room (NDA)</a>
+      </div>
+      <div>
+        <div class="footer-col-label">Kontakt</div>
+        <div style="font-size:13px;color:var(--text2);line-height:1.8">
+          Košice, SR<br>
+          <a href="kontakt.html" style="color:var(--gold);text-decoration:none;margin-top:12px;display:inline-block;font-size:12px">Formulár →</a>
+        </div>
+      </div>
+    </div>
+    <div style="display:flex;justify-content:space-between;align-items:center;padding-top:28px;flex-wrap:wrap;gap:12px">
+      <div style="font-size:12px;color:var(--text3)">© 2026 Areál David Košice. Dôverný investičný materiál.</div>
+      <div style="font-family:'DM Mono',monospace;font-size:9px;color:var(--text3);letter-spacing:1.5px">INVESTOR TEASER · v3.0</div>
+    </div>
+  </div>
+</footer>
+<script>
+// Nav scroll state
+const nav = document.getElementById('nav');
+if(nav) window.addEventListener('scroll', () => {
+  nav.style.boxShadow = window.scrollY > 60 ? '0 4px 32px rgba(0,0,0,0.4)' : '';
+});
+
+// Active nav
+const page = document.body.dataset.page;
+document.querySelectorAll('.nav-link[data-page]').forEach(a => {
+  if(a.dataset.page === page) a.classList.add('active');
+});
+
+// Scroll reveal
+const revealObs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) { e.target.classList.add('visible'); }});
+}, { threshold: 0.06, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal, .reveal-left').forEach(el => revealObs.observe(el));
+
+// Number counter
+function animateNum(el) {
+  const raw = el.dataset.target;
+  const suffix = el.dataset.suffix || '';
+  const prefix = el.dataset.prefix || '';
+  const isFloat = raw.includes('.');
+  const target = parseFloat(raw);
+  const dur = 2000;
+  const start = performance.now();
+  const update = t => {
+    const p = Math.min((t-start)/dur,1);
+    const ease = 1 - Math.pow(1-p, 4);
+    const val = target * ease;
+    el.textContent = prefix + (isFloat ? val.toFixed(1) : Math.round(val).toLocaleString('sk')) + suffix;
+    if(p < 1) requestAnimationFrame(update);
+  };
+  requestAnimationFrame(update);
+}
+const numObs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) { animateNum(e.target); numObs.unobserve(e.target); }});
+}, { threshold: 0.5 });
+document.querySelectorAll('[data-target]').forEach(el => numObs.observe(el));
+</script>
+</body>
+</html>
